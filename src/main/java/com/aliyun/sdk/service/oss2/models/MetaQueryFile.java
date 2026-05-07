@@ -1,145 +1,146 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Single Object information in data indexing retrieval results
  */
- @JacksonXmlRootElement(localName = "File")
+@JsonRootName("File")
 public final class MetaQueryFile {
-    @JacksonXmlProperty(localName = "URI")
+    @JsonProperty("URI")
     private String uri;
 
-    @JacksonXmlProperty(localName = "Filename")
+    @JsonProperty("Filename")
     private String filename;
 
-    @JacksonXmlProperty(localName = "Size")
+    @JsonProperty("Size")
     private Long size;
 
-    @JacksonXmlProperty(localName = "ObjectACL")
+    @JsonProperty("ObjectACL")
     private String objectACL;
 
-    @JacksonXmlProperty(localName = "FileModifiedTime")
+    @JsonProperty("FileModifiedTime")
     private String fileModifiedTime;
 
-    @JacksonXmlProperty(localName = "ServerSideEncryption")
+    @JsonProperty("ServerSideEncryption")
     private String serverSideEncryption;
 
-    @JacksonXmlProperty(localName = "ServerSideEncryptionCustomerAlgorithm")
+    @JsonProperty("ServerSideEncryptionCustomerAlgorithm")
     private String serverSideEncryptionCustomerAlgorithm;
 
-    @JacksonXmlProperty(localName = "ETag")
+    @JsonProperty("ETag")
     private String eTag;
 
-    @JacksonXmlProperty(localName = "OSSCRC64")
+    @JsonProperty("OSSCRC64")
     private String ossCRC64;
 
-    @JacksonXmlProperty(localName = "ProduceTime")
+    @JsonProperty("ProduceTime")
     private String produceTime;
 
-    @JacksonXmlProperty(localName = "ContentType")
+    @JsonProperty("ContentType")
     private String contentType;
 
-    @JacksonXmlProperty(localName = "MediaType")
+    @JsonProperty("MediaType")
     private String mediaType;
 
-    @JacksonXmlProperty(localName = "LatLong")
+    @JsonProperty("LatLong")
     private String latLong;
 
-    @JacksonXmlProperty(localName = "Title")
+    @JsonProperty("Title")
     private String title;
 
-    @JacksonXmlProperty(localName = "OSSExpiration")
+    @JsonProperty("OSSExpiration")
     private String ossExpiration;
 
-    @JacksonXmlProperty(localName = "AccessControlAllowOrigin")
+    @JsonProperty("AccessControlAllowOrigin")
     private String accessControlAllowOrigin;
 
-    @JacksonXmlProperty(localName = "AccessControlRequestMethod")
+    @JsonProperty("AccessControlRequestMethod")
     private String accessControlRequestMethod;
 
-    @JacksonXmlProperty(localName = "ServerSideDataEncryption")
+    @JsonProperty("ServerSideDataEncryption")
     private String serverSideDataEncryption;
 
-    @JacksonXmlProperty(localName = "ServerSideEncryptionKeyId")
+    @JsonProperty("ServerSideEncryptionKeyId")
     private String serverSideEncryptionKeyId;
 
-    @JacksonXmlProperty(localName = "CacheControl")
+    @JsonProperty("CacheControl")
     private String cacheControl;
 
-    @JacksonXmlProperty(localName = "ContentDisposition")
+    @JsonProperty("ContentDisposition")
     private String contentDisposition;
 
-    @JacksonXmlProperty(localName = "ContentEncoding")
+    @JsonProperty("ContentEncoding")
     private String contentEncoding;
 
-    @JacksonXmlProperty(localName = "ContentLanguage")
+    @JsonProperty("ContentLanguage")
     private String contentLanguage;
 
-    @JacksonXmlProperty(localName = "ImageHeight")
+    @JsonProperty("ImageHeight")
     private Long imageHeight;
 
-    @JacksonXmlProperty(localName = "ImageWidth")
+    @JsonProperty("ImageWidth")
     private Long imageWidth;
 
-    @JacksonXmlProperty(localName = "VideoWidth")
+    @JsonProperty("VideoWidth")
     private Long videoWidth;
 
-    @JacksonXmlProperty(localName = "VideoHeight")
+    @JsonProperty("VideoHeight")
     private Long videoHeight;
 
-    @JacksonXmlProperty(localName = "VideoStreams")
+    @JsonProperty("VideoStreams")
     private MetaQueryVideoStreams videoStreams;
 
-    @JacksonXmlProperty(localName = "AudioStreams")
+    @JsonProperty("AudioStreams")
     private MetaQueryAudioStreams audioStreams;
 
-    @JacksonXmlProperty(localName = "Subtitles")
+    @JsonProperty("Subtitles")
     private MetaQuerySubtitles subtitles;
 
-    @JacksonXmlProperty(localName = "Bitrate")
+    @JsonProperty("Bitrate")
     private Long bitrate;
 
-    @JacksonXmlProperty(localName = "Artist")
+    @JsonProperty("Artist")
     private String artist;
 
-    @JacksonXmlProperty(localName = "AlbumArtist")
+    @JsonProperty("AlbumArtist")
     private String albumArtist;
 
-    @JacksonXmlProperty(localName = "Composer")
+    @JsonProperty("Composer")
     private String composer;
 
-    @JacksonXmlProperty(localName = "Performer")
+    @JsonProperty("Performer")
     private String performer;
 
-    @JacksonXmlProperty(localName = "Album")
+    @JsonProperty("Album")
     private String album;
 
-    @JacksonXmlProperty(localName = "Duration")
+    @JsonProperty("Duration")
     private Double duration;
 
-    @JacksonXmlProperty(localName = "Addresses")
+    @JsonProperty("Addresses")
     private MetaQueryAddresses addresses;
 
-    @JacksonXmlProperty(localName = "OSSObjectType")
+    @JsonProperty("OSSObjectType")
     private String ossObjectType;
 
-    @JacksonXmlProperty(localName = "OSSStorageClass")
+    @JsonProperty("OSSStorageClass")
     private String ossStorageClass;
 
-    @JacksonXmlProperty(localName = "OSSTaggingCount")
+    @JsonProperty("OSSTaggingCount")
     private Long ossTaggingCount;
 
-    @JacksonXmlProperty(localName = "OSSTagging")
+    @JsonProperty("OSSTagging")
     private MetaQueryOSSTagging ossTagging;
 
-    @JacksonXmlProperty(localName = "OSSUserMeta")
+    @JsonProperty("OSSUserMeta")
     private MetaQueryOSSUserMeta ossUserMeta;
 
-    @JacksonXmlProperty(localName = "Insights")
+    @JsonProperty("Insights")
     private MetaQueryRespFileInsights insights;
 
     public MetaQueryFile() {}

@@ -3,10 +3,9 @@ package com.aliyun.sdk.service.oss2.tables.models;
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.tables.transform.SerdeTableBasic;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -64,10 +63,12 @@ public class DeleteTableRequestTest {
     }
 
     @Test
-    public void jsonBuilder() throws JsonProcessingException {
+    public void jsonBuilder() {
         String expectedJson = "{}"; // DELETE operations typically have empty body
-        ObjectMapper jsonMapper = new JsonMapper();
-        jsonMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        ObjectMapper jsonMapper = JsonMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         DeleteTableRequest request = DeleteTableRequest.newBuilder()
                 .tableBucketARN("acs:osstable:cn-hangzhou:1234567890:bucket/test-table-bucket")

@@ -1,18 +1,18 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "HeadPose")
+@JsonRootName("HeadPose")
 public final class HeadPose {
 
-    @JacksonXmlProperty(localName = "Pitch")
+    @JsonProperty("Pitch")
     private Float pitch;
 
-    @JacksonXmlProperty(localName = "Roll")
+    @JsonProperty("Roll")
     private Float roll;
 
-    @JacksonXmlProperty(localName = "Yaw")
+    @JsonProperty("Yaw")
     private Float yaw;
 
     public HeadPose() {

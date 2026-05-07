@@ -8,7 +8,6 @@ import com.aliyun.sdk.service.oss2.transport.HttpClient;
 import java.time.Duration;
 import java.util.List;
 
-
 /**
  * This includes configuration specific to OSS that is supported by
  * {@link OSSClientBuilder}, {@link OSSAsyncClientBuilder} and {@link OSSDualClientBuilder}

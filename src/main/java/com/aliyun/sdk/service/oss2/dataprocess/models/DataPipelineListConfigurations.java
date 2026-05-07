@@ -1,9 +1,7 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
@@ -12,7 +10,7 @@ import java.util.List;
  */
 public final class DataPipelineListConfigurations {
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "DataPipelineConfiguration")
+    @JsonProperty("DataPipelineConfiguration")
     private List<DataPipelineConfiguration> dataPipelineConfigurations;
 
     public DataPipelineListConfigurations() {

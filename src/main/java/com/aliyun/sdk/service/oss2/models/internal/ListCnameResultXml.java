@@ -1,25 +1,25 @@
 package com.aliyun.sdk.service.oss2.models.internal;
 
 import com.aliyun.sdk.service.oss2.models.CnameInfo;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.util.List;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 /**
  * The container that stores the results of the ListCname request.
  */
-@JacksonXmlRootElement(localName = "ListCnameResult")
+@JsonRootName("ListCnameResult")
 public final class ListCnameResultXml {
 
-    @JacksonXmlProperty(localName = "Bucket")
+    @JsonProperty("Bucket")
     public String bucket;
 
-    @JacksonXmlProperty(localName = "Owner")
+    @JsonProperty("Owner")
     public String owner;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Cname")
+    @JsonProperty("Cname")
     public List<CnameInfo> cnames;
 
     public ListCnameResultXml() {}

@@ -1,42 +1,40 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import java.time.Instant;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * The object metadata returned.
  */
-@JacksonXmlRootElement(localName = "ObjectSummary")
+@JsonRootName("ObjectSummary")
 public final class ObjectSummary {
-    @JacksonXmlProperty(localName = "StorageClass")
+    @JsonProperty("StorageClass")
     private String storageClass;
 
-    @JacksonXmlProperty(localName = "Owner")
+    @JsonProperty("Owner")
     private Owner owner;
 
-    @JacksonXmlProperty(localName = "TransitionTime")
+    @JsonProperty("TransitionTime")
     private Instant transitionTime;
 
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     private String key;
 
-    @JacksonXmlProperty(localName = "LastModified")
+    @JsonProperty("LastModified")
     private Instant lastModified;
 
-    @JacksonXmlProperty(localName = "ETag")
+    @JsonProperty("ETag")
     private String eTag;
 
-    @JacksonXmlProperty(localName = "Type")
+    @JsonProperty("Type")
     private String type;
 
-    @JacksonXmlProperty(localName = "Size")
+    @JsonProperty("Size")
     private Long size;
 
-    @JacksonXmlProperty(localName = "RestoreInfo")
+    @JsonProperty("RestoreInfo")
     private String restoreInfo;
 
     public ObjectSummary() {

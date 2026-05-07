@@ -5,7 +5,7 @@ import com.aliyun.sdk.service.oss2.OSSClientBuilder;
 import com.aliyun.sdk.service.oss2.credentials.CredentialsProvider;
 import com.aliyun.sdk.service.oss2.credentials.EnvironmentVariableCredentialsProvider;
 import com.aliyun.sdk.service.oss2.utils.Base64Utils;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
@@ -82,8 +82,8 @@ public class PostObjectCallback implements Example {
 
             policyMap.put("conditions", conditions);
 
-            ObjectMapper objectMapper = new ObjectMapper();
-            String policy = objectMapper.writeValueAsString(policyMap);
+            JsonMapper mapper = JsonMapper.builderWithJackson2Defaults().build();
+            String policy = mapper.writeValueAsString(policyMap);
 
             String encodePolicy = Base64Utils.encodeToString(policy.getBytes(StandardCharsets.UTF_8));
             formFields.put("policy", encodePolicy);
@@ -96,7 +96,7 @@ public class PostObjectCallback implements Example {
             callbackMap.put("callbackBody", callbackBody);
             callbackMap.put("callbackBodyType", "application/json");
 
-            String callback = objectMapper.writeValueAsString(callbackMap);
+            String callback = mapper.writeValueAsString(callbackMap);
 
             String encodeCallback = Base64Utils.encodeToString(callback.getBytes(StandardCharsets.UTF_8));
             formFields.put("callback", encodeCallback);

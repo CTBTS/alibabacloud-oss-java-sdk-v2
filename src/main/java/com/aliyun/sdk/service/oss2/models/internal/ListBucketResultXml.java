@@ -2,48 +2,47 @@ package com.aliyun.sdk.service.oss2.models.internal;
 
 import com.aliyun.sdk.service.oss2.models.CommonPrefix;
 import com.aliyun.sdk.service.oss2.models.ObjectSummary;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.util.List;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 /**
  * The container that stores the metadata of the returned objects.
  */
-@JacksonXmlRootElement(localName = "ListBucketResult")
+@JsonRootName("ListBucketResult")
 public final class ListBucketResultXml {
-    @JacksonXmlProperty(localName = "Name")
+    @JsonProperty("Name")
     public String name;
 
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     public String prefix;
 
-    @JacksonXmlProperty(localName = "MaxKeys")
+    @JsonProperty("MaxKeys")
     public Integer maxKeys;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Contents")
+    @JsonProperty("Contents")
     public List<ObjectSummary> contents;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "CommonPrefixes")
+    @JsonProperty("CommonPrefixes")
     public List<CommonPrefix> commonPrefixes;
 
 
-    @JacksonXmlProperty(localName = "Delimiter")
+    @JsonProperty("Delimiter")
     public String delimiter;
 
-    @JacksonXmlProperty(localName = "IsTruncated")
+    @JsonProperty("IsTruncated")
     public Boolean isTruncated;
 
-    @JacksonXmlProperty(localName = "EncodingType")
+    @JsonProperty("EncodingType")
     public String encodingType;
 
-    @JacksonXmlProperty(localName = "Marker")
+    @JsonProperty("Marker")
     public String marker;
 
-    @JacksonXmlProperty(localName = "NextMarker")
+    @JsonProperty("NextMarker")
     public String nextMarker;
 
     public ListBucketResultXml() {

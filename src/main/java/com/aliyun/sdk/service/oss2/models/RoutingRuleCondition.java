@@ -1,27 +1,29 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The matching condition. If all of the specified conditions are met, the rule is run. A rule is considered matched only when the rule meets the conditions that are specified by all nodes in Condition.  This parameter must be specified if RoutingRule is specified.
  */
- @JacksonXmlRootElement(localName = "RoutingRuleCondition")
+@JsonRootName("RoutingRuleCondition")
 public final class RoutingRuleCondition {  
-    @JacksonXmlProperty(localName = "KeyPrefixEquals")
+    @JsonProperty("KeyPrefixEquals")
     private String keyPrefixEquals;
  
-    @JacksonXmlProperty(localName = "KeySuffixEquals")
+    @JsonProperty("KeySuffixEquals")
     private String keySuffixEquals;
  
-    @JacksonXmlProperty(localName = "HttpErrorCodeReturnedEquals")
+    @JsonProperty("HttpErrorCodeReturnedEquals")
     private Long httpErrorCodeReturnedEquals;
  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "IncludeHeader")
+    @JsonProperty("IncludeHeader")
     private List<RoutingRuleIncludeHeader> includeHeaders;
 
     public RoutingRuleCondition() {}

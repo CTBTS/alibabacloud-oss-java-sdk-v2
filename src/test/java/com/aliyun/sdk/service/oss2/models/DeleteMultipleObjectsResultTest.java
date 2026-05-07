@@ -5,7 +5,6 @@ import com.aliyun.sdk.service.oss2.models.internal.DeleteResultXml;
 import com.aliyun.sdk.service.oss2.transform.SerdeObjectBasic;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -127,7 +126,7 @@ public class DeleteMultipleObjectsResultTest {
     }
 
     @Test
-    public void testXmlBuilderWithEncoding() throws JsonProcessingException {
+    public void testXmlBuilderWithEncoding() {
         String blankXml = "";
         OperationOutput blankOutput = OperationOutput.newBuilder()
                 .body(BinaryData.fromString(blankXml))

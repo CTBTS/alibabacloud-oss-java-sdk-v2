@@ -1,15 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores payment configurations.
  */
- @JacksonXmlRootElement(localName = "RequestPaymentConfiguration")
+@JsonRootName("RequestPaymentConfiguration")
 public final class RequestPaymentConfiguration {  
-    @JacksonXmlProperty(localName = "Payer")
+    @JsonProperty("Payer")
     private String payer;
 
     public RequestPaymentConfiguration() {}

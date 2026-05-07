@@ -1,274 +1,274 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 import java.util.Map;
 
-@JacksonXmlRootElement(localName = "File")
+@JsonRootName("File")
 public final class File {
 
-    @JacksonXmlProperty(localName = "OwnerId")
+    @JsonProperty("OwnerId")
     private String ownerId;
 
-    @JacksonXmlProperty(localName = "DatasetName")
+    @JsonProperty("DatasetName")
     private String datasetName;
 
-    @JacksonXmlProperty(localName = "ObjectType")
+    @JsonProperty("ObjectType")
     private String objectType;
 
-    @JacksonXmlProperty(localName = "ObjectId")
+    @JsonProperty("ObjectId")
     private String objectId;
 
-    @JacksonXmlProperty(localName = "UpdateTime")
+    @JsonProperty("UpdateTime")
     private String updateTime;
 
-    @JacksonXmlProperty(localName = "CreateTime")
+    @JsonProperty("CreateTime")
     private String createTime;
 
-    @JacksonXmlProperty(localName = "URI")
+    @JsonProperty("URI")
     private String uri;
 
-    @JacksonXmlProperty(localName = "OSSURI")
+    @JsonProperty("OSSURI")
     private String ossUri;
 
-    @JacksonXmlProperty(localName = "Filename")
+    @JsonProperty("Filename")
     private String filename;
 
-    @JacksonXmlProperty(localName = "MediaType")
+    @JsonProperty("MediaType")
     private String mediaType;
 
-    @JacksonXmlProperty(localName = "ContentType")
+    @JsonProperty("ContentType")
     private String contentType;
 
-    @JacksonXmlProperty(localName = "Size")
+    @JsonProperty("Size")
     private Long size;
 
-    @JacksonXmlProperty(localName = "FileHash")
+    @JsonProperty("FileHash")
     private String fileHash;
 
-    @JacksonXmlProperty(localName = "FileModifiedTime")
+    @JsonProperty("FileModifiedTime")
     private String fileModifiedTime;
 
-    @JacksonXmlProperty(localName = "FileCreateTime")
+    @JsonProperty("FileCreateTime")
     private String fileCreateTime;
 
-    @JacksonXmlProperty(localName = "FileAccessTime")
+    @JsonProperty("FileAccessTime")
     private String fileAccessTime;
 
-    @JacksonXmlProperty(localName = "ProduceTime")
+    @JsonProperty("ProduceTime")
     private String produceTime;
 
-    @JacksonXmlProperty(localName = "LatLong")
+    @JsonProperty("LatLong")
     private String latLong;
 
-    @JacksonXmlProperty(localName = "Timezone")
+    @JsonProperty("Timezone")
     private String timezone;
 
     @JacksonXmlElementWrapper(localName = "Addresses")
-    @JacksonXmlProperty(localName = "Address")
+    @JsonProperty("Address")
     private List<Address> addresses;
 
-    @JacksonXmlProperty(localName = "TravelClusterId")
+    @JsonProperty("TravelClusterId")
     private String travelClusterId;
 
-    @JacksonXmlProperty(localName = "Orientation")
+    @JsonProperty("Orientation")
     private Long orientation;
 
     @JacksonXmlElementWrapper(localName = "Figures")
-    @JacksonXmlProperty(localName = "Figure")
+    @JsonProperty("Figure")
     private List<Figure> figures;
 
-    @JacksonXmlProperty(localName = "FigureCount")
+    @JsonProperty("FigureCount")
     private Long figureCount;
 
     @JacksonXmlElementWrapper(localName = "Labels")
-    @JacksonXmlProperty(localName = "Label")
+    @JsonProperty("Label")
     private List<Label> labels;
 
-    @JacksonXmlProperty(localName = "Title")
+    @JsonProperty("Title")
     private String title;
 
-    @JacksonXmlProperty(localName = "ImageWidth")
+    @JsonProperty("ImageWidth")
     private Long imageWidth;
 
-    @JacksonXmlProperty(localName = "ImageHeight")
+    @JsonProperty("ImageHeight")
     private Long imageHeight;
 
-    @JacksonXmlProperty(localName = "EXIF")
+    @JsonProperty("EXIF")
     private String exif;
 
-    @JacksonXmlProperty(localName = "ImageScore")
+    @JsonProperty("ImageScore")
     private ImageScore imageScore;
 
     @JacksonXmlElementWrapper(localName = "CroppingSuggestions")
-    @JacksonXmlProperty(localName = "CroppingSuggestion")
+    @JsonProperty("CroppingSuggestion")
     private List<CroppingSuggestion> croppingSuggestions;
 
     @JacksonXmlElementWrapper(localName = "OCRContents")
-    @JacksonXmlProperty(localName = "OCRContents")
+    @JsonProperty("OCRContents")
     private List<OCRContents> ocrContents;
 
-    @JacksonXmlProperty(localName = "VideoWidth")
+    @JsonProperty("VideoWidth")
     private Long videoWidth;
 
-    @JacksonXmlProperty(localName = "VideoHeight")
+    @JsonProperty("VideoHeight")
     private Long videoHeight;
 
     @JacksonXmlElementWrapper(localName = "VideoStreams")
-    @JacksonXmlProperty(localName = "VideoStream")
+    @JsonProperty("VideoStream")
     private List<VideoStream> videoStreams;
 
     @JacksonXmlElementWrapper(localName = "Subtitles")
-    @JacksonXmlProperty(localName = "Subtitle")
+    @JsonProperty("Subtitle")
     private List<SubtitleStream> subtitles;
 
     @JacksonXmlElementWrapper(localName = "AudioStreams")
-    @JacksonXmlProperty(localName = "AudioStream")
+    @JsonProperty("AudioStream")
     private List<AudioStream> audioStreams;
 
-    @JacksonXmlProperty(localName = "Artist")
+    @JsonProperty("Artist")
     private String artist;
 
-    @JacksonXmlProperty(localName = "AlbumArtist")
+    @JsonProperty("AlbumArtist")
     private String albumArtist;
 
     @JacksonXmlElementWrapper(localName = "AudioCovers")
-    @JacksonXmlProperty(localName = "AudioCover")
+    @JsonProperty("AudioCover")
     private List<Image> audioCovers;
 
-    @JacksonXmlProperty(localName = "Composer")
+    @JsonProperty("Composer")
     private String composer;
 
-    @JacksonXmlProperty(localName = "Performer")
+    @JsonProperty("Performer")
     private String performer;
 
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
 
-    @JacksonXmlProperty(localName = "Album")
+    @JsonProperty("Album")
     private String album;
 
-    @JacksonXmlProperty(localName = "PageCount")
+    @JsonProperty("PageCount")
     private Long pageCount;
 
-    @JacksonXmlProperty(localName = "ETag")
+    @JsonProperty("ETag")
     private String eTag;
 
-    @JacksonXmlProperty(localName = "CacheControl")
+    @JsonProperty("CacheControl")
     private String cacheControl;
 
-    @JacksonXmlProperty(localName = "ContentDisposition")
+    @JsonProperty("ContentDisposition")
     private String contentDisposition;
 
-    @JacksonXmlProperty(localName = "ContentEncoding")
+    @JsonProperty("ContentEncoding")
     private String contentEncoding;
 
-    @JacksonXmlProperty(localName = "ContentLanguage")
+    @JsonProperty("ContentLanguage")
     private String contentLanguage;
 
-    @JacksonXmlProperty(localName = "AccessControlAllowOrigin")
+    @JsonProperty("AccessControlAllowOrigin")
     private String accessControlAllowOrigin;
 
-    @JacksonXmlProperty(localName = "AccessControlRequestMethod")
+    @JsonProperty("AccessControlRequestMethod")
     private String accessControlRequestMethod;
 
-    @JacksonXmlProperty(localName = "ServerSideEncryptionCustomerAlgorithm")
+    @JsonProperty("ServerSideEncryptionCustomerAlgorithm")
     private String serverSideEncryptionCustomerAlgorithm;
 
-    @JacksonXmlProperty(localName = "ServerSideEncryption")
+    @JsonProperty("ServerSideEncryption")
     private String serverSideEncryption;
 
-    @JacksonXmlProperty(localName = "ServerSideDataEncryption")
+    @JsonProperty("ServerSideDataEncryption")
     private String serverSideDataEncryption;
 
-    @JacksonXmlProperty(localName = "ServerSideEncryptionKeyId")
+    @JsonProperty("ServerSideEncryptionKeyId")
     private String serverSideEncryptionKeyId;
 
-    @JacksonXmlProperty(localName = "OSSStorageClass")
+    @JsonProperty("OSSStorageClass")
     private String ossStorageClass;
 
-    @JacksonXmlProperty(localName = "OSSCRC64")
+    @JsonProperty("OSSCRC64")
     private String ossCrc64;
 
-    @JacksonXmlProperty(localName = "ObjectACL")
+    @JsonProperty("ObjectACL")
     private String objectAcl;
 
-    @JacksonXmlProperty(localName = "ContentMd5")
+    @JsonProperty("ContentMd5")
     private String contentMd5;
 
-    @JacksonXmlProperty(localName = "OSSUserMeta")
+    @JsonProperty("OSSUserMeta")
     private Map<String, Object> ossUserMeta;
 
-    @JacksonXmlProperty(localName = "OSSTaggingCount")
+    @JsonProperty("OSSTaggingCount")
     private Long ossTaggingCount;
 
-    @JacksonXmlProperty(localName = "OSSTagging")
+    @JsonProperty("OSSTagging")
     private Map<String, Object> ossTagging;
 
-    @JacksonXmlProperty(localName = "OSSExpiration")
+    @JsonProperty("OSSExpiration")
     private String ossExpiration;
 
-    @JacksonXmlProperty(localName = "OSSVersionId")
+    @JsonProperty("OSSVersionId")
     private String ossVersionId;
 
-    @JacksonXmlProperty(localName = "OSSDeleteMarker")
+    @JsonProperty("OSSDeleteMarker")
     private String ossDeleteMarker;
 
-    @JacksonXmlProperty(localName = "OSSObjectType")
+    @JsonProperty("OSSObjectType")
     private String ossObjectType;
 
-    @JacksonXmlProperty(localName = "CustomId")
+    @JsonProperty("CustomId")
     private String customId;
 
-    @JacksonXmlProperty(localName = "CustomLabels")
+    @JsonProperty("CustomLabels")
     private Map<String, Object> customLabels;
 
-    @JacksonXmlProperty(localName = "StreamCount")
+    @JsonProperty("StreamCount")
     private Long streamCount;
 
-    @JacksonXmlProperty(localName = "ProgramCount")
+    @JsonProperty("ProgramCount")
     private Long programCount;
 
-    @JacksonXmlProperty(localName = "FormatName")
+    @JsonProperty("FormatName")
     private String formatName;
 
-    @JacksonXmlProperty(localName = "FormatLongName")
+    @JsonProperty("FormatLongName")
     private String formatLongName;
 
-    @JacksonXmlProperty(localName = "StartTime")
+    @JsonProperty("StartTime")
     private Double startTime;
 
-    @JacksonXmlProperty(localName = "Bitrate")
+    @JsonProperty("Bitrate")
     private Long bitrate;
 
-    @JacksonXmlProperty(localName = "Duration")
+    @JsonProperty("Duration")
     private Double duration;
 
     @JacksonXmlElementWrapper(localName = "SemanticTypes")
-    @JacksonXmlProperty(localName = "SemanticType")
+    @JsonProperty("SemanticType")
     private List<String> semanticTypes;
 
     @JacksonXmlElementWrapper(localName = "Elements")
-    @JacksonXmlProperty(localName = "Element")
+    @JsonProperty("Element")
     private List<Element> elements;
 
     @JacksonXmlElementWrapper(localName = "SceneElements")
-    @JacksonXmlProperty(localName = "SceneElement")
+    @JsonProperty("SceneElement")
     private List<SceneElement> sceneElements;
 
-    @JacksonXmlProperty(localName = "OCRTexts")
+    @JsonProperty("OCRTexts")
     private String ocrTexts;
 
-    @JacksonXmlProperty(localName = "Reason")
+    @JsonProperty("Reason")
     private String reason;
 
-    @JacksonXmlProperty(localName = "ObjectStatus")
+    @JsonProperty("ObjectStatus")
     private String objectStatus;
 
-    @JacksonXmlProperty(localName = "Insights")
+    @JsonProperty("Insights")
     private Insights insights;
 
     public File() {

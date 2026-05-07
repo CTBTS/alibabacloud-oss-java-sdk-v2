@@ -1,31 +1,32 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
 
 /**
  * Destination configuration for data pipeline.
  */
-@JacksonXmlRootElement(localName = "Destination")
+@JsonRootName("Destination")
 public final class DataPipelineDestination {
-    @JacksonXmlProperty(localName = "VectorBucketName")
+    @JsonProperty("VectorBucketName")
     private String vectorBucketName;
 
-    @JacksonXmlProperty(localName = "VectorKeyPrefix")
+    @JsonProperty("VectorKeyPrefix")
     private String vectorKeyPrefix;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "VectorIndexNames")
+    @JsonProperty("VectorIndexNames")
     private List<String> vectorIndexNames;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "ObjectTagToMetadata")
+    @JsonProperty("ObjectTagToMetadata")
     private List<String> objectTagToMetadata;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "UsermetaToMetadata")
+    @JsonProperty("UsermetaToMetadata")
     private List<String> usermetaToMetadata;
 
     public DataPipelineDestination() {

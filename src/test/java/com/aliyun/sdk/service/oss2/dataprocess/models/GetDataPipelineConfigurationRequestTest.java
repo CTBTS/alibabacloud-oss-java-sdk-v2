@@ -2,16 +2,12 @@ package com.aliyun.sdk.service.oss2.dataprocess.models;
 
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.dataprocess.transform.SerdeDataPipelineBasic;
-import com.aliyun.sdk.service.oss2.transport.BinaryData;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
-import java.nio.charset.StandardCharsets;
+
 import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Collections;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetDataPipelineConfigurationRequestTest {
@@ -78,7 +74,7 @@ public class GetDataPipelineConfigurationRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         DataPipelineSourceFilterConfiguration filterConfig = DataPipelineSourceFilterConfiguration.newBuilder()
                 .prefixSet(Arrays.asList("prefix1/", "prefix2/prefix3/"))
                 .objectMediaTypes(Arrays.asList("text", "image", "video"))

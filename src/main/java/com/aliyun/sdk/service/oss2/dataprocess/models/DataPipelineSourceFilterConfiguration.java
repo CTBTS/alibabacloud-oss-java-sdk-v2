@@ -1,21 +1,22 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
 
 /**
  * Configuration for filtering data pipeline sources.
  */
-@JacksonXmlRootElement(localName = "FilterConfiguration")
+@JsonRootName("FilterConfiguration")
 public final class DataPipelineSourceFilterConfiguration {
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "PrefixSet")
+    @JsonProperty("PrefixSet")
     private List<String> prefixSet;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "ObjectMediaTypes")
+    @JsonProperty("ObjectMediaTypes")
     private List<String> objectMediaTypes;
 
     public DataPipelineSourceFilterConfiguration() {

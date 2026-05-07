@@ -3,7 +3,6 @@ package com.aliyun.sdk.service.oss2.models;
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketObjectFcAccessPoint;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
@@ -139,7 +138,7 @@ public class PutAccessPointPolicyForObjectProcessRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         String policyJson = "{\n" +
                 "\t\"Version\": \"1\",\n" +
                 "\t\"Statement\": [{\n" +

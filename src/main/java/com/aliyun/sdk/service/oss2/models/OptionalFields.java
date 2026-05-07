@@ -1,19 +1,20 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
-import java.util.stream.Collectors;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Configuration container for incremental inventory file attributes
  */
- @JacksonXmlRootElement(localName = "OptionalFields")
+@JsonRootName("OptionalFields")
 public final class OptionalFields {  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Field")
+    @JsonProperty("Field")
     private List<String> fields;
 
     public OptionalFields() {}

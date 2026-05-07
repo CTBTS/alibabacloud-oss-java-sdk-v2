@@ -1,15 +1,15 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "VideoInsight")
+@JsonRootName("VideoInsight")
 public final class VideoInsight {
 
-    @JacksonXmlProperty(localName = "Caption")
+    @JsonProperty("Caption")
     private String caption;
 
-    @JacksonXmlProperty(localName = "Description")
+    @JsonProperty("Description")
     private String description;
 
     public VideoInsight() {}

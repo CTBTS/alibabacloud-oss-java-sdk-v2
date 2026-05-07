@@ -1,16 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the restoration priority coniguration. This configuration takes effect only when the request is sent to restore Cold Archive objects. If you do not specify the JobParameters parameter, the default restoration priority Standard is used.
  */
-@JacksonXmlRootElement(localName = "JobParameters")
+@JsonRootName("JobParameters")
 public final class JobParameters {
-    @JacksonXmlProperty(localName = "Tier")
+    @JsonProperty("Tier")
     private String tier;
 
     public JobParameters() {

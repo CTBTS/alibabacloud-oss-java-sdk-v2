@@ -1,28 +1,28 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
 /**
  * XML response body for the SimpleQuery operation.
  */
-@JacksonXmlRootElement(localName = "SimpleQueryResult")
+@JsonRootName("SimpleQueryResult")
 public final class SimpleQueryResponseBody {
-    @JacksonXmlProperty(localName = "NextToken")
+    @JsonProperty("NextToken")
     private String nextToken;
 
     @JacksonXmlElementWrapper(localName = "Files")
-    @JacksonXmlProperty(localName = "File")
+    @JsonProperty("File")
     private List<File> files;
 
     @JacksonXmlElementWrapper(localName = "Aggregations")
-    @JacksonXmlProperty(localName = "Aggregation")
+    @JsonProperty("Aggregation")
     private List<AggregationInfo> aggregations;
 
-    @JacksonXmlProperty(localName = "TotalHits")
+    @JsonProperty("TotalHits")
     private Long totalHits;
 
     public SimpleQueryResponseBody() {}

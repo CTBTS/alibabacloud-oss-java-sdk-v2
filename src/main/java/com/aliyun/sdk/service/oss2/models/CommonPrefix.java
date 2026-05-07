@@ -1,16 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * If the delimiter parameter is specified in the request, the response contains CommonPrefixes. Objects whose names contain the same string from the prefix to the next occurrence of the delimiter are grouped as a single result element in CommonPrefixes.
  */
-@JacksonXmlRootElement(localName = "CommonPrefix")
+@JsonRootName("CommonPrefix")
 public final class CommonPrefix {
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     private String prefix;
 
     public CommonPrefix() {

@@ -4,7 +4,6 @@ import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketEncryption;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -52,7 +51,7 @@ public class GetBucketEncryptionResultTest {
     }
 
     @Test
-    public void testXmlBuilder() throws JsonProcessingException {
+    public void testXmlBuilder() {
         String xml = 
                 "<ServerSideEncryptionRule>\n" +
                 "  <ApplyServerSideEncryptionByDefault>\n" +

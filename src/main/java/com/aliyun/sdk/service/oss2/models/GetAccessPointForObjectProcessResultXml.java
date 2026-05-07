@@ -1,42 +1,43 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the information about an Object FC Access Point.
  */
-@JacksonXmlRootElement(localName = "GetAccessPointForObjectProcessResult")
+@JsonRootName("GetAccessPointForObjectProcessResult")
 public final class GetAccessPointForObjectProcessResultXml {  
-    @JacksonXmlProperty(localName = "CreationDate")
+    @JsonProperty("CreationDate")
     private String creationDate;
  
-    @JacksonXmlProperty(localName = "Endpoints")
+    @JsonProperty("Endpoints")
     private AccessPointEndpoints endpoints;
  
-    @JacksonXmlProperty(localName = "AllowAnonymousAccessForObjectProcess")
+    @JsonProperty("AllowAnonymousAccessForObjectProcess")
     private String allowAnonymousAccessForObjectProcess;
  
-    @JacksonXmlProperty(localName = "PublicAccessBlockConfiguration")
+    @JsonProperty("PublicAccessBlockConfiguration")
     private PublicAccessBlockConfiguration publicAccessBlockConfiguration;
  
-    @JacksonXmlProperty(localName = "AccessPointNameForObjectProcess")
+    @JsonProperty("AccessPointNameForObjectProcess")
     private String accessPointNameForObjectProcess;
  
-    @JacksonXmlProperty(localName = "AccountId")
+    @JsonProperty("AccountId")
     private String accountId;
  
-    @JacksonXmlProperty(localName = "AccessPointForObjectProcessArn")
+    @JsonProperty("AccessPointForObjectProcessArn")
     private String accessPointForObjectProcessArn;
  
-    @JacksonXmlProperty(localName = "Status")
+    @JsonProperty("Status")
     private String status;
  
-    @JacksonXmlProperty(localName = "AccessPointForObjectProcessAlias")
+    @JsonProperty("AccessPointForObjectProcessAlias")
     private String accessPointForObjectProcessAlias;
  
-    @JacksonXmlProperty(localName = "AccessPointName")
+    @JsonProperty("AccessPointName")
     private String accessPointName;
 
     public GetAccessPointForObjectProcessResultXml() {}

@@ -1,18 +1,20 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores lifecycle configurations. The container can contain up to 1,000 lifecycle rules.
  */
- @JacksonXmlRootElement(localName = "LifecycleConfiguration")
+@JsonRootName("LifecycleConfiguration")
 public final class LifecycleConfiguration {  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Rule")
+    @JsonProperty("Rule")
     private List<LifecycleRule> rules;
 
     public LifecycleConfiguration() {}

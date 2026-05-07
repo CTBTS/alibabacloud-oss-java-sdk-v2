@@ -3,10 +3,10 @@ package com.aliyun.sdk.service.oss2.models;
 import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeUtils;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.Assert;
 import org.junit.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 import java.nio.charset.StandardCharsets;
 
@@ -143,7 +143,7 @@ public class OptionObjectResultTest {
                 .body(SerdeUtils.serializeXmlBody(xml))
                 .build();
 
-        ObjectMapper xmlMapper = new XmlMapper();
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults().build();
 
         String xmlContent = new String(output.body.toBytes(), StandardCharsets.UTF_8);
         Object innerBody = xmlMapper.readValue(xmlContent, CORSConfiguration.class);

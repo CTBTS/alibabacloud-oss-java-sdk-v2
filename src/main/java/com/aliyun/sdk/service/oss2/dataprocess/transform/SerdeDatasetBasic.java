@@ -2,12 +2,11 @@ package com.aliyun.sdk.service.oss2.dataprocess.transform;
 
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.OperationOutput;
+import com.aliyun.sdk.service.oss2.dataprocess.models.*;
 import com.aliyun.sdk.service.oss2.transform.SerdeUtils;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.aliyun.sdk.service.oss2.dataprocess.models.*;
 
 import java.util.Map;
-
 
 public final class SerdeDatasetBasic {
 

@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores access monitor configuration.
  */
- @JacksonXmlRootElement(localName = "AccessMonitorConfiguration")
+@JsonRootName("AccessMonitorConfiguration")
 public final class AccessMonitorConfiguration {  
-    @JacksonXmlProperty(localName = "Status")
+    @JsonProperty("Status")
     private String status;
 
-    @JacksonXmlProperty(localName = "AllowCopy")
+    @JsonProperty("AllowCopy")
     private Boolean allowCopy;
 
     public AccessMonitorConfiguration() {}

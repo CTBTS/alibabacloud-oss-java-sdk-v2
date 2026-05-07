@@ -1,30 +1,31 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the prefix used to filter objects. Only objects whose names contain the specified prefix are included in the inventory.
  */
- @JacksonXmlRootElement(localName = "InventoryFilter")
+@JsonRootName("InventoryFilter")
 public final class InventoryFilter {  
-    @JacksonXmlProperty(localName = "LastModifyEndTimeStamp")
+    @JsonProperty("LastModifyEndTimeStamp")
     private Long lastModifyEndTimeStamp;
  
-    @JacksonXmlProperty(localName = "LowerSizeBound")
+    @JsonProperty("LowerSizeBound")
     private Long lowerSizeBound;
  
-    @JacksonXmlProperty(localName = "UpperSizeBound")
+    @JsonProperty("UpperSizeBound")
     private Long upperSizeBound;
  
-    @JacksonXmlProperty(localName = "StorageClass")
+    @JsonProperty("StorageClass")
     private String storageClass;
  
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     private String prefix;
  
-    @JacksonXmlProperty(localName = "LastModifyBeginTimeStamp")
+    @JsonProperty("LastModifyBeginTimeStamp")
     private Long lastModifyBeginTimeStamp;
 
     public InventoryFilter() {}

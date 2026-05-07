@@ -5,18 +5,18 @@ import com.aliyun.sdk.service.oss2.transform.SerdeBucketLifecycle;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
+
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PutBucketLifecycleRequestTest {
@@ -169,7 +169,7 @@ public class PutBucketLifecycleRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         List<LifecycleRule> rules = Arrays.asList(
                 LifecycleRule.newBuilder()
                         .id("delete after one day")
@@ -277,10 +277,11 @@ public class PutBucketLifecycleRequestTest {
         assertThat(xmlContent).contains("2020-06-22T11:42:32.120Z");
         
         // Parse the XML to verify it's well-formed and contains expected structure
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        xmlMapper.registerModule(new JavaTimeModule());
-        xmlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                .build();
         LifecycleConfiguration value = xmlMapper.readValue(xmlContent, LifecycleConfiguration.class);
 
 

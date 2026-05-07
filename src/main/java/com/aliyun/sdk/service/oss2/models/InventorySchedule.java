@@ -1,15 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Contains the frequency that inventory lists are exported
  */
- @JacksonXmlRootElement(localName = "InventorySchedule")
+@JsonRootName("InventorySchedule")
 public final class InventorySchedule {  
-    @JacksonXmlProperty(localName = "Frequency")
+    @JsonProperty("Frequency")
     private String frequency;
 
     public InventorySchedule() {}

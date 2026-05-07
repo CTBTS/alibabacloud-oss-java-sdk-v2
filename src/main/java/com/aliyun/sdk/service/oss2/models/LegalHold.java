@@ -1,15 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container for object legal hold configuration.
  */
-@JacksonXmlRootElement(localName = "LegalHold")
+@JsonRootName("LegalHold")
 public final class LegalHold {
-    @JacksonXmlProperty(localName = "Status")
+    @JsonProperty("Status")
     private String status;
 
     public LegalHold() {}

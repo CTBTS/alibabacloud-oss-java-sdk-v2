@@ -1,24 +1,25 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container for the redirection rule or mirroring-based back-to-origin rule. You can specify up to 20 rules.
  */
- @JacksonXmlRootElement(localName = "RoutingRule")
+@JsonRootName("RoutingRule")
 public final class RoutingRule {  
-    @JacksonXmlProperty(localName = "LuaConfig")
+    @JsonProperty("LuaConfig")
     private RoutingRuleLuaConfig luaConfig;
  
-    @JacksonXmlProperty(localName = "RuleNumber")
+    @JsonProperty("RuleNumber")
     private Long ruleNumber;
  
-    @JacksonXmlProperty(localName = "Condition")
+    @JsonProperty("Condition")
     private RoutingRuleCondition condition;
  
-    @JacksonXmlProperty(localName = "Redirect")
+    @JsonProperty("Redirect")
     private RoutingRuleRedirect redirect;
 
     public RoutingRule() {}

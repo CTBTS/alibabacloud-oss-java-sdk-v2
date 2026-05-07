@@ -4,11 +4,10 @@ import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.tables.transform.SerdeTableBasic;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
@@ -93,10 +92,12 @@ public class RenameTableRequestTest {
     }
 
     @Test
-    public void jsonBuilder() throws JsonProcessingException {
+    public void jsonBuilder() {
         String expectedJson = "{\"newNamespaceName\":\"new-namespace\",\"newName\":\"new-table-name\",\"versionToken\":\"aaabbb\"}";
-        ObjectMapper jsonMapper = new JsonMapper();
-        jsonMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        ObjectMapper jsonMapper = JsonMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         RenameTableRequest request = RenameTableRequest.newBuilder()
                 .tableBucketARN("acs:osstable:cn-hangzhou:1234567890:bucket/my-table-bucket")

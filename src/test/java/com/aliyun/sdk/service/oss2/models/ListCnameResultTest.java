@@ -4,7 +4,6 @@ import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketCname;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
@@ -67,7 +66,7 @@ public class ListCnameResultTest {
     }
 
     @Test
-    public void testXmlBuilder() throws JsonProcessingException {
+    public void testXmlBuilder() {
         String blankXml = "";
         OperationOutput blankOutput = OperationOutput.newBuilder()
                 .body(BinaryData.fromString(blankXml))

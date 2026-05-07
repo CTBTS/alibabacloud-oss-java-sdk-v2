@@ -4,10 +4,9 @@ import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.tables.transform.SerdeTableBasic;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -47,9 +46,10 @@ public class GetTableRequestTest {
     }
 
     @Test
-    public void xmlBuilderWithTableParams() throws JsonProcessingException {
-        ObjectMapper mapper = JsonMapper.builder()
-                .serializationInclusion(JsonInclude.Include.NON_NULL)
+    public void xmlBuilderWithTableParams() {
+        ObjectMapper mapper = JsonMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
                 .build();
 
         GetTableRequest request = GetTableRequest.newBuilder()
@@ -76,9 +76,10 @@ public class GetTableRequestTest {
     }
 
     @Test
-    public void xmlBuilderWithTableArn() throws JsonProcessingException {
-        ObjectMapper mapper = JsonMapper.builder()
-                .serializationInclusion(JsonInclude.Include.NON_NULL)
+    public void xmlBuilderWithTableArn() {
+        ObjectMapper mapper = JsonMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
                 .build();
 
         GetTableRequest request = GetTableRequest.newBuilder()

@@ -1,27 +1,28 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The conversion of the storage class of previous versions of the objects that match the lifecycle rule when the previous versions expire. The storage class of the previous versions can be converted to IA or Archive. The period of time from when the previous versions expire to when the storage class of the previous versions is converted to Archive must be longer than the period of time from when the previous versions expire to when the storage class of the previous versions is converted to IA.
  */
- @JacksonXmlRootElement(localName = "NoncurrentVersionTransition")
+@JsonRootName("NoncurrentVersionTransition")
 public final class NoncurrentVersionTransition {  
-    @JacksonXmlProperty(localName = "StorageClass")
+    @JsonProperty("StorageClass")
     private String storageClass;
  
-    @JacksonXmlProperty(localName = "IsAccessTime")
+    @JsonProperty("IsAccessTime")
     private Boolean isAccessTime;
  
-    @JacksonXmlProperty(localName = "ReturnToStdWhenVisit")
+    @JsonProperty("ReturnToStdWhenVisit")
     private Boolean returnToStdWhenVisit;
  
-    @JacksonXmlProperty(localName = "AllowSmallFile")
+    @JsonProperty("AllowSmallFile")
     private Boolean allowSmallFile;
  
-    @JacksonXmlProperty(localName = "NoncurrentDays")
+    @JsonProperty("NoncurrentDays")
     private Integer noncurrentDays;
 
     public NoncurrentVersionTransition() {}

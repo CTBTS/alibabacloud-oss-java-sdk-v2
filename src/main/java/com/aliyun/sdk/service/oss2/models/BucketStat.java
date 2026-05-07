@@ -1,76 +1,76 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores all information returned for the GetBucketStat request.
  */
-@JacksonXmlRootElement(localName = "BucketStat")
+@JsonRootName("BucketStat")
 public final class BucketStat {
-    @JacksonXmlProperty(localName = "ArchiveObjectCount")
+    @JsonProperty("ArchiveObjectCount")
     private Long archiveObjectCount;
 
-    @JacksonXmlProperty(localName = "MultipartUploadCount")
+    @JsonProperty("MultipartUploadCount")
     private Long multipartUploadCount;
 
-    @JacksonXmlProperty(localName = "LiveChannelCount")
+    @JsonProperty("LiveChannelCount")
     private Long liveChannelCount;
 
-    @JacksonXmlProperty(localName = "MultipartPartCount")
+    @JsonProperty("MultipartPartCount")
     private Long multipartPartCount;
 
-    @JacksonXmlProperty(localName = "StandardObjectCount")
+    @JsonProperty("StandardObjectCount")
     private Long standardObjectCount;
 
-    @JacksonXmlProperty(localName = "InfrequentAccessRealStorage")
+    @JsonProperty("InfrequentAccessRealStorage")
     private Long infrequentAccessRealStorage;
 
-    @JacksonXmlProperty(localName = "ArchiveStorage")
+    @JsonProperty("ArchiveStorage")
     private Long archiveStorage;
 
-    @JacksonXmlProperty(localName = "DeleteMarkerCount")
+    @JsonProperty("DeleteMarkerCount")
     private Long deleteMarkerCount;
 
-    @JacksonXmlProperty(localName = "StandardStorage")
+    @JsonProperty("StandardStorage")
     private Long standardStorage;
 
-    @JacksonXmlProperty(localName = "InfrequentAccessStorage")
+    @JsonProperty("InfrequentAccessStorage")
     private Long infrequentAccessStorage;
 
-    @JacksonXmlProperty(localName = "ColdArchiveStorage")
+    @JsonProperty("ColdArchiveStorage")
     private Long coldArchiveStorage;
 
-    @JacksonXmlProperty(localName = "ColdArchiveObjectCount")
+    @JsonProperty("ColdArchiveObjectCount")
     private Long coldArchiveObjectCount;
 
-    @JacksonXmlProperty(localName = "DeepColdArchiveObjectCount")
+    @JsonProperty("DeepColdArchiveObjectCount")
     private Long deepColdArchiveObjectCount;
 
-    @JacksonXmlProperty(localName = "DeepColdArchiveStorage")
+    @JsonProperty("DeepColdArchiveStorage")
     private Long deepColdArchiveStorage;
 
-    @JacksonXmlProperty(localName = "DeepColdArchiveRealStorage")
+    @JsonProperty("DeepColdArchiveRealStorage")
     private Long deepColdArchiveRealStorage;
 
-    @JacksonXmlProperty(localName = "Storage")
+    @JsonProperty("Storage")
     private Long storage;
 
-    @JacksonXmlProperty(localName = "ObjectCount")
+    @JsonProperty("ObjectCount")
     private Long objectCount;
 
-    @JacksonXmlProperty(localName = "LastModifiedTime")
+    @JsonProperty("LastModifiedTime")
     private Long lastModifiedTime;
 
-    @JacksonXmlProperty(localName = "InfrequentAccessObjectCount")
+    @JsonProperty("InfrequentAccessObjectCount")
     private Long infrequentAccessObjectCount;
 
-    @JacksonXmlProperty(localName = "ArchiveRealStorage")
+    @JsonProperty("ArchiveRealStorage")
     private Long archiveRealStorage;
 
-    @JacksonXmlProperty(localName = "ColdArchiveRealStorage")
+    @JsonProperty("ColdArchiveRealStorage")
     private Long coldArchiveRealStorage;
 
     public BucketStat() {

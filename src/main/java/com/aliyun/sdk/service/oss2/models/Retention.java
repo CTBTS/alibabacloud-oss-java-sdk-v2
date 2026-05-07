@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container for object retention configuration.
  */
-@JacksonXmlRootElement(localName = "Retention")
+@JsonRootName("Retention")
 public final class Retention {
-    @JacksonXmlProperty(localName = "Mode")
+    @JsonProperty("Mode")
     private String mode;
 
-    @JacksonXmlProperty(localName = "RetainUntilDate")
+    @JsonProperty("RetainUntilDate")
     private String retainUntilDate;
 
     public Retention() {}

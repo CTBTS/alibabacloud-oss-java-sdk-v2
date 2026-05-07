@@ -7,9 +7,8 @@ import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.Md5Utils;
 import com.aliyun.sdk.service.oss2.vectors.models.VectorRequestModel;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.json.JsonMapper;
 import java.util.function.BiConsumer;
 
 public final class SerdeJsonUtils {
@@ -55,10 +54,11 @@ public final class SerdeJsonUtils {
         }
 
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-            objectMapper.registerModule(new JavaTimeModule());
-            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            JsonMapper objectMapper = JsonMapper.builderWithJackson2Defaults()
+                    .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                            .withContentInclusion(JsonInclude.Include.NON_NULL))
+                    .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                    .build();
             return objectMapper.readValue(jsonBytes, clazz);
         } catch (Exception e) {
             throw new DeserializationException("Failed to parse JSON", e);
@@ -71,10 +71,11 @@ public final class SerdeJsonUtils {
         }
 
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-            objectMapper.registerModule(new JavaTimeModule());
-            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            JsonMapper objectMapper = JsonMapper.builderWithJackson2Defaults()
+                    .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                            .withContentInclusion(JsonInclude.Include.NON_NULL))
+                    .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                    .build();
             byte[] jsonBytes = objectMapper.writeValueAsBytes(value);
             return BinaryData.fromBytes(jsonBytes);
         } catch (Exception e) {

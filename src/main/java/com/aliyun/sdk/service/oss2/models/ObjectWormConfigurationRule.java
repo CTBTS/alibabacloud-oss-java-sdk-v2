@@ -1,15 +1,14 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import static java.util.Objects.requireNonNull;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * The container that stores the object-level retention policy.
  */
-@JacksonXmlRootElement(localName = "Rule")
+@JsonRootName("Rule")
 public final class ObjectWormConfigurationRule {
-    @JacksonXmlProperty(localName = "DefaultRetention")
+    @JsonProperty("DefaultRetention")
     private ObjectWormConfigurationDefaultRetention defaultRetention;
 
     public ObjectWormConfigurationRule() {}

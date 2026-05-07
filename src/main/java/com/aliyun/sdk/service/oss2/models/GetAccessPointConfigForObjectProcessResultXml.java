@@ -1,21 +1,22 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the configuration information about an Object FC Access Point.
  */
-@JacksonXmlRootElement(localName = "GetAccessPointConfigForObjectProcessResult")
+@JsonRootName("GetAccessPointConfigForObjectProcessResult")
 public final class GetAccessPointConfigForObjectProcessResultXml {  
-    @JacksonXmlProperty(localName = "ObjectProcessConfiguration")
+    @JsonProperty("ObjectProcessConfiguration")
     private ObjectProcessConfiguration objectProcessConfiguration;
  
-    @JacksonXmlProperty(localName = "AllowAnonymousAccessForObjectProcess")
+    @JsonProperty("AllowAnonymousAccessForObjectProcess")
     private String allowAnonymousAccessForObjectProcess;
  
-    @JacksonXmlProperty(localName = "PublicAccessBlockConfiguration")
+    @JsonProperty("PublicAccessBlockConfiguration")
     private PublicAccessBlockConfiguration publicAccessBlockConfiguration;
 
     public GetAccessPointConfigForObjectProcessResultXml() {}

@@ -1,30 +1,31 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container for which the certificate is configured.
  */
- @JacksonXmlRootElement(localName = "CertificateConfiguration")
+@JsonRootName("CertificateConfiguration")
 public final class CertificateConfiguration {  
-    @JacksonXmlProperty(localName = "DeleteCertificate")
+    @JsonProperty("DeleteCertificate")
     private Boolean deleteCertificate;
  
-    @JacksonXmlProperty(localName = "CertId")
+    @JsonProperty("CertId")
     private String certId;
  
-    @JacksonXmlProperty(localName = "Certificate")
+    @JsonProperty("Certificate")
     private String certificate;
  
-    @JacksonXmlProperty(localName = "PrivateKey")
+    @JsonProperty("PrivateKey")
     private String privateKey;
  
-    @JacksonXmlProperty(localName = "PreviousCertId")
+    @JsonProperty("PreviousCertId")
     private String previousCertId;
  
-    @JacksonXmlProperty(localName = "Force")
+    @JsonProperty("Force")
     private Boolean force;
 
     public CertificateConfiguration() {}

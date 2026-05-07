@@ -1,8 +1,8 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
@@ -11,25 +11,25 @@ import static java.util.Objects.requireNonNull;
 /**
  * The container that stores the CORS rules.Up to 10 CORS rules can be configured for a bucket. The XML message body in a request can be up to 16 KB in size.
  */
-@JacksonXmlRootElement(localName = "CORSRule")
+@JsonRootName("CORSRule")
 public final class CORSRule {
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "AllowedHeader")
+    @JsonProperty("AllowedHeader")
     private List<String> allowedHeaders;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "ExposeHeader")
+    @JsonProperty("ExposeHeader")
     private List<String> exposeHeaders;
 
-    @JacksonXmlProperty(localName = "MaxAgeSeconds")
+    @JsonProperty("MaxAgeSeconds")
     private Long maxAgeSeconds;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "AllowedOrigin")
+    @JsonProperty("AllowedOrigin")
     private List<String> allowedOrigins;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "AllowedMethod")
+    @JsonProperty("AllowedMethod")
     private List<String> allowedMethods;
 
     public CORSRule() {

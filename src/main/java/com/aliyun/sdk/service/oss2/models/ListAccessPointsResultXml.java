@@ -1,27 +1,28 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the information about access points.
  */
- @JacksonXmlRootElement(localName = "ListAccessPointsResult")
+@JsonRootName("ListAccessPointsResult")
 public final class ListAccessPointsResultXml {  
-    @JacksonXmlProperty(localName = "IsTruncated")
+    @JsonProperty("IsTruncated")
     private String isTruncated;
  
-    @JacksonXmlProperty(localName = "NextContinuationToken")
+    @JsonProperty("NextContinuationToken")
     private String nextContinuationToken;
  
-    @JacksonXmlProperty(localName = "AccountId")
+    @JsonProperty("AccountId")
     private String accountId;
  
-    @JacksonXmlProperty(localName = "AccessPoints")
+    @JsonProperty("AccessPoints")
     private AccessPoints accessPoints;
  
-    @JacksonXmlProperty(localName = "MaxKeys")
+    @JsonProperty("MaxKeys")
     private Integer maxKeys;
 
     public ListAccessPointsResultXml() {}

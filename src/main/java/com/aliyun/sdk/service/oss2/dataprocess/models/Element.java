@@ -1,29 +1,29 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
-@JacksonXmlRootElement(localName = "Element")
+@JsonRootName("Element")
 public final class Element {
 
     @JacksonXmlElementWrapper(localName = "ElementContents")
-    @JacksonXmlProperty(localName = "ElementContent")
+    @JsonProperty("ElementContent")
     private List<ElementContent> elementContents;
 
-    @JacksonXmlProperty(localName = "ObjectId")
+    @JsonProperty("ObjectId")
     private String objectId;
 
-    @JacksonXmlProperty(localName = "ElementType")
+    @JsonProperty("ElementType")
     private String elementType;
 
-    @JacksonXmlProperty(localName = "SemanticSimilarity")
+    @JsonProperty("SemanticSimilarity")
     private Float semanticSimilarity;
 
     @JacksonXmlElementWrapper(localName = "ElementRelations")
-    @JacksonXmlProperty(localName = "ElementRelation")
+    @JsonProperty("ElementRelation")
     private List<ElementRelation> elementRelations;
 
     public Element() {}

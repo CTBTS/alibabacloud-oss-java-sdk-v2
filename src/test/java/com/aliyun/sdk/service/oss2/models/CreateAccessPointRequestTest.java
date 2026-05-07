@@ -4,12 +4,13 @@ import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.transform.SerdeAccessPoint;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
+
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreateAccessPointRequestTest {
@@ -102,7 +103,7 @@ public class CreateAccessPointRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         String xml = "" +
                 "<CreateAccessPointConfiguration>\n" +
                 "  <AccessPointName>ap-01</AccessPointName>\n" +
@@ -111,8 +112,10 @@ public class CreateAccessPointRequestTest {
                 "    <VpcId>vpc-t4nlw426y44rd3iq4xxxx</VpcId>\n" +
                 "  </VpcConfiguration>\n" +
                 "</CreateAccessPointConfiguration>";
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
         CreateAccessPointConfiguration xmlConfiguration = xmlMapper.readValue(xml, CreateAccessPointConfiguration.class);
         String expectedXml = xmlMapper.writeValueAsString(xmlConfiguration);
 

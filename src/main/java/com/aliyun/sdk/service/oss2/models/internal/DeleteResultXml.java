@@ -1,22 +1,21 @@
 package com.aliyun.sdk.service.oss2.models.internal;
 
 import com.aliyun.sdk.service.oss2.models.DeletedInfo;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.util.List;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 /**
  * The wrapper for the DeleteMultipleObjects response XML parsing.
  */
-@JacksonXmlRootElement(localName = "DeleteResult")
+@JsonRootName("DeleteResult")
 public final class DeleteResultXml {
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Deleted")
+    @JsonProperty("Deleted")
     public List<DeletedInfo> deleted;
 
-    @JacksonXmlProperty(localName = "EncodingType")
+    @JsonProperty("EncodingType")
     public String encodingType;
 
     public DeleteResultXml() {

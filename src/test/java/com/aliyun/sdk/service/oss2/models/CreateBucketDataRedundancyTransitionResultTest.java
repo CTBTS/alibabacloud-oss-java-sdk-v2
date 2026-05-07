@@ -4,7 +4,6 @@ import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketRedundancyTransition;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -70,7 +69,7 @@ public class CreateBucketDataRedundancyTransitionResultTest {
     }
 
     @Test
-    public void testXmlBuilderWithEncoding() throws JsonProcessingException {
+    public void testXmlBuilderWithEncoding() {
         String xml =
                 "<BucketDataRedundancyTransition>\n" +
                 "  <TaskId>4be5beb0f74f490186311b268bf6****</TaskId>\n" +

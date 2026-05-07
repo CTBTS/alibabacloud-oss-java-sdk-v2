@@ -1,17 +1,17 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Object identifier, containing the object's key and version ID (optional)
  */
-@JacksonXmlRootElement(localName = "Object")
+@JsonRootName("Object")
 public final class ObjectIdentifier {
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     private final String key;
 
-    @JacksonXmlProperty(localName = "VersionId")
+    @JsonProperty("VersionId")
     private final String versionId;
 
     private ObjectIdentifier(Builder builder) {

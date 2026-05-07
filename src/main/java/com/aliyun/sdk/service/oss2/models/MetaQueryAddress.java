@@ -1,33 +1,34 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Address information in the vector retrieval results of data indexing
  */
- @JacksonXmlRootElement(localName = "Address")
+@JsonRootName("Address")
 public final class MetaQueryAddress {  
-    @JacksonXmlProperty(localName = "AddressLine")
+    @JsonProperty("AddressLine")
     private String addressLine;
  
-    @JacksonXmlProperty(localName = "City")
+    @JsonProperty("City")
     private String city;
  
-    @JacksonXmlProperty(localName = "Country")
+    @JsonProperty("Country")
     private String country;
  
-    @JacksonXmlProperty(localName = "District")
+    @JsonProperty("District")
     private String district;
  
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
  
-    @JacksonXmlProperty(localName = "Province")
+    @JsonProperty("Province")
     private String province;
  
-    @JacksonXmlProperty(localName = "Township")
+    @JsonProperty("Township")
     private String township;
 
     public MetaQueryAddress() {}

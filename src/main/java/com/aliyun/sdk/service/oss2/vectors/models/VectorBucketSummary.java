@@ -2,6 +2,7 @@ package com.aliyun.sdk.service.oss2.vectors.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.Instant;
+
 import static java.util.Objects.requireNonNull;
 
 /**

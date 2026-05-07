@@ -1,22 +1,23 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the information about access log collection.
  */
-@JacksonXmlRootElement(localName = "LoggingEnabled")
+@JsonRootName("LoggingEnabled")
 public final class LoggingEnabled {  
-    @JacksonXmlProperty(localName = "TargetBucket")
+    @JsonProperty("TargetBucket")
     private String targetBucket;
  
-    @JacksonXmlProperty(localName = "TargetPrefix")
+    @JsonProperty("TargetPrefix")
     private String targetPrefix;
 
     
-    @JacksonXmlProperty(localName = "LoggingRole")
+    @JsonProperty("LoggingRole")
     private String loggingRole;
     
     public LoggingEnabled() {}

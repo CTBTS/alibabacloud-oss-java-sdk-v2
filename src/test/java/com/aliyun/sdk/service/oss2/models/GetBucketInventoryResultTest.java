@@ -4,12 +4,12 @@ import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketInventory;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetBucketInventoryResultTest {
@@ -183,7 +183,7 @@ public class GetBucketInventoryResultTest {
     }
 
     @Test
-    public void testXmlBuilderWithInventoryConfiguration() throws JsonProcessingException {
+    public void testXmlBuilderWithInventoryConfiguration() {
         String blankXml = "";
         OperationOutput blankOutput = OperationOutput.newBuilder()
                 .body(BinaryData.fromString(blankXml))

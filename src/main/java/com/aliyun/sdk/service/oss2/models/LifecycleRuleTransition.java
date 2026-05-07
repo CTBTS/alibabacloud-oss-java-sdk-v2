@@ -1,34 +1,35 @@
 package com.aliyun.sdk.service.oss2.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.time.Instant;
 import java.time.ZoneOffset;
+
 import static com.aliyun.sdk.service.oss2.utils.DateUtils.ISO8601_DATE_FORMAT;
 import static java.util.Objects.requireNonNull;
 
 /**
  * The conversion of the storage class of objects that match the lifecycle rule when the objects expire. The storage class of the objects can be converted to IA, Archive, and ColdArchive. The storage class of Standard objects in a Standard bucket can be converted to IA, Archive, or Cold Archive. The period of time from when the objects expire to when the storage class of the objects is converted to Archive must be longer than the period of time from when the objects expire to when the storage class of the objects is converted to IA. For example, if the validity period is set to 30 for objects whose storage class is converted to IA after the validity period, the validity period must be set to a value greater than 30 for objects whose storage class is converted to Archive.  Either Days or CreatedBeforeDate is required.
  */
- @JacksonXmlRootElement(localName = "Transition")
+@JsonRootName("Transition")
 public final class LifecycleRuleTransition {
-    @JacksonXmlProperty(localName = "AllowSmallFile")
+    @JsonProperty("AllowSmallFile")
     private Boolean allowSmallFile;
  
-    @JacksonXmlProperty(localName = "CreatedBeforeDate")
+    @JsonProperty("CreatedBeforeDate")
     private String createdBeforeDate;
  
-    @JacksonXmlProperty(localName = "Days")
+    @JsonProperty("Days")
     private Integer days;
  
-    @JacksonXmlProperty(localName = "StorageClass")
+    @JsonProperty("StorageClass")
     private String storageClass;
  
-    @JacksonXmlProperty(localName = "IsAccessTime")
+    @JsonProperty("IsAccessTime")
     private Boolean isAccessTime;
  
-    @JacksonXmlProperty(localName = "ReturnToStdWhenVisit")
+    @JsonProperty("ReturnToStdWhenVisit")
     private Boolean returnToStdWhenVisit;
 
     public LifecycleRuleTransition() {}

@@ -1,18 +1,20 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The rules for setting tags when saving files during mirror-based back-to-origin.
  */
- @JacksonXmlRootElement(localName = "MirrorTaggings")
+@JsonRootName("MirrorTaggings")
 public final class MirrorTaggings {  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Taggings")
+    @JsonProperty("Taggings")
     private List<MirrorTagging> taggings;
 
     public MirrorTaggings() {}

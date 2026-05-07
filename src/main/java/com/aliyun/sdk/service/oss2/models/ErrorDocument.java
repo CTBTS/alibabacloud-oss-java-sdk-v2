@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the default 404 page.
  */
- @JacksonXmlRootElement(localName = "ErrorDocument")
+@JsonRootName("ErrorDocument")
 public final class ErrorDocument {  
-    @JacksonXmlProperty(localName = "HttpStatus")
+    @JsonProperty("HttpStatus")
     private Long httpStatus;
  
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     private String key;
 
     public ErrorDocument() {}

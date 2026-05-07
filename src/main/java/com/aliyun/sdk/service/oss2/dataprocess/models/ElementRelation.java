@@ -1,15 +1,15 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "ElementRelation")
+@JsonRootName("ElementRelation")
 public final class ElementRelation {
 
-    @JacksonXmlProperty(localName = "Type")
+    @JsonProperty("Type")
     private String type;
 
-    @JacksonXmlProperty(localName = "ObjectId")
+    @JsonProperty("ObjectId")
     private String objectId;
 
     public ElementRelation() {

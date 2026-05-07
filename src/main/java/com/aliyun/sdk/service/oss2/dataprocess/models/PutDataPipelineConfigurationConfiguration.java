@@ -1,32 +1,31 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
-import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the data pipeline configuration.
  */
-@JacksonXmlRootElement(localName = "DataPipelineConfiguration")
+@JsonRootName("DataPipelineConfiguration")
 public final class PutDataPipelineConfigurationConfiguration {
 
-    @JacksonXmlProperty(localName = "DataPipelineDescription")
+    @JsonProperty("DataPipelineDescription")
     private String dataPipelineDescription;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Sources")
+    @JsonProperty("Sources")
     private List<DataPipelineSource> sources;
 
-    @JacksonXmlProperty(localName = "DataPipelineEmbeddingConfiguration")
+    @JsonProperty("DataPipelineEmbeddingConfiguration")
     private DataPipelineEmbeddingConfiguration dataPipelineEmbeddingConfiguration;
 
-    @JacksonXmlProperty(localName = "Destination")
+    @JsonProperty("Destination")
     private DataPipelineDestination destination;
 
-    @JacksonXmlProperty(localName = "DataPipelineError")
+    @JsonProperty("DataPipelineError")
     private DataPipelineError dataPipelineError;
 
     public PutDataPipelineConfigurationConfiguration() {

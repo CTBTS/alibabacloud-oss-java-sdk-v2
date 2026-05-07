@@ -1,20 +1,21 @@
 package com.aliyun.sdk.service.oss2.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 /**
  * Container containing the list of objects to be deleted
  */
-@JacksonXmlRootElement(localName = "Delete")
+@JsonRootName("Delete")
 public final class Delete {
-    @JacksonXmlProperty(localName = "Quiet")
+    @JsonProperty("Quiet")
     private final Boolean quiet;
     
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Object")
+    @JsonProperty("Object")
     private final List<ObjectIdentifier> objects;
 
     private Delete(Builder builder) {

@@ -1,22 +1,22 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores server-side encryption rules.
  */
-@JacksonXmlRootElement(localName = "ServerSideEncryptionRule")
+@JsonRootName("ServerSideEncryptionRule")
 public final class BucketInfoServerSideEncryptionRule {
-    @JacksonXmlProperty(localName = "SSEAlgorithm")
+    @JsonProperty("SSEAlgorithm")
     private String sseAlgorithm;
 
-    @JacksonXmlProperty(localName = "KMSMasterKeyID")
+    @JsonProperty("KMSMasterKeyID")
     private String kmsMasterKeyID;
 
-    @JacksonXmlProperty(localName = "KMSDataEncryption")
+    @JsonProperty("KMSDataEncryption")
     private String kmsDataEncryption;
 
     public BucketInfoServerSideEncryptionRule() {

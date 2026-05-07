@@ -1,19 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The configurations of the bucket storage class and redundancy type.
  */
-@JacksonXmlRootElement(localName = "CreateBucketConfiguration")
+@JsonRootName("CreateBucketConfiguration")
 public final class CreateBucketConfiguration {
-    @JacksonXmlProperty(localName = "StorageClass")
+    @JsonProperty("StorageClass")
     private String storageClass;
 
-    @JacksonXmlProperty(localName = "DataRedundancyType")
+    @JsonProperty("DataRedundancyType")
     private String dataRedundancyType;
 
     public CreateBucketConfiguration() {

@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The specified field configurations of real-time logs in a bucket.
  */
- @JacksonXmlRootElement(localName = "UserDefinedLogFieldsConfiguration")
+@JsonRootName("UserDefinedLogFieldsConfiguration")
 public final class UserDefinedLogFieldsConfiguration {  
-    @JacksonXmlProperty(localName = "HeaderSet")
+    @JsonProperty("HeaderSet")
     private LoggingHeaderSet headerSet;
  
-    @JacksonXmlProperty(localName = "ParamSet")
+    @JsonProperty("ParamSet")
     private LoggingParamSet paramSet;
 
     public UserDefinedLogFieldsConfiguration() {}

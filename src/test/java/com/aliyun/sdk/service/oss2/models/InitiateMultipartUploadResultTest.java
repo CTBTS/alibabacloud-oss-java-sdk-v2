@@ -4,7 +4,6 @@ import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeObjectMultipart;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -79,7 +78,7 @@ public class InitiateMultipartUploadResultTest {
     }
 
     @Test
-    public void testXmlBuilder() throws JsonProcessingException {
+    public void testXmlBuilder() {
         String xml =
                 "<InitiateMultipartUploadResult xmlns=\"http://doc.oss-cn-hangzhou.aliyuncs.com\">\n" +
                         "    <Bucket>oss-example</Bucket>\n" +

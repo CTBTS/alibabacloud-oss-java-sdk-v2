@@ -5,7 +5,6 @@ import com.aliyun.sdk.service.oss2.transport.HttpClient;
 import java.time.Duration;
 import java.util.concurrent.Executor;
 
-
 public class JdkHttpClientBuilder {
 
     private java.net.http.HttpClient.Builder httpClientBuilder;

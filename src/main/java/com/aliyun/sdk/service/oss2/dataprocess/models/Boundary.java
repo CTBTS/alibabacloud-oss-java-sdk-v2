@@ -1,28 +1,28 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
-@JacksonXmlRootElement(localName = "Boundary")
+@JsonRootName("Boundary")
 public final class Boundary {
 
-    @JacksonXmlProperty(localName = "Width")
+    @JsonProperty("Width")
     private Long width;
 
-    @JacksonXmlProperty(localName = "Height")
+    @JsonProperty("Height")
     private Long height;
 
-    @JacksonXmlProperty(localName = "Left")
+    @JsonProperty("Left")
     private Long left;
 
-    @JacksonXmlProperty(localName = "Top")
+    @JsonProperty("Top")
     private Long top;
 
     @JacksonXmlElementWrapper(localName = "Polygon")
-    @JacksonXmlProperty(localName = "PointInt64")
+    @JsonProperty("PointInt64")
     private List<PointInt64> polygon;
 
     public Boundary() {

@@ -1,33 +1,33 @@
 package com.aliyun.sdk.service.oss2.models.internal;
 
 import com.aliyun.sdk.service.oss2.models.Owner;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * The container that stores the result of ListBuckets(GetService) request.
  */
-@JacksonXmlRootElement(localName = "ListAllMyBucketsResult")
+@JsonRootName("ListAllMyBucketsResult")
 public final class ListAllMyBucketsResultXml {
-    @JacksonXmlProperty(localName = "NextMarker")
+    @JsonProperty("NextMarker")
     public String nextMarker;
 
-    @JacksonXmlProperty(localName = "Buckets")
+    @JsonProperty("Buckets")
     public BucketsXml buckets;
 
-    @JacksonXmlProperty(localName = "Owner")
+    @JsonProperty("Owner")
     public Owner owner;
 
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     public String prefix;
 
-    @JacksonXmlProperty(localName = "Marker")
+    @JsonProperty("Marker")
     public String marker;
 
-    @JacksonXmlProperty(localName = "MaxKeys")
+    @JsonProperty("MaxKeys")
     public Long maxKeys;
 
-    @JacksonXmlProperty(localName = "IsTruncated")
+    @JsonProperty("IsTruncated")
     public Boolean isTruncated;
 
     public ListAllMyBucketsResultXml() {

@@ -1,19 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The log configurations of the bucket.
  */
-@JacksonXmlRootElement(localName = "BucketPolicy")
+@JsonRootName("BucketPolicy")
 public final class BucketPolicy {
-    @JacksonXmlProperty(localName = "LogBucket")
+    @JsonProperty("LogBucket")
     private String logBucket;
 
-    @JacksonXmlProperty(localName = "LogPrefix")
+    @JsonProperty("LogPrefix")
     private String logPrefix;
 
     public BucketPolicy() {

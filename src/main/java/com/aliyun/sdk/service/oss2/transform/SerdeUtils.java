@@ -3,19 +3,20 @@ package com.aliyun.sdk.service.oss2.transform;
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.exceptions.DeserializationException;
-import com.aliyun.sdk.service.oss2.models.*;
+import com.aliyun.sdk.service.oss2.models.CopyObjectRequest;
+import com.aliyun.sdk.service.oss2.models.RequestModel;
+import com.aliyun.sdk.service.oss2.models.UploadPartCopyRequest;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.transport.StringBinaryData;
 import com.aliyun.sdk.service.oss2.utils.HttpUtils;
 import com.aliyun.sdk.service.oss2.utils.Md5Utils;
 import com.aliyun.sdk.service.oss2.utils.MimeUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.w3c.dom.Element;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 import java.util.function.BiConsumer;
 
@@ -49,11 +50,13 @@ public final class SerdeUtils {
         if (value == null) {
             return null;
         }
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        XmlMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
         try {
             return new StringBinaryData(xmlMapper.writeValueAsString(value));
-        } catch (JsonProcessingException e) {
+        } catch (JacksonException e) {
             throw new RuntimeException(e);
         }
     }
@@ -75,10 +78,11 @@ public final class SerdeUtils {
         }
 
         try {
-            ObjectMapper xmlMapper = new XmlMapper();
-            xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-            xmlMapper.registerModule(new JavaTimeModule());
-            xmlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            XmlMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                    .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                            .withContentInclusion(JsonInclude.Include.NON_NULL))
+                    .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                    .build();
             return xmlMapper.readValue(xmlBytes, clz);
         } catch (Exception e) {
             throw new DeserializationException("Failed to parse XML", e);
@@ -169,10 +173,11 @@ public final class SerdeUtils {
         }
 
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-            objectMapper.registerModule(new JavaTimeModule());
-            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            JsonMapper objectMapper = JsonMapper.builderWithJackson2Defaults()
+                    .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                            .withContentInclusion(JsonInclude.Include.NON_NULL))
+                    .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                    .build();
             return objectMapper.readValue(jsonBytes, clazz);
         } catch (Exception e) {
             throw new DeserializationException("Failed to parse JSON", e);

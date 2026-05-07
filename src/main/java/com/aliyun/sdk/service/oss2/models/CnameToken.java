@@ -1,24 +1,25 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the CNAME token.
  */
- @JacksonXmlRootElement(localName = "CnameToken")
+@JsonRootName("CnameToken")
 public final class CnameToken {  
-    @JacksonXmlProperty(localName = "Bucket")
+    @JsonProperty("Bucket")
     private String bucket;
  
-    @JacksonXmlProperty(localName = "Cname")
+    @JsonProperty("Cname")
     private String cname;
  
-    @JacksonXmlProperty(localName = "Token")
+    @JsonProperty("Token")
     private String token;
  
-    @JacksonXmlProperty(localName = "ExpireTime")
+    @JsonProperty("ExpireTime")
     private String expireTime;
 
     public CnameToken() {}

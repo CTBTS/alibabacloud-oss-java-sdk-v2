@@ -7,7 +7,7 @@ import com.aliyun.sdk.service.oss2.vectors.OSSAsyncVectorsClientBuilder;
 import com.aliyun.sdk.service.oss2.vectors.models.QueryVectorsRequest;
 import com.aliyun.sdk.service.oss2.vectors.models.QueryVectorsResult;
 import com.example.oss.Example;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
@@ -153,7 +153,7 @@ public class QueryVectorsAsync implements Example {
     private static Map<String, Object> parseFilter(String filterStr) throws Exception {
         // If filter is a JSON string, parse it
         if (filterStr != null && filterStr.trim().startsWith("{")) {
-            ObjectMapper mapper = new ObjectMapper();
+            JsonMapper mapper = JsonMapper.builderWithJackson2Defaults().build();
             @SuppressWarnings("unchecked")
             Map<String, Object> filterMap = mapper.readValue(filterStr, Map.class);
             return filterMap;

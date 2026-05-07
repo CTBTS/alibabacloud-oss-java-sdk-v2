@@ -1,8 +1,7 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.time.Instant;
 
 import static java.util.Objects.requireNonNull;
@@ -10,12 +9,12 @@ import static java.util.Objects.requireNonNull;
 /**
  * The delete operation that you want OSS to perform on the parts that are uploaded in incomplete multipart upload tasks when the parts expire.
  */
-@JacksonXmlRootElement(localName = "AbortMultipartUpload")
+@JsonRootName("AbortMultipartUpload")
 public final class LifecycleRuleAbortMultipartUpload {
-    @JacksonXmlProperty(localName = "Days")
+    @JsonProperty("Days")
     private Integer days;
 
-    @JacksonXmlProperty(localName = "CreatedBeforeDate")
+    @JsonProperty("CreatedBeforeDate")
     private Instant createdBeforeDate;
 
     public LifecycleRuleAbortMultipartUpload() {

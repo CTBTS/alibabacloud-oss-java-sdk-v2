@@ -5,11 +5,10 @@ import com.aliyun.sdk.service.oss2.tables.transform.SerdeTableBasic;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -159,10 +158,12 @@ public class CreateTableRequestTest {
     }
 
     @Test
-    public void jsonBuilder() throws JsonProcessingException {
+    public void jsonBuilder() {
         String expectedJson = "{\"name\":\"test_table\",\"format\":\"iceberg\",\"metadata\":{\"iceberg\":{\"schema\":{\"fields\":[{\"name\":\"id\",\"type\":\"long\",\"required\":true},{\"name\":\"name\",\"type\":\"string\",\"required\":false},{\"name\":\"ts\",\"type\":\"timestamptz\",\"required\":false}]},\"partitionSpec\":{\"specId\":0,\"fields\":[{\"sourceId\":2,\"transform\":\"identity\",\"name\":\"region\",\"fieldId\":1001}]},\"writeOrder\":{\"orderId\":1,\"fields\":[{\"sourceId\":1,\"transform\":\"identity\",\"direction\":\"asc\",\"nullOrder\":\"nulls-first\"}]},\"properties\":{\"owner\":\"table-owner\",\"environment\":\"production\"}}},\"encryptionConfiguration\":{\"sseAlgorithm\":\"AES256\"}}";
-        ObjectMapper jsonMapper = new JsonMapper();
-        jsonMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        ObjectMapper jsonMapper = JsonMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         IcebergSchema icebergSchema = new IcebergSchema();
         

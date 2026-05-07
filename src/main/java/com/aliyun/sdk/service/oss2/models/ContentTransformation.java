@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the content of the transformation configurations.
  */
- @JacksonXmlRootElement(localName = "ContentTransformation")
+@JsonRootName("ContentTransformation")
 public final class ContentTransformation {  
-    @JacksonXmlProperty(localName = "FunctionCompute")
+    @JsonProperty("FunctionCompute")
     private ObjectProcessFunctionCompute functionCompute;
  
-    @JacksonXmlProperty(localName = "AdditionalFeatures")
+    @JsonProperty("AdditionalFeatures")
     private ObjectProcessAdditionalFeatures additionalFeatures;
 
     public ContentTransformation() {}

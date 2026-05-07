@@ -3,11 +3,10 @@ package com.aliyun.sdk.service.oss2.models;
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketAcl;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -66,10 +65,11 @@ public class GetBucketAclRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-
+    public void xmlBuilder() {
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         GetBucketAclRequest request = GetBucketAclRequest.newBuilder()
                 .bucket("examplebucket")
@@ -80,16 +80,6 @@ public class GetBucketAclRequestTest {
         assertThat(input.bucket().get()).isEqualTo("examplebucket");
         assertThat(input.parameters().get("acl")).isEqualTo("");
         assertThat(input.headers().get("Content-Type")).isEqualTo("application/xml");
-
-
-
-
-
-
-//
-
-//        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
         Owner owner = Owner.newBuilder()
                 .id("test-id")

@@ -1,15 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Request body for enabling metadata management feature for a Bucket.
  */
- @JacksonXmlRootElement(localName = "MetaQuery")
+@JsonRootName("MetaQuery")
 public final class MetaQueryOpenRequest {  
-    @JacksonXmlProperty(localName = "Filters")
+    @JsonProperty("Filters")
     private MetaQueryFilters filters;
 
     public MetaQueryOpenRequest() {}

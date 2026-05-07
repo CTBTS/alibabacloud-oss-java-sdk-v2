@@ -1,15 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the root node.
  */
- @JacksonXmlRootElement(localName = "InitiateWormConfiguration")
+@JsonRootName("InitiateWormConfiguration")
 public final class InitiateWormConfiguration {  
-    @JacksonXmlProperty(localName = "RetentionPeriodInDays")
+    @JsonProperty("RetentionPeriodInDays")
     private Integer retentionPeriodInDays;
 
     public InitiateWormConfiguration() {}

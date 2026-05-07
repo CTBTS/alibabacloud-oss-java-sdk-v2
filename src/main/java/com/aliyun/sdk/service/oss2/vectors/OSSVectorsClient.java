@@ -5,7 +5,6 @@ import com.aliyun.sdk.service.oss2.OperationOptions;
 import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.vectors.models.*;
 
-
 /**
  * A client for accessing OSS Vectors synchronously.
  * This can be created using the static {@link #newBuilder()} method.

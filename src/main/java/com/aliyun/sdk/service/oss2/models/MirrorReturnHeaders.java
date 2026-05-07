@@ -1,18 +1,20 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Container to store the rules for setting response headers in mirror-based back-to-origin.
  */
- @JacksonXmlRootElement(localName = "MirrorReturnHeaders")
+@JsonRootName("MirrorReturnHeaders")
 public final class MirrorReturnHeaders {  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "ReturnHeader")
+    @JsonProperty("ReturnHeader")
     private List<MirrorReturnHeader> returnHeaders;
 
     public MirrorReturnHeaders() {}

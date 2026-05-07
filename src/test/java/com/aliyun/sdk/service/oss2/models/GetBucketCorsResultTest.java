@@ -3,10 +3,10 @@ package com.aliyun.sdk.service.oss2.models;
 import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.Assert;
 import org.junit.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -32,7 +32,7 @@ public class GetBucketCorsResultTest {
                 .body(SerdeUtils.serializeXmlBody(xml))
                 .build();
 
-        ObjectMapper xmlMapper = new XmlMapper();
+        XmlMapper xmlMapper = XmlMapper.builderWithJackson2Defaults().build();
 
         String xmlContent = new String(output.body.toBytes(), StandardCharsets.UTF_8);
         Object innerBody = xmlMapper.readValue(xmlContent, CORSConfiguration.class);
@@ -55,9 +55,10 @@ public class GetBucketCorsResultTest {
                         "    </CORSRule>\n" +
                         "    <ResponseVary>false</ResponseVary>\n" +
                         "</CORSConfiguration>";
-
-
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
         config = xmlMapper.readValue(xml, CORSConfiguration.class);
 
         assertNotNull(config);

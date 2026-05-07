@@ -1,36 +1,37 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the configurations of the inventory.
  */
- @JacksonXmlRootElement(localName = "InventoryConfiguration")
+@JsonRootName("InventoryConfiguration")
 public final class InventoryConfiguration {  
-    @JacksonXmlProperty(localName = "Schedule")
+    @JsonProperty("Schedule")
     private InventorySchedule schedule;
  
-    @JacksonXmlProperty(localName = "Filter")
+    @JsonProperty("Filter")
     private InventoryFilter filter;
  
-    @JacksonXmlProperty(localName = "IncludedObjectVersions")
+    @JsonProperty("IncludedObjectVersions")
     private String includedObjectVersions;
  
-    @JacksonXmlProperty(localName = "OptionalFields")
+    @JsonProperty("OptionalFields")
     private OptionalFields optionalFields;
  
-    @JacksonXmlProperty(localName = "Id")
+    @JsonProperty("Id")
     private String id;
  
-    @JacksonXmlProperty(localName = "IsEnabled")
+    @JsonProperty("IsEnabled")
     private Boolean isEnabled;
  
-    @JacksonXmlProperty(localName = "Destination")
+    @JsonProperty("Destination")
     private InventoryDestination destination;
 
-    @JacksonXmlProperty(localName = "IncrementalInventory")
+    @JsonProperty("IncrementalInventory")
     private IncrementalInventory incrementalInventory;
 
     public InventoryConfiguration() {}

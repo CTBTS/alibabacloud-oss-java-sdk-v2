@@ -3,10 +3,9 @@ package com.aliyun.sdk.service.oss2.tables.models;
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.tables.transform.SerdeTableConfigBasic;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 import java.util.AbstractMap;
 
@@ -74,9 +73,11 @@ public class GetTableMaintenanceJobStatusRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
-        ObjectMapper jsonMapper = new JsonMapper();
-        jsonMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    public void xmlBuilder() {
+        ObjectMapper jsonMapper = JsonMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         GetTableMaintenanceJobStatusRequest request = GetTableMaintenanceJobStatusRequest.newBuilder()
                 .tableBucketARN("arn:acs:oss-tables:cn-hangzhou:123456789012:bucket/test-bucket")

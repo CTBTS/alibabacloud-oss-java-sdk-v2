@@ -1,24 +1,25 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The configuration list for multiple origins.
  */
- @JacksonXmlRootElement(localName = "MirrorMultiAlternate")
+@JsonRootName("MirrorMultiAlternate")
 public final class MirrorMultiAlternate {  
-    @JacksonXmlProperty(localName = "MirrorMultiAlternateNumber")
+    @JsonProperty("MirrorMultiAlternateNumber")
     private Long mirrorMultiAlternateNumber;
  
-    @JacksonXmlProperty(localName = "MirrorMultiAlternateURL")
+    @JsonProperty("MirrorMultiAlternateURL")
     private String mirrorMultiAlternateURL;
  
-    @JacksonXmlProperty(localName = "MirrorMultiAlternateVpcId")
+    @JsonProperty("MirrorMultiAlternateVpcId")
     private String mirrorMultiAlternateVpcId;
  
-    @JacksonXmlProperty(localName = "MirrorMultiAlternateDstRegion")
+    @JsonProperty("MirrorMultiAlternateDstRegion")
     private String mirrorMultiAlternateDstRegion;
 
     public MirrorMultiAlternate() {}

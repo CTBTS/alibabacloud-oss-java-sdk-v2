@@ -1,21 +1,21 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "OCRContents")
+@JsonRootName("OCRContents")
 public final class OCRContents {
 
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
 
-    @JacksonXmlProperty(localName = "Contents")
+    @JsonProperty("Contents")
     private String contents;
 
-    @JacksonXmlProperty(localName = "Confidence")
+    @JsonProperty("Confidence")
     private Float confidence;
 
-    @JacksonXmlProperty(localName = "Boundary")
+    @JsonProperty("Boundary")
     private Boundary boundary;
 
     public OCRContents() {

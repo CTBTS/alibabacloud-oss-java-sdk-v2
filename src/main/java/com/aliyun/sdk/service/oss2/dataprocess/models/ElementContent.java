@@ -1,25 +1,25 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
-@JacksonXmlRootElement(localName = "ElementContent")
+@JsonRootName("ElementContent")
 public final class ElementContent {
 
-    @JacksonXmlProperty(localName = "Type")
+    @JsonProperty("Type")
     private String type;
 
-    @JacksonXmlProperty(localName = "Content")
+    @JsonProperty("Content")
     private String content;
 
-    @JacksonXmlProperty(localName = "URL")
+    @JsonProperty("URL")
     private String url;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "TimeRange")
+    @JsonProperty("TimeRange")
     private List<Long> timeRange;
 
     public ElementContent() {

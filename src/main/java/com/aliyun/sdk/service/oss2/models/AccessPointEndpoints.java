@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the endpoints of the Object FC Access Point.
  */
- @JacksonXmlRootElement(localName = "Endpoints")
+@JsonRootName("Endpoints")
 public final class AccessPointEndpoints {
-    @JacksonXmlProperty(localName = "PublicEndpoint")
+    @JsonProperty("PublicEndpoint")
     private String publicEndpoint;
  
-    @JacksonXmlProperty(localName = "InternalEndpoint")
+    @JsonProperty("InternalEndpoint")
     private String internalEndpoint;
 
     public AccessPointEndpoints() {}

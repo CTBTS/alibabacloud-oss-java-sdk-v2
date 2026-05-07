@@ -1,8 +1,7 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.time.Instant;
 
 import static java.util.Objects.requireNonNull;
@@ -10,12 +9,12 @@ import static java.util.Objects.requireNonNull;
 /**
  * The container that stores the copy result.
  */
-@JacksonXmlRootElement(localName = "CopyPartResult")
+@JsonRootName("CopyPartResult")
 public final class CopyPartResult {
-    @JacksonXmlProperty(localName = "LastModified")
+    @JsonProperty("LastModified")
     private Instant lastModified;
 
-    @JacksonXmlProperty(localName = "ETag")
+    @JsonProperty("ETag")
     private String eTag;
 
     public CopyPartResult() {

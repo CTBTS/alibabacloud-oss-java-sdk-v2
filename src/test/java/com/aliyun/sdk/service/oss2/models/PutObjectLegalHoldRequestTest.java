@@ -4,10 +4,6 @@ import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.transform.SerdeObjectWorm;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;
@@ -79,7 +75,7 @@ public class PutObjectLegalHoldRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         LegalHold legalHold = LegalHold.newBuilder()
                 .status(ObjectLegalHoldStatusType.ON.toString())
                 .build();

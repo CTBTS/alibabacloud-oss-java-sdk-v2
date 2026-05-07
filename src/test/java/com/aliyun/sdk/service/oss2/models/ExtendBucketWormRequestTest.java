@@ -5,13 +5,14 @@ import com.aliyun.sdk.service.oss2.transform.SerdeBucketWorm;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
+
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
 import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExtendBucketWormRequestTest {
@@ -112,13 +113,15 @@ public class ExtendBucketWormRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         String xml = "" +
                 "<ExtendWormConfiguration>\n" +
                 "  <RetentionPeriodInDays>366</RetentionPeriodInDays>\n" +
                 "</ExtendWormConfiguration>";
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
         ExtendWormConfiguration xmlConfiguration = xmlMapper.readValue(xml, ExtendWormConfiguration.class);
         String expectedXml = xmlMapper.writeValueAsString(xmlConfiguration);
 

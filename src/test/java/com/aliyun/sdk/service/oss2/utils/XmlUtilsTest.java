@@ -1,7 +1,7 @@
 package com.aliyun.sdk.service.oss2.utils;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.JsonNode;
 
 import java.nio.charset.StandardCharsets;
 

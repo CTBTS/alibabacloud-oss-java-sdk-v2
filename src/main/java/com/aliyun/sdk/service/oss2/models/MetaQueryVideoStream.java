@@ -1,50 +1,49 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Video stream information in the vector retrieval results of data indexing
  */
- @JacksonXmlRootElement(localName = "VideoStream")
+@JsonRootName("VideoStream")
 public final class MetaQueryVideoStream {  
-    @JacksonXmlProperty(localName = "BitDepth")
+    @JsonProperty("BitDepth")
     private Long bitDepth;
  
-    @JacksonXmlProperty(localName = "PixelFormat")
+    @JsonProperty("PixelFormat")
     private String pixelFormat;
  
-    @JacksonXmlProperty(localName = "ColorSpace")
+    @JsonProperty("ColorSpace")
     private String colorSpace;
  
-    @JacksonXmlProperty(localName = "CodecName")
+    @JsonProperty("CodecName")
     private String codecName;
  
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
  
-    @JacksonXmlProperty(localName = "Bitrate")
+    @JsonProperty("Bitrate")
     private Long bitrate;
  
-    @JacksonXmlProperty(localName = "FrameRate")
+    @JsonProperty("FrameRate")
     private String frameRate;
  
-    @JacksonXmlProperty(localName = "FrameCount")
+    @JsonProperty("FrameCount")
     private Long frameCount;
  
-    @JacksonXmlProperty(localName = "Width")
+    @JsonProperty("Width")
     private Long width;
  
-    @JacksonXmlProperty(localName = "StartTime")
+    @JsonProperty("StartTime")
     private Double startTime;
  
-    @JacksonXmlProperty(localName = "Duration")
+    @JsonProperty("Duration")
     private Double duration;
  
-    @JacksonXmlProperty(localName = "Height")
+    @JsonProperty("Height")
     private Long height;
 
     public MetaQueryVideoStream() {}

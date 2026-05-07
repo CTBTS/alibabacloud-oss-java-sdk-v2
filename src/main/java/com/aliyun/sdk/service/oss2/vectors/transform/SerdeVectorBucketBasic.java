@@ -11,7 +11,6 @@ import com.aliyun.sdk.service.oss2.vectors.models.internal.ListVectorBucketsResu
 
 import java.util.Map;
 
-
 public final class SerdeVectorBucketBasic {
 
 

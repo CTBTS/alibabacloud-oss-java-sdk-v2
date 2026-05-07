@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Group aggregation result list
  */
-@JacksonXmlRootElement(localName = "Group")
+@JsonRootName("Group")
 public final class MetaQueryGroup {
-    @JacksonXmlProperty(localName = "Value")
+    @JsonProperty("Value")
     private String value;
 
-    @JacksonXmlProperty(localName = "Count")
+    @JsonProperty("Count")
     private Long count;
 
     public MetaQueryGroup() {}

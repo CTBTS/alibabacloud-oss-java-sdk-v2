@@ -1,27 +1,27 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
-@JacksonXmlRootElement(localName = "SceneElement")
+@JsonRootName("SceneElement")
 public final class SceneElement {
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "TimeRange")
+    @JsonProperty("TimeRange")
     private List<Long> timeRange;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "FrameTimes")
+    @JsonProperty("FrameTimes")
     private List<Long> frameTimes;
 
-    @JacksonXmlProperty(localName = "VideoStreamIndex")
+    @JsonProperty("VideoStreamIndex")
     private Long videoStreamIndex;
 
     @JacksonXmlElementWrapper(localName = "Labels")
-    @JacksonXmlProperty(localName = "Label")
+    @JsonProperty("Label")
     private List<Label> labels;
 
     public SceneElement() {

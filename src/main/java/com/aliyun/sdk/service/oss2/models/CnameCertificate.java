@@ -1,33 +1,34 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The information about the certificate.
  */
- @JacksonXmlRootElement(localName = "CnameCertificate")
+@JsonRootName("CnameCertificate")
 public final class CnameCertificate {  
-    @JacksonXmlProperty(localName = "Type")
+    @JsonProperty("Type")
     private String type;
  
-    @JacksonXmlProperty(localName = "CertId")
+    @JsonProperty("CertId")
     private String certId;
  
-    @JacksonXmlProperty(localName = "Status")
+    @JsonProperty("Status")
     private String status;
  
-    @JacksonXmlProperty(localName = "CreationDate")
+    @JsonProperty("CreationDate")
     private String creationDate;
  
-    @JacksonXmlProperty(localName = "Fingerprint")
+    @JsonProperty("Fingerprint")
     private String fingerprint;
  
-    @JacksonXmlProperty(localName = "ValidStartDate")
+    @JsonProperty("ValidStartDate")
     private String validStartDate;
  
-    @JacksonXmlProperty(localName = "ValidEndDate")
+    @JsonProperty("ValidEndDate")
     private String validEndDate;
 
     public CnameCertificate() {}

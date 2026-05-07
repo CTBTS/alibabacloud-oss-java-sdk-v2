@@ -1,14 +1,14 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * XML response body for the GetDataPipelineConfiguration operation.
  */
-@JacksonXmlRootElement(localName = "GetDataPipelineConfigurationResult")
+@JsonRootName("GetDataPipelineConfigurationResult")
 public final class GetDataPipelineConfigurationResponseBody {
-    @JacksonXmlProperty(localName = "DataPipelineConfiguration")
+    @JsonProperty("DataPipelineConfiguration")
     private DataPipelineConfiguration dataPipelineConfiguration;
 
     public GetDataPipelineConfigurationResponseBody() {}

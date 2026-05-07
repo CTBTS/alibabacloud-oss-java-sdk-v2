@@ -2,15 +2,13 @@ package com.aliyun.sdk.service.oss2.vectors.models;
 
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.vectors.transform.SerdeVectorIndexBasic;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-import java.util.AbstractMap;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
+
+import java.util.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PutVectorIndexRequestTest {
@@ -95,7 +93,7 @@ public class PutVectorIndexRequestTest {
     }
 
     @Test
-    public void bodyBuilder() throws JsonProcessingException {
+    public void bodyBuilder() {
         Map<String, Object> metadata = new HashMap<>();
         metadata.put("env", "test");
         metadata.put("version", "1.0");
@@ -117,7 +115,7 @@ public class PutVectorIndexRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
 
         String jsonStr = "{\"metadata\":{\"nonFilterableMetadataKeys\":[\"key1\",\"key2\"]},\"indexName\":\"test-index\",\"dataType\":\"vector\",\"distanceMetric\":\"EUCLIDEAN\",\"dimension\":128}";
 
@@ -138,7 +136,7 @@ public class PutVectorIndexRequestTest {
 
         OperationInput input = SerdeVectorIndexBasic.fromPutVectorIndex(request);
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = JsonMapper.builderWithJackson2Defaults().build();
         JsonNode jsonNode = objectMapper.readTree(jsonStr);
         String compactJson = objectMapper.writeValueAsString(jsonNode);
 

@@ -1,60 +1,60 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "AudioStream")
+@JsonRootName("AudioStream")
 public final class AudioStream {
 
-    @JacksonXmlProperty(localName = "Index")
+    @JsonProperty("Index")
     private Long index;
 
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
 
-    @JacksonXmlProperty(localName = "CodecName")
+    @JsonProperty("CodecName")
     private String codecName;
 
-    @JacksonXmlProperty(localName = "CodecLongName")
+    @JsonProperty("CodecLongName")
     private String codecLongName;
 
-    @JacksonXmlProperty(localName = "CodecTimeBase")
+    @JsonProperty("CodecTimeBase")
     private String codecTimeBase;
 
-    @JacksonXmlProperty(localName = "CodecTagString")
+    @JsonProperty("CodecTagString")
     private String codecTagString;
 
-    @JacksonXmlProperty(localName = "CodecTag")
+    @JsonProperty("CodecTag")
     private String codecTag;
 
-    @JacksonXmlProperty(localName = "TimeBase")
+    @JsonProperty("TimeBase")
     private String timeBase;
 
-    @JacksonXmlProperty(localName = "StartTime")
+    @JsonProperty("StartTime")
     private Double startTime;
 
-    @JacksonXmlProperty(localName = "Duration")
+    @JsonProperty("Duration")
     private Double duration;
 
-    @JacksonXmlProperty(localName = "Bitrate")
+    @JsonProperty("Bitrate")
     private Long bitrate;
 
-    @JacksonXmlProperty(localName = "FrameCount")
+    @JsonProperty("FrameCount")
     private Long frameCount;
 
-    @JacksonXmlProperty(localName = "Lyric")
+    @JsonProperty("Lyric")
     private String lyric;
 
-    @JacksonXmlProperty(localName = "SampleFormat")
+    @JsonProperty("SampleFormat")
     private String sampleFormat;
 
-    @JacksonXmlProperty(localName = "SampleRate")
+    @JsonProperty("SampleRate")
     private Long sampleRate;
 
-    @JacksonXmlProperty(localName = "Channels")
+    @JsonProperty("Channels")
     private Long channels;
 
-    @JacksonXmlProperty(localName = "ChannelLayout")
+    @JsonProperty("ChannelLayout")
     private String channelLayout;
 
     public AudioStream() {}

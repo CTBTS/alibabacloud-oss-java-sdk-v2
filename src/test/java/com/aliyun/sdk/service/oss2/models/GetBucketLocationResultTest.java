@@ -2,9 +2,9 @@ package com.aliyun.sdk.service.oss2.models;
 
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 import java.util.Map;
 
@@ -65,8 +65,10 @@ public class GetBucketLocationResultTest {
     public void testXmlBuilder() {
         String xml = "<LocationConstraint>oss-cn-hangzhou</LocationConstraint>";
 
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         try {
             String innerBody = xmlMapper.readValue(xml, String.class);

@@ -1,24 +1,25 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the information about a single aggregate operation.
  */
-@JacksonXmlRootElement(localName = "Aggregation")
+@JsonRootName("Aggregation")
 public final class MetaQueryAggregation {
-    @JacksonXmlProperty(localName = "Field")
+    @JsonProperty("Field")
     private String field;
 
-    @JacksonXmlProperty(localName = "Operation")
+    @JsonProperty("Operation")
     private String operation;
 
-    @JacksonXmlProperty(localName = "Value")
+    @JsonProperty("Value")
     private Double value;
 
-    @JacksonXmlProperty(localName = "Groups")
+    @JsonProperty("Groups")
     private MetaQueryGroups groups;
 
     public MetaQueryAggregation() {}

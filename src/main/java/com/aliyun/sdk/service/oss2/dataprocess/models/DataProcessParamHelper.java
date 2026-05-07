@@ -1,7 +1,7 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 import java.util.List;
 
@@ -9,10 +9,13 @@ import java.util.List;
  * Helper class for converting complex typed parameters to JSON query parameter strings.
  */
 public final class DataProcessParamHelper {
-    private static final ObjectMapper JSON_MAPPER = new ObjectMapper()
-            .setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    private static final JsonMapper JSON_MAPPER = JsonMapper.builderWithJackson2Defaults()
+            .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                    .withContentInclusion(JsonInclude.Include.NON_NULL))
+            .build();
 
-    private DataProcessParamHelper() {}
+    private DataProcessParamHelper() {
+    }
 
     /**
      * Converts a list of WorkflowParameter to a JSON string for use as a query parameter.

@@ -2,7 +2,6 @@ package com.aliyun.sdk.service.oss2.vectors.models;
 
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.vectors.transform.SerdeVectorBucketBasic;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import java.util.AbstractMap;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -83,7 +82,7 @@ public class PutVectorBucketRequestTest {
     }
 
     @Test
-    public void bodyBuilder() throws JsonProcessingException {
+    public void bodyBuilder() {
         PutVectorBucketRequest request = PutVectorBucketRequest.newBuilder()
                 .bucket("body-test-bucket")
                 .resourceGroupId("rg-body")

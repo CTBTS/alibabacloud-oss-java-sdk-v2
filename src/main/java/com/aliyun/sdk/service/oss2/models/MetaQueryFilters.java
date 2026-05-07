@@ -1,19 +1,21 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Container for filter conditions, supporting logical operators AND and OR as well as comparison operators.
  * Filter expressions are separated by commas (,) indicating an AND relationship, while individual Filter expressions are connected with OR relationship.
  */
- @JacksonXmlRootElement(localName = "Filters")
+@JsonRootName("Filters")
 public final class MetaQueryFilters {
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Filter")
+    @JsonProperty("Filter")
     private List<String> filter;
 
     public MetaQueryFilters() {}

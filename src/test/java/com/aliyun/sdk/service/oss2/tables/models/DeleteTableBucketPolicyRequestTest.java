@@ -3,10 +3,9 @@ package com.aliyun.sdk.service.oss2.tables.models;
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.tables.transform.SerdeTableBucketConfigBasic;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 import java.util.AbstractMap;
 
@@ -65,9 +64,11 @@ public class DeleteTableBucketPolicyRequestTest {
     }
 
     @Test
-    public void jsonBuilder() throws JsonProcessingException {
-        ObjectMapper jsonMapper = new JsonMapper();
-        jsonMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    public void jsonBuilder() {
+        ObjectMapper jsonMapper = JsonMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         DeleteTableBucketPolicyRequest request = DeleteTableBucketPolicyRequest.newBuilder()
                 .tableBucketARN("arn:acs:oss-tables:cn-hangzhou:123456789012:bucket/test-bucket")

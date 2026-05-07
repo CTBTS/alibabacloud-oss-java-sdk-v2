@@ -2,8 +2,6 @@ package com.aliyun.sdk.service.oss2.dataprocess.models;
 
 import com.aliyun.sdk.service.oss2.models.RequestModel;
 
-import static java.util.Objects.requireNonNull;
-
 /**
  * The request for the RestartDataPipeline operation.
  */

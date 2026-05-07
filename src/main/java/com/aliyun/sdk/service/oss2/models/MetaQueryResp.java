@@ -1,22 +1,23 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Container for data index query results.
  * Data index query response body.
  */
- @JacksonXmlRootElement(localName = "MetaQuery")
+@JsonRootName("MetaQuery")
 public final class MetaQueryResp {  
-    @JacksonXmlProperty(localName = "Files")
+    @JsonProperty("Files")
     private MetaQueryFiles files;
     
-    @JacksonXmlProperty(localName = "NextToken")
+    @JsonProperty("NextToken")
     private String nextToken;
     
-    @JacksonXmlProperty(localName = "Aggregations")
+    @JsonProperty("Aggregations")
     private MetaQueryAggregations aggregations;
 
     public MetaQueryResp() {}

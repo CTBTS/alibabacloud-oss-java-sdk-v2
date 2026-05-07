@@ -1,18 +1,20 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores allowed features.
  */
- @JacksonXmlRootElement(localName = "AllowedFeatures")
+@JsonRootName("AllowedFeatures")
 public final class ObjectProcessAllowedFeatures {
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "AllowedFeature")
+    @JsonProperty("AllowedFeature")
     private List<String> allowedFeature;
 
     public ObjectProcessAllowedFeatures() {}

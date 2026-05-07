@@ -1,37 +1,37 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
-@JacksonXmlRootElement(localName = "Label")
+@JsonRootName("Label")
 public final class Label {
 
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
 
-    @JacksonXmlProperty(localName = "LabelName")
+    @JsonProperty("LabelName")
     private String labelName;
 
-    @JacksonXmlProperty(localName = "LabelLevel")
+    @JsonProperty("LabelLevel")
     private Long labelLevel;
 
-    @JacksonXmlProperty(localName = "LabelConfidence")
+    @JsonProperty("LabelConfidence")
     private Float labelConfidence;
 
-    @JacksonXmlProperty(localName = "ParentLabelName")
+    @JsonProperty("ParentLabelName")
     private String parentLabelName;
 
-    @JacksonXmlProperty(localName = "CentricScore")
+    @JsonProperty("CentricScore")
     private Float centricScore;
 
-    @JacksonXmlProperty(localName = "LabelAlias")
+    @JsonProperty("LabelAlias")
     private String labelAlias;
 
     @JacksonXmlElementWrapper(localName = "Clips")
-    @JacksonXmlProperty(localName = "Clip")
+    @JsonProperty("Clip")
     private List<Clip> clips;
 
     public Label() {}

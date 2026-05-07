@@ -1,19 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container for the information about the bucket owner.
  */
-@JacksonXmlRootElement(localName = "Owner")
+@JsonRootName("Owner")
 public final class Owner {
-    @JacksonXmlProperty(localName = "ID")
+    @JsonProperty("ID")
     private String id;
 
-    @JacksonXmlProperty(localName = "DisplayName")
+    @JsonProperty("DisplayName")
     private String displayName;
 
     public Owner() {

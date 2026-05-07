@@ -1,7 +1,8 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.junit.jupiter.api.Test;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -163,8 +164,10 @@ public class GetBucketStatResultTest {
                         "  <DeleteMarkerCount>1234355467575856878</DeleteMarkerCount>\n" +
                         "</BucketStat>";
 
-        XmlMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL);
+        XmlMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         BucketStat innerBody = xmlMapper.readValue(xml, BucketStat.class);
         GetBucketStatResult result = GetBucketStatResult.newBuilder()

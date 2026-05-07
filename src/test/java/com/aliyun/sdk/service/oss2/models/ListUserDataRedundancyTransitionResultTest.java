@@ -4,7 +4,6 @@ import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketRedundancyTransition;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import java.time.Instant;
 import java.util.Arrays;
@@ -175,7 +174,7 @@ public class ListUserDataRedundancyTransitionResultTest {
     }
 
     @Test
-    public void testXmlBuilderWithEncoding() throws JsonProcessingException {
+    public void testXmlBuilderWithEncoding() {
         String xml =
                 "<ListBucketDataRedundancyTransition>\n" +
                 "  <IsTruncated>false</IsTruncated>\n" +

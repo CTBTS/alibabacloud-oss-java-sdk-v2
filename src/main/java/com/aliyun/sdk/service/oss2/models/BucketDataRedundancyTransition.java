@@ -1,39 +1,40 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatterBuilder;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container in which the redundancy type conversion task is stored.
  */
- @JacksonXmlRootElement(localName = "BucketDataRedundancyTransition")
+@JsonRootName("BucketDataRedundancyTransition")
 public final class BucketDataRedundancyTransition {  
-    @JacksonXmlProperty(localName = "Bucket")
+    @JsonProperty("Bucket")
     private String bucket;
     
-    @JacksonXmlProperty(localName = "TaskId")
+    @JsonProperty("TaskId")
     private String taskId;
     
-    @JacksonXmlProperty(localName = "Status")
+    @JsonProperty("Status")
     private String status;
     
-    @JacksonXmlProperty(localName = "CreateTime")
+    @JsonProperty("CreateTime")
     private String createTime;
     
-    @JacksonXmlProperty(localName = "StartTime")
+    @JsonProperty("StartTime")
     private String startTime;
     
-    @JacksonXmlProperty(localName = "ProcessPercentage")
+    @JsonProperty("ProcessPercentage")
     private Integer processPercentage;
     
-    @JacksonXmlProperty(localName = "EstimatedRemainingTime")
+    @JsonProperty("EstimatedRemainingTime")
     private Long estimatedRemainingTime;
     
-    @JacksonXmlProperty(localName = "EndTime")
+    @JsonProperty("EndTime")
     private String endTime;
 
     public BucketDataRedundancyTransition() {}

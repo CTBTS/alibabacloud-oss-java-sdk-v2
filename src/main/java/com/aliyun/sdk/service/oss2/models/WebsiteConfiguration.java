@@ -1,21 +1,22 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The root node for website configuration.
  */
- @JacksonXmlRootElement(localName = "WebsiteConfiguration")
+@JsonRootName("WebsiteConfiguration")
 public final class WebsiteConfiguration {  
-    @JacksonXmlProperty(localName = "RoutingRules")
+    @JsonProperty("RoutingRules")
     private RoutingRules routingRules;
  
-    @JacksonXmlProperty(localName = "IndexDocument")
+    @JsonProperty("IndexDocument")
     private IndexDocument indexDocument;
  
-    @JacksonXmlProperty(localName = "ErrorDocument")
+    @JsonProperty("ErrorDocument")
     private ErrorDocument errorDocument;
 
     public WebsiteConfiguration() {}

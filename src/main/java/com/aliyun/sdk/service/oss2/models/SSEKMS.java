@@ -1,16 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the customer master key (CMK) used for SSE-KMS encryption.
  */
-@JacksonXmlRootElement(localName = "SSEKMS")
+@JsonRootName("SSEKMS")
 public final class SSEKMS {
-    @JacksonXmlProperty(localName = "KeyId")
+    @JsonProperty("KeyId")
     private String keyId;
 
     public SSEKMS() {

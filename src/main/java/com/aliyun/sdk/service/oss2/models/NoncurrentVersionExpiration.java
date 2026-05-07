@@ -1,15 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The delete operation that you want OSS to perform on the previous versions of the objects that match the lifecycle rule when the previous versions expire.
  */
- @JacksonXmlRootElement(localName = "NoncurrentVersionExpiration")
+@JsonRootName("NoncurrentVersionExpiration")
 public final class NoncurrentVersionExpiration {  
-    @JacksonXmlProperty(localName = "NoncurrentDays")
+    @JsonProperty("NoncurrentDays")
     private Integer noncurrentDays;
 
     public NoncurrentVersionExpiration() {}

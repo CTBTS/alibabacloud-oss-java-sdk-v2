@@ -1,24 +1,25 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The authentication information for the origin server in mirror-based back-to-origin.
  */
- @JacksonXmlRootElement(localName = "MirrorAuth")
+@JsonRootName("MirrorAuth")
 public final class MirrorAuth {  
-    @JacksonXmlProperty(localName = "AccessKeyId")
+    @JsonProperty("AccessKeyId")
     private String accessKeyId;
  
-    @JacksonXmlProperty(localName = "AccessKeySecret")
+    @JsonProperty("AccessKeySecret")
     private String accessKeySecret;
  
-    @JacksonXmlProperty(localName = "AuthType")
+    @JsonProperty("AuthType")
     private String authType;
  
-    @JacksonXmlProperty(localName = "Region")
+    @JsonProperty("Region")
     private String region;
 
     public MirrorAuth() {}

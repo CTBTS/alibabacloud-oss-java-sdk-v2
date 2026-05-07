@@ -1,27 +1,28 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.time.Instant;
 import java.time.ZoneOffset;
+
 import static com.aliyun.sdk.service.oss2.utils.DateUtils.ISO8601_DATE_FORMAT;
 import static java.util.Objects.requireNonNull;
 
 /**
  * The delete operation to perform on objects based on the lifecycle rule. For an object in a versioning-enabled bucket, the delete operation specified by this parameter is performed only on the current version of the object.The period of time from when the objects expire to when the objects are deleted must be longer than the period of time from when the objects expire to when the storage class of the objects is converted to IA or Archive.
  */
- @JacksonXmlRootElement(localName = "Expiration")
+@JsonRootName("Expiration")
 public final class LifecycleRuleExpiration {
-    @JacksonXmlProperty(localName = "CreatedBeforeDate")
+    @JsonProperty("CreatedBeforeDate")
     private String createdBeforeDate;
  
-    @JacksonXmlProperty(localName = "Days")
+    @JsonProperty("Days")
     private Integer days;
  
-    @JacksonXmlProperty(localName = "ExpiredObjectDeleteMarker")
+    @JsonProperty("ExpiredObjectDeleteMarker")
     private Boolean expiredObjectDeleteMarker;
  
-    @JacksonXmlProperty(localName = "Date")
+    @JsonProperty("Date")
     private String date;
 
     public LifecycleRuleExpiration() {}

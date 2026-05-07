@@ -1,21 +1,22 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the default retention settings.
  */
-@JacksonXmlRootElement(localName = "DefaultRetention")
+@JsonRootName("DefaultRetention")
 public final class ObjectWormConfigurationDefaultRetention {
-    @JacksonXmlProperty(localName = "Mode")
+    @JsonProperty("Mode")
     private String mode;
 
-    @JacksonXmlProperty(localName = "Days")
+    @JsonProperty("Days")
     private Integer days;
 
-    @JacksonXmlProperty(localName = "Years")
+    @JsonProperty("Years")
     private Integer years;
 
     public ObjectWormConfigurationDefaultRetention() {}

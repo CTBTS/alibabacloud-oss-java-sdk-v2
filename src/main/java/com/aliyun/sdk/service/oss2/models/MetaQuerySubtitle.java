@@ -1,24 +1,25 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Subtitle information in the vector retrieval results of data indexing
  */
- @JacksonXmlRootElement(localName = "Subtitle")
+@JsonRootName("Subtitle")
 public final class MetaQuerySubtitle {  
-    @JacksonXmlProperty(localName = "CodecName")
+    @JsonProperty("CodecName")
     private String codecName;
  
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
  
-    @JacksonXmlProperty(localName = "StartTime")
+    @JsonProperty("StartTime")
     private Double startTime;
  
-    @JacksonXmlProperty(localName = "Duration")
+    @JsonProperty("Duration")
     private Double duration;
 
     public MetaQuerySubtitle() {}

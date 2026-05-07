@@ -3,7 +3,6 @@ package com.aliyun.sdk.service.oss2.dataprocess.models;
 import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.dataprocess.transform.SerdeDatasetBasic;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -137,7 +136,7 @@ public class SemanticQueryResultTest {
     }
 
     @Test
-    public void testXmlBuilder() throws JsonProcessingException {
+    public void testXmlBuilder() {
         String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "<SemanticQueryResponse>\n" +
                 "    <Files>\n" +
@@ -277,7 +276,7 @@ public class SemanticQueryResultTest {
     }
 
     @Test
-    public void testXmlBuilderWithLabelsAndSceneElements() throws JsonProcessingException {
+    public void testXmlBuilderWithLabelsAndSceneElements() {
         String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "<SemanticQueryResponse>\n" +
                 "    <Files>\n" +

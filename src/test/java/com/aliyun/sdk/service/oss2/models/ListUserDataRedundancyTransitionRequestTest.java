@@ -4,12 +4,13 @@ import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketRedundancyTransition;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
+
 import java.util.AbstractMap;
 import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ListUserDataRedundancyTransitionRequestTest {
@@ -46,7 +47,7 @@ public class ListUserDataRedundancyTransitionRequestTest {
                 new AbstractMap.SimpleEntry<>("continuation-token", "test-token"),
                 new AbstractMap.SimpleEntry<>("max-keys", "100")
         );
-        
+
         assertThat(request.continuationToken()).isEqualTo("test-token");
         assertThat(request.maxKeys()).isEqualTo(100L);
     }
@@ -76,7 +77,7 @@ public class ListUserDataRedundancyTransitionRequestTest {
                 new AbstractMap.SimpleEntry<>("continuation-token", "original-token"),
                 new AbstractMap.SimpleEntry<>("max-keys", "50")
         );
-        
+
         assertThat(copy.continuationToken()).isEqualTo("original-token");
         assertThat(copy.maxKeys()).isEqualTo(50L);
     }
@@ -87,15 +88,17 @@ public class ListUserDataRedundancyTransitionRequestTest {
                 .continuationToken("header-test-token")
                 .maxKeys(200L)
                 .build();
-                
+
         assertThat(request.continuationToken()).isEqualTo("header-test-token");
         assertThat(request.maxKeys()).isEqualTo(200L);
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    public void xmlBuilder() {
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         ListUserDataRedundancyTransitionRequest request = ListUserDataRedundancyTransitionRequest.newBuilder()
                 .continuationToken("xml-test-token")

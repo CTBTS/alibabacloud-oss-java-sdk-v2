@@ -1,30 +1,30 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "Address")
+@JsonRootName("Address")
 public final class Address {
 
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
 
-    @JacksonXmlProperty(localName = "AddressLine")
+    @JsonProperty("AddressLine")
     private String addressLine;
 
-    @JacksonXmlProperty(localName = "Country")
+    @JsonProperty("Country")
     private String country;
 
-    @JacksonXmlProperty(localName = "Province")
+    @JsonProperty("Province")
     private String province;
 
-    @JacksonXmlProperty(localName = "City")
+    @JsonProperty("City")
     private String city;
 
-    @JacksonXmlProperty(localName = "District")
+    @JsonProperty("District")
     private String district;
 
-    @JacksonXmlProperty(localName = "Township")
+    @JsonProperty("Township")
     private String township;
 
     public Address() {

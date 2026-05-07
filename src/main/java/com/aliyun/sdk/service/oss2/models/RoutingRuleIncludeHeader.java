@@ -1,24 +1,25 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The rule will only be matched when the request contains the specified Header with the specified value. Up to 10 of these can be specified in the container.
  */
- @JacksonXmlRootElement(localName = "IncludeHeader")
+@JsonRootName("IncludeHeader")
 public final class RoutingRuleIncludeHeader {
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     private String key;
  
-    @JacksonXmlProperty(localName = "Equals")
+    @JsonProperty("Equals")
     private String equals;
  
-    @JacksonXmlProperty(localName = "StartsWith")
+    @JsonProperty("StartsWith")
     private String startsWith;
  
-    @JacksonXmlProperty(localName = "EndsWith")
+    @JsonProperty("EndsWith")
     private String endsWith;
 
     public RoutingRuleIncludeHeader() {}

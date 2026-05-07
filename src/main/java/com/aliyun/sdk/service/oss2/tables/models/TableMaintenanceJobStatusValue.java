@@ -1,7 +1,6 @@
 package com.aliyun.sdk.service.oss2.tables.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.time.Instant;
 
 public class TableMaintenanceJobStatusValue {

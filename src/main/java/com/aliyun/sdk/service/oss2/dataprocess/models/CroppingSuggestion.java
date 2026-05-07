@@ -1,18 +1,18 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "CroppingSuggestion")
+@JsonRootName("CroppingSuggestion")
 public final class CroppingSuggestion {
 
-    @JacksonXmlProperty(localName = "AspectRatio")
+    @JsonProperty("AspectRatio")
     private String aspectRatio;
 
-    @JacksonXmlProperty(localName = "Confidence")
+    @JsonProperty("Confidence")
     private Float confidence;
 
-    @JacksonXmlProperty(localName = "Boundary")
+    @JsonProperty("Boundary")
     private Boundary boundary;
 
     public CroppingSuggestion() {

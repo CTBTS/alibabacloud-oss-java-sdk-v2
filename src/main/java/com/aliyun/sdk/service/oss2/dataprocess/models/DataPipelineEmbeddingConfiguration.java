@@ -1,24 +1,23 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Embedding configuration for data pipeline.
  */
-@JacksonXmlRootElement(localName = "DataPipelineEmbeddingConfiguration")
+@JsonRootName("DataPipelineEmbeddingConfiguration")
 public final class DataPipelineEmbeddingConfiguration {
-    @JacksonXmlProperty(localName = "EmbeddingProvider")
+    @JsonProperty("EmbeddingProvider")
     private String embeddingProvider;
 
-    @JacksonXmlProperty(localName = "ApiKey")
+    @JsonProperty("ApiKey")
     private String apiKey;
 
-    @JacksonXmlProperty(localName = "Model")
+    @JsonProperty("Model")
     private String model;
 
-    @JacksonXmlProperty(localName = "FPS")
+    @JsonProperty("FPS")
     private Float fps;
 
     public DataPipelineEmbeddingConfiguration() {

@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The condition that is matched by objects to which the lifecycle rule does not apply.
  */
-@JacksonXmlRootElement(localName = "Not")
+@JsonRootName("Not")
 public final class LifecycleRuleNot {  
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     private String prefix;
  
-    @JacksonXmlProperty(localName = "Tag")
+    @JsonProperty("Tag")
     private Tag tag;
 
     public LifecycleRuleNot() {}

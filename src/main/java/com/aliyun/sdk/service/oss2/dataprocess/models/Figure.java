@@ -1,87 +1,87 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "Figure")
+@JsonRootName("Figure")
 public final class Figure {
 
-    @JacksonXmlProperty(localName = "FigureId")
+    @JsonProperty("FigureId")
     private String figureId;
 
-    @JacksonXmlProperty(localName = "FigureConfidence")
+    @JsonProperty("FigureConfidence")
     private Float figureConfidence;
 
-    @JacksonXmlProperty(localName = "FigureClusterId")
+    @JsonProperty("FigureClusterId")
     private String figureClusterId;
 
-    @JacksonXmlProperty(localName = "FigureClusterConfidence")
+    @JsonProperty("FigureClusterConfidence")
     private Float figureClusterConfidence;
 
-    @JacksonXmlProperty(localName = "FigureType")
+    @JsonProperty("FigureType")
     private String figureType;
 
-    @JacksonXmlProperty(localName = "Age")
+    @JsonProperty("Age")
     private Long age;
 
-    @JacksonXmlProperty(localName = "AgeSD")
+    @JsonProperty("AgeSD")
     private Float ageSD;
 
-    @JacksonXmlProperty(localName = "Gender")
+    @JsonProperty("Gender")
     private String gender;
 
-    @JacksonXmlProperty(localName = "GenderConfidence")
+    @JsonProperty("GenderConfidence")
     private Float genderConfidence;
 
-    @JacksonXmlProperty(localName = "Emotion")
+    @JsonProperty("Emotion")
     private String emotion;
 
-    @JacksonXmlProperty(localName = "EmotionConfidence")
+    @JsonProperty("EmotionConfidence")
     private Float emotionConfidence;
 
-    @JacksonXmlProperty(localName = "FaceQuality")
+    @JsonProperty("FaceQuality")
     private Float faceQuality;
 
-    @JacksonXmlProperty(localName = "Boundary")
+    @JsonProperty("Boundary")
     private Boundary boundary;
 
-    @JacksonXmlProperty(localName = "Mouth")
+    @JsonProperty("Mouth")
     private String mouth;
 
-    @JacksonXmlProperty(localName = "MouthConfidence")
+    @JsonProperty("MouthConfidence")
     private Float mouthConfidence;
 
-    @JacksonXmlProperty(localName = "Beard")
+    @JsonProperty("Beard")
     private String beard;
 
-    @JacksonXmlProperty(localName = "BeardConfidence")
+    @JsonProperty("BeardConfidence")
     private Float beardConfidence;
 
-    @JacksonXmlProperty(localName = "Hat")
+    @JsonProperty("Hat")
     private String hat;
 
-    @JacksonXmlProperty(localName = "HatConfidence")
+    @JsonProperty("HatConfidence")
     private Float hatConfidence;
 
-    @JacksonXmlProperty(localName = "Mask")
+    @JsonProperty("Mask")
     private String mask;
 
-    @JacksonXmlProperty(localName = "MaskConfidence")
+    @JsonProperty("MaskConfidence")
     private Float maskConfidence;
 
-    @JacksonXmlProperty(localName = "Glasses")
+    @JsonProperty("Glasses")
     private String glasses;
 
-    @JacksonXmlProperty(localName = "GlassesConfidence")
+    @JsonProperty("GlassesConfidence")
     private Float glassesConfidence;
 
-    @JacksonXmlProperty(localName = "Sharpness")
+    @JsonProperty("Sharpness")
     private Float sharpness;
 
-    @JacksonXmlProperty(localName = "Attractive")
+    @JsonProperty("Attractive")
     private Float attractive;
 
-    @JacksonXmlProperty(localName = "HeadPose")
+    @JsonProperty("HeadPose")
     private HeadPose headPose;
 
     public Figure() {}

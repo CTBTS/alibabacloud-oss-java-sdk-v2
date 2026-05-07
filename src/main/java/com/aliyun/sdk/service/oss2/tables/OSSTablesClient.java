@@ -5,7 +5,6 @@ import com.aliyun.sdk.service.oss2.OperationOptions;
 import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.tables.models.*;
 
-
 /**
  * A client for accessing OSS Tables synchronously.
  * This can be created using the static {@link #newBuilder()} method.

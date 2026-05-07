@@ -1,8 +1,7 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.time.Instant;
 
 import static java.util.Objects.requireNonNull;
@@ -10,33 +9,33 @@ import static java.util.Objects.requireNonNull;
 /**
  * The container that stores the bucket information.
  */
-@JacksonXmlRootElement(localName = "Bucket")
+@JsonRootName("Bucket")
 public final class BucketSummary {
-    @JacksonXmlProperty(localName = "ExtranetEndpoint")
+    @JsonProperty("ExtranetEndpoint")
     private String extranetEndpoint;
 
-    @JacksonXmlProperty(localName = "ResourceGroupId")
+    @JsonProperty("ResourceGroupId")
     private String resourceGroupId;
 
-    @JacksonXmlProperty(localName = "Comment")
+    @JsonProperty("Comment")
     private String comment;
 
-    @JacksonXmlProperty(localName = "Location")
+    @JsonProperty("Location")
     private String location;
 
-    @JacksonXmlProperty(localName = "Name")
+    @JsonProperty("Name")
     private String name;
 
-    @JacksonXmlProperty(localName = "StorageClass")
+    @JsonProperty("StorageClass")
     private String storageClass;
 
-    @JacksonXmlProperty(localName = "CreationDate")
+    @JsonProperty("CreationDate")
     private Instant creationDate;
 
-    @JacksonXmlProperty(localName = "IntranetEndpoint")
+    @JsonProperty("IntranetEndpoint")
     private String intranetEndpoint;
 
-    @JacksonXmlProperty(localName = "Region")
+    @JsonProperty("Region")
     private String region;
 
     public BucketSummary() {

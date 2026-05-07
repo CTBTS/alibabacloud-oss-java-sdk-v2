@@ -1,25 +1,25 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
-@JacksonXmlRootElement(localName = "AggregationInfo")
+@JsonRootName("AggregationInfo")
 public final class AggregationInfo {
 
-    @JacksonXmlProperty(localName = "Field")
+    @JsonProperty("Field")
     private String field;
 
-    @JacksonXmlProperty(localName = "Operation")
+    @JsonProperty("Operation")
     private String operation;
 
-    @JacksonXmlProperty(localName = "Value")
+    @JsonProperty("Value")
     private Double value;
 
     @JacksonXmlElementWrapper(localName = "Groups")
-    @JacksonXmlProperty(localName = "AggregationGroup")
+    @JsonProperty("AggregationGroup")
     private List<AggregationGroup> groups;
 
     public AggregationInfo() {}

@@ -22,7 +22,7 @@ import com.aliyun.sdk.service.oss2.types.AddressStyleType;
 import com.aliyun.sdk.service.oss2.types.AuthMethodType;
 import com.aliyun.sdk.service.oss2.types.FeatureFlagsType;
 import com.aliyun.sdk.service.oss2.utils.*;
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 
 import java.net.URI;
 import java.time.Instant;
@@ -604,16 +604,14 @@ public class ClientImpl implements AutoCloseable {
                         if (headers.containsKey("x-oss-error-type")) {
                             errorFields.put("Code", headers.get("x-oss-error-type"));
                             if (root.has("message")) {
-                                errorFields.put("Message", root.get("message").textValue());
+                                errorFields.put("Message", root.get("message").stringValue());
                             } else {
                                 errorFields.put("Message", toErrorMessage("Not found key message", data));
                             }
                         } else {
                             if (root.has("Error")) {
-                                Iterator<Map.Entry<String, JsonNode>> iterator = root.get("Error").fields();
-                                while (iterator.hasNext()) {
-                                    Map.Entry<String, JsonNode> entry = iterator.next();
-                                    errorFields.put(entry.getKey(), entry.getValue().asText());
+                                for (Map.Entry<String, JsonNode> entry : root.get("Error").properties()) {
+                                    errorFields.put(entry.getKey(), entry.getValue().asString());
                                 }
                             } else {
                                 errorFields.put("Message", toErrorMessage("Not found key Error", data));
@@ -632,10 +630,8 @@ public class ClientImpl implements AutoCloseable {
                     if (data.length > 0) {
                         JsonNode root = XmlUtils.getXmlRootElement(data);
                         if (root.has("Error")) {
-                            Iterator<Map.Entry<String, JsonNode>> iterator = root.get("Error").fields();
-                            while (iterator.hasNext()) {
-                                Map.Entry<String, JsonNode> entry = iterator.next();
-                                errorFields.put(entry.getKey(), entry.getValue().asText());
+                            for (Map.Entry<String, JsonNode> entry : root.get("Error").properties()) {
+                                errorFields.put(entry.getKey(), entry.getValue().asString());
                             }
                         } else {
                             errorFields.put("Message", toErrorMessage("Not found tag <Error>", data));

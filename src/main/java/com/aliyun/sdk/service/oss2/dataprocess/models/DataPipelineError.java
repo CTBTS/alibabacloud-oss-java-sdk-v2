@@ -1,21 +1,20 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Error configuration for data pipeline.
  */
-@JacksonXmlRootElement(localName = "DataPipelineError")
+@JsonRootName("DataPipelineError")
 public final class DataPipelineError {
-    @JacksonXmlProperty(localName = "ErrorMode")
+    @JsonProperty("ErrorMode")
     private String errorMode;
 
-    @JacksonXmlProperty(localName = "ErrorBucket")
+    @JsonProperty("ErrorBucket")
     private String errorBucket;
 
-    @JacksonXmlProperty(localName = "ErrorPrefix")
+    @JsonProperty("ErrorPrefix")
     private String errorPrefix;
 
     public DataPipelineError() {

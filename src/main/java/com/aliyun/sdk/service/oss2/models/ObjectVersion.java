@@ -1,47 +1,45 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import java.time.Instant;
-import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the versions of objects, excluding delete markers.
  */
- @JacksonXmlRootElement(localName = "ObjectVersion")
+@JsonRootName("ObjectVersion")
 public final class ObjectVersion {  
-    @JacksonXmlProperty(localName = "Size")
+    @JsonProperty("Size")
     private Long size;
  
-    @JacksonXmlProperty(localName = "Owner")
+    @JsonProperty("Owner")
     private Owner owner;
  
-    @JacksonXmlProperty(localName = "RestoreInfo")
+    @JsonProperty("RestoreInfo")
     private String restoreInfo;
  
-    @JacksonXmlProperty(localName = "TransitionTime")
+    @JsonProperty("TransitionTime")
     private Instant transitionTime;
  
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     private String key;
  
-    @JacksonXmlProperty(localName = "IsLatest")
+    @JsonProperty("IsLatest")
     private Boolean isLatest;
  
-    @JacksonXmlProperty(localName = "LastModified")
+    @JsonProperty("LastModified")
     private Instant lastModified;
  
-    @JacksonXmlProperty(localName = "ETag")
+    @JsonProperty("ETag")
     private String eTag;
  
-    @JacksonXmlProperty(localName = "VersionId")
+    @JsonProperty("VersionId")
     private String versionId;
  
-    @JacksonXmlProperty(localName = "StorageClass")
+    @JsonProperty("StorageClass")
     private String storageClass;
 
     public ObjectVersion() {}

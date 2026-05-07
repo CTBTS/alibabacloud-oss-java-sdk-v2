@@ -1,24 +1,26 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores inventory configuration list.
  */
- @JacksonXmlRootElement(localName = "ListInventoryConfigurationsResult")
+@JsonRootName("ListInventoryConfigurationsResult")
 public final class ListInventoryConfigurationsResult {  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "InventoryConfiguration")
+    @JsonProperty("InventoryConfiguration")
     private List<InventoryConfiguration> inventoryConfigurations;
  
-    @JacksonXmlProperty(localName = "IsTruncated")
+    @JsonProperty("IsTruncated")
     private Boolean isTruncated;
  
-    @JacksonXmlProperty(localName = "NextContinuationToken")
+    @JsonProperty("NextContinuationToken")
     private String nextContinuationToken;
 
     public ListInventoryConfigurationsResult() {}

@@ -1,28 +1,28 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores complete multipart upload result for XML serialization.
  */
-@JacksonXmlRootElement(localName = "CompleteMultipartUploadResult")
+@JsonRootName("CompleteMultipartUploadResult")
 public final class CompleteMultipartUploadResultXml {
-    @JacksonXmlProperty(localName = "EncodingType")
+    @JsonProperty("EncodingType")
     private String encodingType;
 
-    @JacksonXmlProperty(localName = "Location")
+    @JsonProperty("Location")
     private String location;
 
-    @JacksonXmlProperty(localName = "Bucket")
+    @JsonProperty("Bucket")
     private String bucket;
 
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     private String key;
 
-    @JacksonXmlProperty(localName = "ETag")
+    @JsonProperty("ETag")
     private String eTag;
 
     public CompleteMultipartUploadResultXml() {

@@ -1,9 +1,10 @@
 package com.aliyun.sdk.service.oss2.transfermanager;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,7 +18,7 @@ import java.security.NoSuchAlgorithmException;
  */
 class DownloadCheckpoint {
 
-    private static final ObjectMapper MAPPER = new ObjectMapper();
+    private static final JsonMapper MAPPER = JsonMapper.builderWithJackson2Defaults().build();
 
     String cpDirPath;
     String cpFilePath;

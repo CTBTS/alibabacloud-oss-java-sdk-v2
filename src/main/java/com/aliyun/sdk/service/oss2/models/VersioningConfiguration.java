@@ -1,19 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the versioning state of the bucket.
  */
- @JacksonXmlRootElement(localName = "VersioningConfiguration")
+@JsonRootName("VersioningConfiguration")
 public final class VersioningConfiguration {  
-    @JacksonXmlProperty(localName = "Status")
+    @JsonProperty("Status")
     private String status;
 
     public VersioningConfiguration() {}

@@ -1,21 +1,21 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
 /**
  * XML response body for the ListDatasets operation.
  */
-@JacksonXmlRootElement(localName = "ListDatasetsResponse")
+@JsonRootName("ListDatasetsResponse")
 public final class ListDatasetsResponseBody {
-    @JacksonXmlProperty(localName = "NextToken")
+    @JsonProperty("NextToken")
     private String nextToken;
 
     @JacksonXmlElementWrapper(localName = "Datasets")
-    @JacksonXmlProperty(localName = "Dataset")
+    @JsonProperty("Dataset")
     private List<Dataset> datasets;
 
     public ListDatasetsResponseBody() {}

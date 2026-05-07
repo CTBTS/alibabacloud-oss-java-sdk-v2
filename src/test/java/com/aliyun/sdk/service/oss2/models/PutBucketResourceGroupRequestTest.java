@@ -5,13 +5,14 @@ import com.aliyun.sdk.service.oss2.transform.SerdeBucketResourceGroup;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
+
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
 import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PutBucketResourceGroupRequestTest {
@@ -105,9 +106,11 @@ public class PutBucketResourceGroupRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    public void xmlBuilder() {
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         BucketResourceGroupConfiguration bucketResourceGroupConfiguration = BucketResourceGroupConfiguration.newBuilder()
                 .resourceGroupId("rg-aekz****")

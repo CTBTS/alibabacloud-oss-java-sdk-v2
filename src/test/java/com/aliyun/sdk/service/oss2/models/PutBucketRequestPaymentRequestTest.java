@@ -4,12 +4,13 @@ import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketRequestPayment;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
+
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PutBucketRequestPaymentRequestTest {
@@ -99,13 +100,15 @@ public class PutBucketRequestPaymentRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         String xml = "" +
                 "<RequestPaymentConfiguration>\n" +
                 "  <Payer>Requester</Payer>\n" +
                 "</RequestPaymentConfiguration>";
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
         RequestPaymentConfiguration xmlConfiguration = xmlMapper.readValue(xml, RequestPaymentConfiguration.class);
         String expectedXml = xmlMapper.writeValueAsString(xmlConfiguration);
 

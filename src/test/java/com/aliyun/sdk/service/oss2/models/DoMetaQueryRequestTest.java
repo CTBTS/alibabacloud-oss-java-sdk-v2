@@ -4,12 +4,13 @@ import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketMetaquery;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
+
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DoMetaQueryRequestTest {
@@ -33,11 +34,11 @@ public class DoMetaQueryRequestTest {
         String queryCondition = "{\"Field\": \"Size\",\"Value\": \"1048576\",\"Operation\": \"gt\"}";
         MetaQueryAggregation agg1 = MetaQueryAggregation.newBuilder().field("Size").operation("sum").build();
         MetaQueryAggregation agg2 = MetaQueryAggregation.newBuilder().field("Size").operation("max").build();
-        
+
         MetaQueryAggregations aggregationsContainer = MetaQueryAggregations.newBuilder()
                 .aggregation(java.util.Arrays.asList(agg1, agg2))
                 .build();
-        
+
         MetaQuery metaQuery = MetaQuery.newBuilder()
                 .nextToken("test-token")
                 .maxResults(5)
@@ -86,11 +87,11 @@ public class DoMetaQueryRequestTest {
     public void testFullBuilderSemantic() {
         // Create a MetaQuery for semantic mode
         String simpleQuery = "{\"Operation\":\"gt\", \"Field\": \"Size\", \"Value\": \"30\"}";
-        
+
         MetaQueryMediaTypes mediaTypes = MetaQueryMediaTypes.newBuilder()
                 .mediaTypes(java.util.Arrays.asList("image"))
                 .build();
-        
+
         MetaQuery metaQuery = MetaQuery.newBuilder()
                 .maxResults(99)
                 .query("俯瞰白雪覆盖的森林")
@@ -112,7 +113,7 @@ public class DoMetaQueryRequestTest {
     @Test
     public void testToBuilderPreserveState() {
         String queryCondition = "{\"Field\": \"Size\",\"Value\": \"1048576\",\"Operation\": \"gt\"}";
-        
+
         MetaQuery metaQuery = MetaQuery.newBuilder()
                 .nextToken("test-token")
                 .maxResults(5)
@@ -135,7 +136,7 @@ public class DoMetaQueryRequestTest {
     @Test
     public void testHeaderProperties() {
         String queryCondition = "{\"Field\": \"Size\",\"Value\": \"1048576\",\"Operation\": \"gt\"}";
-        
+
         MetaQuery metaQuery = MetaQuery.newBuilder()
                 .nextToken("test-token")
                 .maxResults(5)
@@ -154,7 +155,7 @@ public class DoMetaQueryRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         String xml = "" +
                 "<MetaQuery>\n" +
                 "  <NextToken>test-token</NextToken>\n" +
@@ -173,20 +174,22 @@ public class DoMetaQueryRequestTest {
                 "    </Aggregation>\n" +
                 "  </Aggregations>\n" +
                 "</MetaQuery>";
-                
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
         MetaQuery xmlConfiguration = xmlMapper.readValue(xml, MetaQuery.class);
         String expectedXml = xmlMapper.writeValueAsString(xmlConfiguration);
 
         String queryCondition = "{\"Field\": \"Size\",\"Value\": \"1048576\",\"Operation\": \"gt\"}";
         MetaQueryAggregation agg1 = MetaQueryAggregation.newBuilder().field("Size").operation("sum").build();
         MetaQueryAggregation agg2 = MetaQueryAggregation.newBuilder().field("Size").operation("max").build();
-        
+
         MetaQueryAggregations aggregationsContainer = MetaQueryAggregations.newBuilder()
                 .aggregation(java.util.Arrays.asList(agg1, agg2))
                 .build();
-        
+
         MetaQuery metaQuery = MetaQuery.newBuilder()
                 .nextToken("test-token")
                 .maxResults(5)
@@ -223,9 +226,9 @@ public class DoMetaQueryRequestTest {
         // Compare with expected XML
         assertThat(xmlContent).isEqualTo(expectedXml);
     }
-    
+
     @Test
-    public void xmlBuilderSemantic() throws JsonProcessingException {
+    public void xmlBuilderSemantic() {
         String xml = "" +
                 "<MetaQuery>\n" +
                 "  <MaxResults>99</MaxResults>\n" +
@@ -235,18 +238,20 @@ public class DoMetaQueryRequestTest {
                 "  </MediaTypes>\n" +
                 "  <SimpleQuery>{\"Operation\":\"gt\", \"Field\": \"Size\", \"Value\": \"30\"}</SimpleQuery>\n" +
                 "</MetaQuery>";
-                
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
         MetaQuery xmlConfiguration = xmlMapper.readValue(xml, MetaQuery.class);
         String expectedXml = xmlMapper.writeValueAsString(xmlConfiguration);
 
         String simpleQuery = "{\"Operation\":\"gt\", \"Field\": \"Size\", \"Value\": \"30\"}";
-        
+
         MetaQueryMediaTypes mediaTypes = MetaQueryMediaTypes.newBuilder()
                 .mediaTypes(java.util.Arrays.asList("image"))
                 .build();
-        
+
         MetaQuery metaQuery = MetaQuery.newBuilder()
                 .maxResults(99)
                 .query("俯瞰白雪覆盖的森林")

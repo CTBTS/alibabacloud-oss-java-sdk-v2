@@ -1,30 +1,31 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores information about the bucket in which exported inventory lists are stored.
  */
- @JacksonXmlRootElement(localName = "InventoryOSSBucketDestination")
+@JsonRootName("InventoryOSSBucketDestination")
 public final class InventoryOSSBucketDestination {  
-    @JacksonXmlProperty(localName = "Encryption")
+    @JsonProperty("Encryption")
     private InventoryEncryption encryption;
  
-    @JacksonXmlProperty(localName = "Format")
+    @JsonProperty("Format")
     private String format;
  
-    @JacksonXmlProperty(localName = "AccountId")
+    @JsonProperty("AccountId")
     private String accountId;
  
-    @JacksonXmlProperty(localName = "RoleArn")
+    @JsonProperty("RoleArn")
     private String roleArn;
  
-    @JacksonXmlProperty(localName = "Bucket")
+    @JsonProperty("Bucket")
     private String bucket;
  
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     private String prefix;
 
     public InventoryOSSBucketDestination() {}

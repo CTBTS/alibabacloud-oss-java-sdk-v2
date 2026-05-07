@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The headers that are sent to the origin. The specified headers are configured in the data returned by the origin regardless of whether the headers are contained in the request. This parameter takes effect only when the value of RedirectType is Mirror. You can specify up to 10 headers.
  */
-@JacksonXmlRootElement(localName = "Set")
+@JsonRootName("Set")
 public final class MirrorHeadersSet {
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     private String key;
 
-    @JacksonXmlProperty(localName = "Value")
+    @JsonProperty("Value")
     private String value;
 
     public MirrorHeadersSet() {}

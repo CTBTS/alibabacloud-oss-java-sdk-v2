@@ -3,11 +3,9 @@ package com.aliyun.sdk.service.oss2.models;
 import com.aliyun.sdk.service.oss2.models.internal.BucketInfoXml;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 import java.time.Instant;
 import java.util.Map;
@@ -208,7 +206,7 @@ public class GetBucketInfoResultTest {
     }
 
     @Test
-    public void testXmlBuilder() throws JsonProcessingException {
+    public void testXmlBuilder() {
         String xml =
                 "<BucketInfo>\n" +
                         "  <Bucket>\n" +
@@ -245,9 +243,10 @@ public class GetBucketInfoResultTest {
                         "  </Bucket>\n" +
                         "</BucketInfo>";
 
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.registerModule(new JavaTimeModule());
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         BucketInfoXml innerBody = xmlMapper.readValue(xml, BucketInfoXml.class);
         GetBucketInfoResult result = GetBucketInfoResult.newBuilder()

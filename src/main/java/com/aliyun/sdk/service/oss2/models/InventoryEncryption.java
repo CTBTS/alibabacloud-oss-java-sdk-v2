@@ -1,18 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the encryption method of exported inventory lists.
  */
- @JacksonXmlRootElement(localName = "InventoryEncryption")
+@JsonRootName("InventoryEncryption")
 public final class InventoryEncryption {  
-    @JacksonXmlProperty(localName = "SSE-OSS")
+    @JsonProperty("SSE-OSS")
     private String sseOss;
  
-    @JacksonXmlProperty(localName = "SSE-KMS")
+    @JsonProperty("SSE-KMS")
     private SSEKMS sseKms;
 
     public InventoryEncryption() {}

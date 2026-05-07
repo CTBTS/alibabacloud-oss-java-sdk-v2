@@ -1,45 +1,45 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "SubtitleStream")
+@JsonRootName("SubtitleStream")
 public final class SubtitleStream {
 
-    @JacksonXmlProperty(localName = "Index")
+    @JsonProperty("Index")
     private Long index;
 
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
 
-    @JacksonXmlProperty(localName = "CodecName")
+    @JsonProperty("CodecName")
     private String codecName;
 
-    @JacksonXmlProperty(localName = "CodecLongName")
+    @JsonProperty("CodecLongName")
     private String codecLongName;
 
-    @JacksonXmlProperty(localName = "CodecTagString")
+    @JsonProperty("CodecTagString")
     private String codecTagString;
 
-    @JacksonXmlProperty(localName = "CodecTag")
+    @JsonProperty("CodecTag")
     private String codecTag;
 
-    @JacksonXmlProperty(localName = "StartTime")
+    @JsonProperty("StartTime")
     private Double startTime;
 
-    @JacksonXmlProperty(localName = "Duration")
+    @JsonProperty("Duration")
     private Double duration;
 
-    @JacksonXmlProperty(localName = "Bitrate")
+    @JsonProperty("Bitrate")
     private Long bitrate;
 
-    @JacksonXmlProperty(localName = "Content")
+    @JsonProperty("Content")
     private String content;
 
-    @JacksonXmlProperty(localName = "Width")
+    @JsonProperty("Width")
     private Long width;
 
-    @JacksonXmlProperty(localName = "Height")
+    @JsonProperty("Height")
     private Long height;
 
     public SubtitleStream() {}

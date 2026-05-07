@@ -1,46 +1,46 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the information about an access point.
  */
- @JacksonXmlRootElement(localName = "GetAccessPointResult")
+@JsonRootName("GetAccessPointResult")
 public final class GetAccessPointResultXml {  
-    @JacksonXmlProperty(localName = "AccessPointName")
+    @JsonProperty("AccessPointName")
     private String accessPointName;
  
-    @JacksonXmlProperty(localName = "Bucket")
+    @JsonProperty("Bucket")
     private String bucket;
  
-    @JacksonXmlProperty(localName = "AccountId")
+    @JsonProperty("AccountId")
     private String accountId;
  
-    @JacksonXmlProperty(localName = "NetworkOrigin")
+    @JsonProperty("NetworkOrigin")
     private String networkOrigin;
  
-    @JacksonXmlProperty(localName = "Endpoints")
+    @JsonProperty("Endpoints")
     private AccessPointEndpoints endpoints;
  
-    @JacksonXmlProperty(localName = "CreationDate")
+    @JsonProperty("CreationDate")
     private String creationDate;
  
-    @JacksonXmlProperty(localName = "VpcConfiguration")
+    @JsonProperty("VpcConfiguration")
     private AccessPointVpcConfiguration vpcConfiguration;
  
-    @JacksonXmlProperty(localName = "AccessPointArn")
+    @JsonProperty("AccessPointArn")
     private String accessPointArn;
  
-    @JacksonXmlProperty(localName = "Alias")
+    @JsonProperty("Alias")
     private String alias;
  
-    @JacksonXmlProperty(localName = "Status")
+    @JsonProperty("Status")
     private String status;
  
-    @JacksonXmlProperty(localName = "PublicAccessBlockConfiguration")
+    @JsonProperty("PublicAccessBlockConfiguration")
     private PublicAccessBlockConfiguration publicAccessBlockConfiguration;
 
     public GetAccessPointResultXml() {}

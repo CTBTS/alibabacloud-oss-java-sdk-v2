@@ -1,23 +1,23 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * The information about a delete object.
  */
-@JacksonXmlRootElement(localName = "Deleted")
+@JsonRootName("Deleted")
 public final class DeletedInfo {
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     private String key;
 
-    @JacksonXmlProperty(localName = "VersionId")
+    @JsonProperty("VersionId")
     private String versionId;
 
-    @JacksonXmlProperty(localName = "DeleteMarker")
+    @JsonProperty("DeleteMarker")
     private Boolean deleteMarker;
 
-    @JacksonXmlProperty(localName = "DeleteMarkerVersionId")
+    @JsonProperty("DeleteMarkerVersionId")
     private String deleteMarkerVersionId;
 
     public DeletedInfo() {

@@ -3,10 +3,8 @@ package com.aliyun.sdk.service.oss2.models;
 
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.Test;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 import java.util.Map;
 
@@ -125,7 +123,7 @@ public class GetObjectAclResultTest {
     }
 
     @Test
-    public void testXmlBuilder() throws JsonProcessingException {
+    public void testXmlBuilder() {
         String xml =
                 "<AccessControlPolicy>\n" +
                         "  <Owner>\n" +
@@ -137,9 +135,10 @@ public class GetObjectAclResultTest {
                         "  </AccessControlList>\n" +
                         "</AccessControlPolicy>";
 
-        XmlMapper xmlMapper = new XmlMapper();
-        xmlMapper.registerModule(new JavaTimeModule());
-        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        XmlMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .build();
 
         AccessControlPolicy innerBody = xmlMapper.readValue(xml, AccessControlPolicy.class);
         GetObjectAclResult result = GetObjectAclResult.newBuilder()

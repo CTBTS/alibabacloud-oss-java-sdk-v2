@@ -1,93 +1,93 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JacksonXmlRootElement(localName = "VideoStream")
+@JsonRootName("VideoStream")
 public final class VideoStream {
 
-    @JacksonXmlProperty(localName = "Index")
+    @JsonProperty("Index")
     private Long index;
 
-    @JacksonXmlProperty(localName = "Language")
+    @JsonProperty("Language")
     private String language;
 
-    @JacksonXmlProperty(localName = "CodecName")
+    @JsonProperty("CodecName")
     private String codecName;
 
-    @JacksonXmlProperty(localName = "CodecLongName")
+    @JsonProperty("CodecLongName")
     private String codecLongName;
 
-    @JacksonXmlProperty(localName = "Profile")
+    @JsonProperty("Profile")
     private String profile;
 
-    @JacksonXmlProperty(localName = "CodecTimeBase")
+    @JsonProperty("CodecTimeBase")
     private String codecTimeBase;
 
-    @JacksonXmlProperty(localName = "CodecTagString")
+    @JsonProperty("CodecTagString")
     private String codecTagString;
 
-    @JacksonXmlProperty(localName = "CodecTag")
+    @JsonProperty("CodecTag")
     private String codecTag;
 
-    @JacksonXmlProperty(localName = "Width")
+    @JsonProperty("Width")
     private Long width;
 
-    @JacksonXmlProperty(localName = "Height")
+    @JsonProperty("Height")
     private Long height;
 
-    @JacksonXmlProperty(localName = "HasBFrames")
+    @JsonProperty("HasBFrames")
     private Long hasBFrames;
 
-    @JacksonXmlProperty(localName = "SampleAspectRatio")
+    @JsonProperty("SampleAspectRatio")
     private String sampleAspectRatio;
 
-    @JacksonXmlProperty(localName = "DisplayAspectRatio")
+    @JsonProperty("DisplayAspectRatio")
     private String displayAspectRatio;
 
-    @JacksonXmlProperty(localName = "PixelFormat")
+    @JsonProperty("PixelFormat")
     private String pixelFormat;
 
-    @JacksonXmlProperty(localName = "Level")
+    @JsonProperty("Level")
     private Long level;
 
-    @JacksonXmlProperty(localName = "FrameRate")
+    @JsonProperty("FrameRate")
     private String frameRate;
 
-    @JacksonXmlProperty(localName = "AverageFrameRate")
+    @JsonProperty("AverageFrameRate")
     private String averageFrameRate;
 
-    @JacksonXmlProperty(localName = "TimeBase")
+    @JsonProperty("TimeBase")
     private String timeBase;
 
-    @JacksonXmlProperty(localName = "StartTime")
+    @JsonProperty("StartTime")
     private Double startTime;
 
-    @JacksonXmlProperty(localName = "Duration")
+    @JsonProperty("Duration")
     private Double duration;
 
-    @JacksonXmlProperty(localName = "Bitrate")
+    @JsonProperty("Bitrate")
     private Long bitrate;
 
-    @JacksonXmlProperty(localName = "FrameCount")
+    @JsonProperty("FrameCount")
     private Long frameCount;
 
-    @JacksonXmlProperty(localName = "Rotate")
+    @JsonProperty("Rotate")
     private String rotate;
 
-    @JacksonXmlProperty(localName = "BitDepth")
+    @JsonProperty("BitDepth")
     private Long bitDepth;
 
-    @JacksonXmlProperty(localName = "ColorSpace")
+    @JsonProperty("ColorSpace")
     private String colorSpace;
 
-    @JacksonXmlProperty(localName = "ColorRange")
+    @JsonProperty("ColorRange")
     private String colorRange;
 
-    @JacksonXmlProperty(localName = "ColorTransfer")
+    @JsonProperty("ColorTransfer")
     private String colorTransfer;
 
-    @JacksonXmlProperty(localName = "ColorPrimaries")
+    @JsonProperty("ColorPrimaries")
     private String colorPrimaries;
 
     public VideoStream() {}

@@ -1,27 +1,28 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the information about retention policies of the bucket.
  */
- @JacksonXmlRootElement(localName = "WormConfiguration")
+@JsonRootName("WormConfiguration")
 public final class WormConfiguration {  
-    @JacksonXmlProperty(localName = "ExpirationDate")
+    @JsonProperty("ExpirationDate")
     private String expirationDate;
  
-    @JacksonXmlProperty(localName = "WormId")
+    @JsonProperty("WormId")
     private String wormId;
  
-    @JacksonXmlProperty(localName = "State")
+    @JsonProperty("State")
     private String state;
  
-    @JacksonXmlProperty(localName = "RetentionPeriodInDays")
+    @JsonProperty("RetentionPeriodInDays")
     private Integer retentionPeriodInDays;
  
-    @JacksonXmlProperty(localName = "CreationDate")
+    @JsonProperty("CreationDate")
     private String creationDate;
 
     public WormConfiguration() {}

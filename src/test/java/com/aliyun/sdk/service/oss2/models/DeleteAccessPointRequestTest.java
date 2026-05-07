@@ -2,14 +2,10 @@ package com.aliyun.sdk.service.oss2.models;
 
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.transform.SerdeAccessPoint;
-import com.aliyun.sdk.service.oss2.transport.BinaryData;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;
-import java.nio.charset.StandardCharsets;
+
 import java.util.AbstractMap;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DeleteAccessPointRequestTest {
@@ -84,7 +80,7 @@ public class DeleteAccessPointRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         DeleteAccessPointRequest request = DeleteAccessPointRequest.newBuilder()
                 .bucket("xml-bucket")
                 .accessPointName("test-ap")

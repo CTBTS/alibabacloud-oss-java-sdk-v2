@@ -1,8 +1,8 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
@@ -11,42 +11,42 @@ import static java.util.Objects.requireNonNull;
 /**
  * The container that stores lifecycle rules.*   A lifecycle rule cannot be configured to convert the storage class of objects in an Archive bucket.*   The period of time from when the objects expire to when the objects are deleted must be longer than the period of time from when the objects expire to when the storage class of the objects is converted to IA or Archive.
  */
- @JacksonXmlRootElement(localName = "LifecycleRule")
+@JsonRootName("LifecycleRule")
 public final class LifecycleRule {  
-    @JacksonXmlProperty(localName = "ID")
+    @JsonProperty("ID")
     private String id;
  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Transition")
+    @JsonProperty("Transition")
     private List<LifecycleRuleTransition> transitions;
  
-    @JacksonXmlProperty(localName = "NoncurrentVersionExpiration")
+    @JsonProperty("NoncurrentVersionExpiration")
     private NoncurrentVersionExpiration noncurrentVersionExpiration;
  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "NoncurrentVersionTransition")
+    @JsonProperty("NoncurrentVersionTransition")
     private List<NoncurrentVersionTransition> noncurrentVersionTransitions;
  
-    @JacksonXmlProperty(localName = "Filter")
+    @JsonProperty("Filter")
     private LifecycleRuleFilter filter;
  
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     private String prefix;
  
-    @JacksonXmlProperty(localName = "Status")
+    @JsonProperty("Status")
     private String status;
  
-    @JacksonXmlProperty(localName = "Expiration")
+    @JsonProperty("Expiration")
     private LifecycleRuleExpiration expiration;
  
-    @JacksonXmlProperty(localName = "AbortMultipartUpload")
+    @JsonProperty("AbortMultipartUpload")
     private LifecycleRuleAbortMultipartUpload abortMultipartUpload;
  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Tag")
+    @JsonProperty("Tag")
     private List<Tag> tags;
  
-    @JacksonXmlProperty(localName = "AtimeBase")
+    @JsonProperty("AtimeBase")
     private Long atimeBase;
 
     public LifecycleRule() {}

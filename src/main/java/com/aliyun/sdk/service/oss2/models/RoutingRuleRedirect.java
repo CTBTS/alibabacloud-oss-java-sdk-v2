@@ -1,123 +1,124 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The operation to perform after the rule is matched.  This parameter must be specified if RoutingRule is specified.
  */
- @JacksonXmlRootElement(localName = "RoutingRuleRedirect")
+@JsonRootName("RoutingRuleRedirect")
 public final class RoutingRuleRedirect {  
-    @JacksonXmlProperty(localName = "MirrorAllowVideoSnapshot")
+    @JsonProperty("MirrorAllowVideoSnapshot")
     private Boolean mirrorAllowVideoSnapshot;
  
-    @JacksonXmlProperty(localName = "MirrorAsyncStatus")
+    @JsonProperty("MirrorAsyncStatus")
     private Long mirrorAsyncStatus;
  
-    @JacksonXmlProperty(localName = "MirrorTaggings")
+    @JsonProperty("MirrorTaggings")
     private MirrorTaggings mirrorTaggings;
  
-    @JacksonXmlProperty(localName = "MirrorAuth")
+    @JsonProperty("MirrorAuth")
     private MirrorAuth mirrorAuth;
  
-    @JacksonXmlProperty(localName = "HostName")
+    @JsonProperty("HostName")
     private String hostName;
  
-    @JacksonXmlProperty(localName = "ReplaceKeyPrefixWith")
+    @JsonProperty("ReplaceKeyPrefixWith")
     private String replaceKeyPrefixWith;
  
-    @JacksonXmlProperty(localName = "MirrorDstRegion")
+    @JsonProperty("MirrorDstRegion")
     private String mirrorDstRegion;
  
-    @JacksonXmlProperty(localName = "MirrorPassQueryString")
+    @JsonProperty("MirrorPassQueryString")
     private Boolean mirrorPassQueryString;
  
-    @JacksonXmlProperty(localName = "HttpRedirectCode")
+    @JsonProperty("HttpRedirectCode")
     private Long httpRedirectCode;
  
-    @JacksonXmlProperty(localName = "MirrorDstVpcId")
+    @JsonProperty("MirrorDstVpcId")
     private String mirrorDstVpcId;
  
-    @JacksonXmlProperty(localName = "MirrorHeaders")
+    @JsonProperty("MirrorHeaders")
     private MirrorHeaders mirrorHeaders;
  
-    @JacksonXmlProperty(localName = "MirrorTunnelId")
+    @JsonProperty("MirrorTunnelId")
     private String mirrorTunnelId;
  
-    @JacksonXmlProperty(localName = "MirrorRole")
+    @JsonProperty("MirrorRole")
     private String mirrorRole;
  
-    @JacksonXmlProperty(localName = "RedirectType")
+    @JsonProperty("RedirectType")
     private String redirectType;
  
-    @JacksonXmlProperty(localName = "PassQueryString")
+    @JsonProperty("PassQueryString")
     private Boolean passQueryString;
  
-    @JacksonXmlProperty(localName = "MirrorUsingRole")
+    @JsonProperty("MirrorUsingRole")
     private Boolean mirrorUsingRole;
  
-    @JacksonXmlProperty(localName = "MirrorReturnHeaders")
+    @JsonProperty("MirrorReturnHeaders")
     private MirrorReturnHeaders mirrorReturnHeaders;
  
-    @JacksonXmlProperty(localName = "MirrorProxyPass")
+    @JsonProperty("MirrorProxyPass")
     private Boolean mirrorProxyPass;
  
-    @JacksonXmlProperty(localName = "MirrorIsExpressTunnel")
+    @JsonProperty("MirrorIsExpressTunnel")
     private Boolean mirrorIsExpressTunnel;
  
-    @JacksonXmlProperty(localName = "MirrorDstSlaveVpcId")
+    @JsonProperty("MirrorDstSlaveVpcId")
     private String mirrorDstSlaveVpcId;
  
-    @JacksonXmlProperty(localName = "MirrorAllowHeadObject")
+    @JsonProperty("MirrorAllowHeadObject")
     private Boolean mirrorAllowHeadObject;
  
-    @JacksonXmlProperty(localName = "TransparentMirrorResponseCodes")
+    @JsonProperty("TransparentMirrorResponseCodes")
     private String transparentMirrorResponseCodes;
  
-    @JacksonXmlProperty(localName = "MirrorURL")
+    @JsonProperty("MirrorURL")
     private String mirrorURL;
  
-    @JacksonXmlProperty(localName = "ReplaceKeyWith")
+    @JsonProperty("ReplaceKeyWith")
     private String replaceKeyWith;
  
-    @JacksonXmlProperty(localName = "MirrorSaveOssMeta")
+    @JsonProperty("MirrorSaveOssMeta")
     private Boolean mirrorSaveOssMeta;
  
-    @JacksonXmlProperty(localName = "MirrorAllowGetImageInfo")
+    @JsonProperty("MirrorAllowGetImageInfo")
     private Boolean mirrorAllowGetImageInfo;
  
-    @JacksonXmlProperty(localName = "MirrorFollowRedirect")
+    @JsonProperty("MirrorFollowRedirect")
     private Boolean mirrorFollowRedirect;
  
-    @JacksonXmlProperty(localName = "MirrorURLProbe")
+    @JsonProperty("MirrorURLProbe")
     private String mirrorURLProbe;
  
-    @JacksonXmlProperty(localName = "Protocol")
+    @JsonProperty("Protocol")
     private String protocol;
  
-    @JacksonXmlProperty(localName = "EnableReplacePrefix")
+    @JsonProperty("EnableReplacePrefix")
     private Boolean enableReplacePrefix;
  
-    @JacksonXmlProperty(localName = "MirrorPassOriginalSlashes")
+    @JsonProperty("MirrorPassOriginalSlashes")
     private Boolean mirrorPassOriginalSlashes;
  
-    @JacksonXmlProperty(localName = "MirrorURLSlave")
+    @JsonProperty("MirrorURLSlave")
     private String mirrorURLSlave;
  
-    @JacksonXmlProperty(localName = "MirrorUserLastModified")
+    @JsonProperty("MirrorUserLastModified")
     private Boolean mirrorUserLastModified;
  
-    @JacksonXmlProperty(localName = "MirrorSwitchAllErrors")
+    @JsonProperty("MirrorSwitchAllErrors")
     private Boolean mirrorSwitchAllErrors;
  
-    @JacksonXmlProperty(localName = "MirrorSNI")
+    @JsonProperty("MirrorSNI")
     private Boolean mirrorSNI;
  
-    @JacksonXmlProperty(localName = "MirrorCheckMd5")
+    @JsonProperty("MirrorCheckMd5")
     private Boolean mirrorCheckMd5;
  
-    @JacksonXmlProperty(localName = "MirrorMultiAlternates")
+    @JsonProperty("MirrorMultiAlternates")
     private MirrorMultiAlternates mirrorMultiAlternates;
 
     public RoutingRuleRedirect() {}

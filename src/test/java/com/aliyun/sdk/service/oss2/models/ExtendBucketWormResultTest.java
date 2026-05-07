@@ -4,7 +4,6 @@ import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketWorm;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -52,7 +51,7 @@ public class ExtendBucketWormResultTest {
     }
 
     @Test
-    public void testXmlBuilderWithEncoding() throws JsonProcessingException {
+    public void testXmlBuilderWithEncoding() {
         String blankXml = "";
         OperationOutput blankOutput = OperationOutput.newBuilder()
                 .body(BinaryData.fromString(blankXml))

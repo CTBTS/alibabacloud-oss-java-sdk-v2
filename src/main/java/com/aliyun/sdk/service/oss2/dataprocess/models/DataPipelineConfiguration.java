@@ -1,43 +1,42 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
 /**
  * Data pipeline configuration.
  */
-@JacksonXmlRootElement(localName = "DataPipelineConfiguration")
+@JsonRootName("DataPipelineConfiguration")
 public final class DataPipelineConfiguration {
-    @JacksonXmlProperty(localName = "DataPipelineName")
+    @JsonProperty("DataPipelineName")
     private String dataPipelineName;
 
-    @JacksonXmlProperty(localName = "DataPipelineDescription")
+    @JsonProperty("DataPipelineDescription")
     private String dataPipelineDescription;
 
-    @JacksonXmlProperty(localName = "DataPipelineRole")
+    @JsonProperty("DataPipelineRole")
     private String dataPipelineRole;
 
-    @JacksonXmlProperty(localName = "Status")
+    @JsonProperty("Status")
     private String status;
 
-    @JacksonXmlProperty(localName = "DataPipelineEmbeddingConfiguration")
+    @JsonProperty("DataPipelineEmbeddingConfiguration")
     private DataPipelineEmbeddingConfiguration dataPipelineEmbeddingConfiguration;
 
-    @JacksonXmlProperty(localName = "Destination")
+    @JsonProperty("Destination")
     private DataPipelineDestination destination;
 
-    @JacksonXmlProperty(localName = "DataPipelineError")
+    @JsonProperty("DataPipelineError")
     private DataPipelineError dataPipelineError;
 
-    @JacksonXmlProperty(localName = "CreateTime")
+    @JsonProperty("CreateTime")
     private String createTime;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Sources")
+    @JsonProperty("Sources")
     private List<DataPipelineSource> sources;
 
     public DataPipelineConfiguration() {

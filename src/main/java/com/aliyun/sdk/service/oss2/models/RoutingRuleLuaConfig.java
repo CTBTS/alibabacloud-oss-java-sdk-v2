@@ -1,17 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * Lua script config for the routing rule.
  */
- @JacksonXmlRootElement(localName = "RoutingRuleLuaConfig")
+@JsonRootName("RoutingRuleLuaConfig")
 public final class RoutingRuleLuaConfig {  
-    @JacksonXmlProperty(localName = "Script")
+    @JsonProperty("Script")
     private String script;
 
     public RoutingRuleLuaConfig() {}

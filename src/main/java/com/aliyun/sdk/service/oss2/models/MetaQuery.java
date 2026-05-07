@@ -1,40 +1,38 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
-import com.aliyun.sdk.service.oss2.models.MetaQueryMediaTypes;
 
 /**
  * The container that stores the meta query parameters for querying inventory data.
  */
-@JacksonXmlRootElement(localName = "MetaQuery")
+@JsonRootName("MetaQuery")
 public final class MetaQuery {
 
-    @JacksonXmlProperty(localName = "NextToken")
+    @JsonProperty("NextToken")
     private String nextToken;
 
-    @JacksonXmlProperty(localName = "MaxResults")
+    @JsonProperty("MaxResults")
     private Integer maxResults;
 
-    @JacksonXmlProperty(localName = "Query")
+    @JsonProperty("Query")
     private String query;
 
-    @JacksonXmlProperty(localName = "Sort")
+    @JsonProperty("Sort")
     private String sort;
 
-    @JacksonXmlProperty(localName = "Order")
+    @JsonProperty("Order")
     private String order;
 
-    @JacksonXmlProperty(localName = "Aggregations")
+    @JsonProperty("Aggregations")
     private MetaQueryAggregations aggregations;
 
-    @JacksonXmlProperty(localName = "MediaTypes")
+    @JsonProperty("MediaTypes")
     private MetaQueryMediaTypes mediaTypes;
 
-    @JacksonXmlProperty(localName = "SimpleQuery")
+    @JsonProperty("SimpleQuery")
     private String simpleQuery;
 
     public MetaQuery() {}

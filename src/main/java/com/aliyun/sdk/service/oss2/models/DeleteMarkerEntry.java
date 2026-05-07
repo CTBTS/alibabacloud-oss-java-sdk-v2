@@ -1,32 +1,30 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import java.time.Instant;
-import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores delete markers.
  */
- @JacksonXmlRootElement(localName = "DeleteMarkerEntry")
+@JsonRootName("DeleteMarkerEntry")
 public final class DeleteMarkerEntry {  
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     private String key;
  
-    @JacksonXmlProperty(localName = "VersionId")
+    @JsonProperty("VersionId")
     private String versionId;
  
-    @JacksonXmlProperty(localName = "IsLatest")
+    @JsonProperty("IsLatest")
     private Boolean isLatest;
  
-    @JacksonXmlProperty(localName = "LastModified")
+    @JsonProperty("LastModified")
     private Instant lastModified;
  
-    @JacksonXmlProperty(localName = "Owner")
+    @JsonProperty("Owner")
     private Owner owner;
 
     public DeleteMarkerEntry() {}

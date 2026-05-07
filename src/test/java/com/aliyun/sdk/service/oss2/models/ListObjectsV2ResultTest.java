@@ -5,11 +5,11 @@ import com.aliyun.sdk.service.oss2.models.internal.ListBucketV2ResultXml;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketBasic;
 import com.aliyun.sdk.service.oss2.transform.SerdeUtils;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.junit.Test;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -82,7 +82,6 @@ public class ListObjectsV2ResultTest {
         listBucketV2Result.contents = Arrays.asList(objectSummary1, objectSummary2);
         listBucketV2Result.commonPrefixes = Collections.singletonList(commonPrefix);
         listBucketV2Result.startAfter = "b";
-
 
 
         Map<String, String> headers = new HashMap<>();
@@ -261,9 +260,11 @@ public class ListObjectsV2ResultTest {
                 .body(SerdeUtils.serializeXmlBody(xml))
                 .build();
 
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.registerModule(new JavaTimeModule());
-        xmlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        ObjectMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .changeDefaultPropertyInclusion(v -> v.withValueInclusion(JsonInclude.Include.NON_NULL)
+                        .withContentInclusion(JsonInclude.Include.NON_NULL))
+                .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                .build();
 
         // empty XML
         String xmlContent = new String(output.body.toBytes(), StandardCharsets.UTF_8);

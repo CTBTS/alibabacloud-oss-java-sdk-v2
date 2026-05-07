@@ -1,14 +1,12 @@
 package com.aliyun.sdk.service.oss2.utils;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
 
 public class JsonUtils {
 
-    public static JsonNode getJsonRootElement(byte[] data) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
+    public static JsonNode getJsonRootElement(byte[] data) {
+        JsonMapper objectMapper = JsonMapper.builderWithJackson2Defaults().build();
         return objectMapper.readTree(data);
     }
 

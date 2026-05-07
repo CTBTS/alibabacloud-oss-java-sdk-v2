@@ -2,7 +2,6 @@ package com.aliyun.sdk.service.oss2.tables.models;
 
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.tables.transform.SerdeTableBasic;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 import java.util.AbstractMap;
@@ -81,7 +80,7 @@ public class ListTablesRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
 
         ListTablesRequest request = ListTablesRequest.newBuilder()
                 .tableBucketARN("acs:osstable:cn-hangzhou:1234567890:bucket/my-table-bucket")

@@ -1,32 +1,32 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
-@JacksonXmlRootElement(localName = "Image")
+@JsonRootName("Image")
 public final class Image {
 
-    @JacksonXmlProperty(localName = "ImageWidth")
+    @JsonProperty("ImageWidth")
     private Long imageWidth;
 
-    @JacksonXmlProperty(localName = "ImageHeight")
+    @JsonProperty("ImageHeight")
     private Long imageHeight;
 
-    @JacksonXmlProperty(localName = "EXIF")
+    @JsonProperty("EXIF")
     private String exif;
 
-    @JacksonXmlProperty(localName = "ImageScore")
+    @JsonProperty("ImageScore")
     private ImageScore imageScore;
 
     @JacksonXmlElementWrapper(localName = "CroppingSuggestions")
-    @JacksonXmlProperty(localName = "CroppingSuggestion")
+    @JsonProperty("CroppingSuggestion")
     private List<CroppingSuggestion> croppingSuggestions;
 
     @JacksonXmlElementWrapper(localName = "OCRContents")
-    @JacksonXmlProperty(localName = "OCRContents")
+    @JsonProperty("OCRContents")
     private List<OCRContents> ocrContents;
 
     public Image() {}

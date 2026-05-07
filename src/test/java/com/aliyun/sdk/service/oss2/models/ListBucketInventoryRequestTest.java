@@ -2,7 +2,6 @@ package com.aliyun.sdk.service.oss2.models;
 
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketInventory;;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import java.util.AbstractMap;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -81,7 +80,7 @@ public class ListBucketInventoryRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
         ListBucketInventoryRequest request = ListBucketInventoryRequest.newBuilder()
                 .bucket("xml-bucket")
                 .continuationToken("test-token")

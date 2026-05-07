@@ -1,19 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores information about the RestoreObject request.
  */
-@JacksonXmlRootElement(localName = "RestoreRequest")
+@JsonRootName("RestoreRequest")
 public final class RestoreRequest {
-    @JacksonXmlProperty(localName = "Days")
+    @JsonProperty("Days")
     private Long days;
 
-    @JacksonXmlProperty(localName = "JobParameters")
+    @JsonProperty("JobParameters")
     private JobParameters jobParameters;
 
     public RestoreRequest() {

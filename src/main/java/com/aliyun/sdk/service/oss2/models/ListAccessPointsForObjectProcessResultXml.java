@@ -1,24 +1,25 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the list of Object FC Access Points.
  */
-@JacksonXmlRootElement(localName = "ListAccessPointsForObjectProcessResult")
+@JsonRootName("ListAccessPointsForObjectProcessResult")
 public final class ListAccessPointsForObjectProcessResultXml {  
-    @JacksonXmlProperty(localName = "IsTruncated")
+    @JsonProperty("IsTruncated")
     private Boolean isTruncated;
  
-    @JacksonXmlProperty(localName = "NextContinuationToken")
+    @JsonProperty("NextContinuationToken")
     private String nextContinuationToken;
  
-    @JacksonXmlProperty(localName = "AccountId")
+    @JsonProperty("AccountId")
     private String accountId;
  
-    @JacksonXmlProperty(localName = "AccessPointsForObjectProcess")
+    @JsonProperty("AccessPointsForObjectProcess")
     private AccessPointsForObjectProcess accessPointsForObjectProcess;
 
     public ListAccessPointsForObjectProcessResultXml() {}

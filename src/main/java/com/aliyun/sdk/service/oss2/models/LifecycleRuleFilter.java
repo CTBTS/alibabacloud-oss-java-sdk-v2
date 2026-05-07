@@ -1,26 +1,27 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the Not parameter that is used to filter objects.
  */
- @JacksonXmlRootElement(localName = "Filter")
+@JsonRootName("Filter")
 public final class LifecycleRuleFilter {  
-    @JacksonXmlProperty(localName = "ObjectSizeGreaterThan")
+    @JsonProperty("ObjectSizeGreaterThan")
     private Long objectSizeGreaterThan;
  
-    @JacksonXmlProperty(localName = "ObjectSizeLessThan")
+    @JsonProperty("ObjectSizeLessThan")
     private Long objectSizeLessThan;
  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Not")
+    @JsonProperty("Not")
     private List<LifecycleRuleNot> nots;
 
     public LifecycleRuleFilter() {}

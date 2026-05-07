@@ -1,19 +1,19 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores the results of the GetObjectACL request.
  */
-@JacksonXmlRootElement(localName = "AccessControlPolicy")
+@JsonRootName("AccessControlPolicy")
 public final class AccessControlPolicy {
-    @JacksonXmlProperty(localName = "Owner")
+    @JsonProperty("Owner")
     private Owner owner;
 
-    @JacksonXmlProperty(localName = "AccessControlList")
+    @JsonProperty("AccessControlList")
     private AccessControlList accessControlList;
 
     public AccessControlPolicy() {

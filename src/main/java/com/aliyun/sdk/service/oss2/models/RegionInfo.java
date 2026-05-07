@@ -1,25 +1,25 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * The information about the region.
  */
-@JacksonXmlRootElement(localName = "RegionInfo")
+@JsonRootName("RegionInfo")
 public final class RegionInfo {
-    @JacksonXmlProperty(localName = "Region")
+    @JsonProperty("Region")
     private String region;
 
-    @JacksonXmlProperty(localName = "InternetEndpoint")
+    @JsonProperty("InternetEndpoint")
     private String internetEndpoint;
 
-    @JacksonXmlProperty(localName = "InternalEndpoint")
+    @JsonProperty("InternalEndpoint")
     private String internalEndpoint;
 
-    @JacksonXmlProperty(localName = "AccelerateEndpoint")
+    @JsonProperty("AccelerateEndpoint")
     private String accelerateEndpoint;
 
     public RegionInfo() {

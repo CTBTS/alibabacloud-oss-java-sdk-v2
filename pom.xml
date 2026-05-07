@@ -6,7 +6,7 @@
 
     <groupId>com.aliyun</groupId>
     <artifactId>alibabacloud-oss-v2</artifactId>
-    <version>0.4.0</version>
+    <version>0.4.0.1</version>
     <name>Alibaba Cloud OSS SDK For Java V2</name>
     <description>The Alibaba Cloud OSS SDK for Java is used to access the Alibaba Cloud Object Storage Service</description>
     <url>https://github.com/aliyun/alibabacloud-oss-java-sdk-v2</url>
@@ -37,7 +37,8 @@
         <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
         <maven-publishing-plugin.version>0.8.0</maven-publishing-plugin.version>
 
-        <jre.version>1.8</jre.version>
+        <jre.version>17</jre.version>
+        <jackson.version>3.1.3</jackson.version>
         <httpcomponents.httpclient.version>4.5.14</httpcomponents.httpclient.version>
         <httpcomponents.httpcore.version>4.4.16</httpcomponents.httpcore.version>
         <httpcomponents.client5.version>5.5</httpcomponents.client5.version>
@@ -45,23 +46,24 @@
         <!-- Reactive Streams version -->
         <reactive-streams.version>1.0.4</reactive-streams.version>
 
-        <!-- serialize and deserialize xml and json  -->
-        <jackson.dataformat.version>2.18.1</jackson.dataformat.version>
-        <jackson.dataformat.datatype>2.15.3</jackson.dataformat.datatype>
-
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>tools.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <groupId>tools.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
-            <version>${jackson.dataformat.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${jackson.dataformat.datatype}</version>
         </dependency>
 
         <dependency>
@@ -380,7 +382,7 @@
                 <jdk>[11,)</jdk>
             </activation>
             <properties>
-                <maven.compiler.release>8</maven.compiler.release>
+                <maven.compiler.release>${jre.version}</maven.compiler.release>
             </properties>
         </profile>
     </profiles>

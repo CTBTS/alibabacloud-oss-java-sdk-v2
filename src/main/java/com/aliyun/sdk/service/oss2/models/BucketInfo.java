@@ -1,8 +1,7 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.time.Instant;
 
 import static java.util.Objects.requireNonNull;
@@ -10,61 +9,61 @@ import static java.util.Objects.requireNonNull;
 /**
  * The container that stores the bucket information.
  */
-@JacksonXmlRootElement(localName = "Bucket")
+@JsonRootName("Bucket")
 public final class BucketInfo {
-    @JacksonXmlProperty(localName = "ExtranetEndpoint")
+    @JsonProperty("ExtranetEndpoint")
     private String extranetEndpoint;
 
-    @JacksonXmlProperty(localName = "ResourceGroupId")
+    @JsonProperty("ResourceGroupId")
     private String resourceGroupId;
 
-    @JacksonXmlProperty(localName = "ServerSideEncryptionRule")
+    @JsonProperty("ServerSideEncryptionRule")
     private BucketInfoServerSideEncryptionRule serverSideEncryptionRule;
 
-    @JacksonXmlProperty(localName = "BucketPolicy")
+    @JsonProperty("BucketPolicy")
     private BucketPolicy bucketPolicy;
 
-    @JacksonXmlProperty(localName = "Comment")
+    @JsonProperty("Comment")
     private String comment;
 
-    @JacksonXmlProperty(localName = "BlockPublicAccess")
+    @JsonProperty("BlockPublicAccess")
     private Boolean blockPublicAccess;
 
-    @JacksonXmlProperty(localName = "AccessMonitor")
+    @JsonProperty("AccessMonitor")
     private String accessMonitor;
 
-    @JacksonXmlProperty(localName = "CrossRegionReplication")
+    @JsonProperty("CrossRegionReplication")
     private String crossRegionReplication;
 
-    @JacksonXmlProperty(localName = "Location")
+    @JsonProperty("Location")
     private String location;
 
-    @JacksonXmlProperty(localName = "Name")
+    @JsonProperty("Name")
     private String name;
 
-    @JacksonXmlProperty(localName = "StorageClass")
+    @JsonProperty("StorageClass")
     private String storageClass;
 
-    @JacksonXmlProperty(localName = "Versioning")
+    @JsonProperty("Versioning")
     private String versioning;
 
-    @JacksonXmlProperty(localName = "CreationDate")
+    @JsonProperty("CreationDate")
     private Instant creationDate;
 
-    @JacksonXmlProperty(localName = "IntranetEndpoint")
+    @JsonProperty("IntranetEndpoint")
     private String intranetEndpoint;
 
-    @JacksonXmlProperty(localName = "TransferAcceleration")
+    @JsonProperty("TransferAcceleration")
     private String transferAcceleration;
 
 
-    @JacksonXmlProperty(localName = "AccessControlList")
+    @JsonProperty("AccessControlList")
     private AccessControlList accessControlList;
 
-    @JacksonXmlProperty(localName = "DataRedundancyType")
+    @JsonProperty("DataRedundancyType")
     private String dataRedundancyType;
 
-    @JacksonXmlProperty(localName = "Owner")
+    @JsonProperty("Owner")
     private Owner owner;
 
     public BucketInfo() {

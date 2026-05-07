@@ -1,43 +1,42 @@
 package com.aliyun.sdk.service.oss2.models.internal;
 
 import com.aliyun.sdk.service.oss2.models.Part;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.util.List;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 /**
  * The container that stores the response of the ListParts request.
  */
-@JacksonXmlRootElement(localName = "ListPartResult")
+@JsonRootName("ListPartResult")
 public final class ListPartResultXml {
-    @JacksonXmlProperty(localName = "Key")
+    @JsonProperty("Key")
     public String key;
 
-    @JacksonXmlProperty(localName = "UploadId")
+    @JsonProperty("UploadId")
     public String uploadId;
 
-    @JacksonXmlProperty(localName = "PartNumberMarker")
+    @JsonProperty("PartNumberMarker")
     public Long partNumberMarker;
 
-    @JacksonXmlProperty(localName = "NextPartNumberMarker")
+    @JsonProperty("NextPartNumberMarker")
     public Long nextPartNumberMarker;
 
-    @JacksonXmlProperty(localName = "MaxParts")
+    @JsonProperty("MaxParts")
     public Long maxParts;
 
-    @JacksonXmlProperty(localName = "IsTruncated")
+    @JsonProperty("IsTruncated")
     public Boolean isTruncated;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Part")
+    @JsonProperty("Part")
     public List<Part> parts;
 
-    @JacksonXmlProperty(localName = "Bucket")
+    @JsonProperty("Bucket")
     public String bucket;
 
-    @JacksonXmlProperty(localName = "EncodingType")
+    @JsonProperty("EncodingType")
     public String encodingType;
 
 

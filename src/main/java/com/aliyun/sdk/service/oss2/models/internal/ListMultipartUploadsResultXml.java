@@ -1,49 +1,48 @@
 package com.aliyun.sdk.service.oss2.models.internal;
 
 import com.aliyun.sdk.service.oss2.models.Upload;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.util.List;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 /**
  * The container that stores list multipart uploads result for XML serialization.
  */
-@JacksonXmlRootElement(localName = "ListMultipartUploadsResult")
+@JsonRootName("ListMultipartUploadsResult")
 public final class ListMultipartUploadsResultXml {
-    @JacksonXmlProperty(localName = "Bucket")
+    @JsonProperty("Bucket")
     public String bucket;
 
-    @JacksonXmlProperty(localName = "KeyMarker")
+    @JsonProperty("KeyMarker")
     public String keyMarker;
 
-    @JacksonXmlProperty(localName = "UploadIdMarker")
+    @JsonProperty("UploadIdMarker")
     public String uploadIdMarker;
 
-    @JacksonXmlProperty(localName = "NextKeyMarker")
+    @JsonProperty("NextKeyMarker")
     public String nextKeyMarker;
 
-    @JacksonXmlProperty(localName = "NextUploadIdMarker")
+    @JsonProperty("NextUploadIdMarker")
     public String nextUploadIdMarker;
 
-    @JacksonXmlProperty(localName = "Delimiter")
+    @JsonProperty("Delimiter")
     public String delimiter;
 
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     public String prefix;
 
-    @JacksonXmlProperty(localName = "MaxUploads")
+    @JsonProperty("MaxUploads")
     public Long maxUploads;
 
-    @JacksonXmlProperty(localName = "IsTruncated")
+    @JsonProperty("IsTruncated")
     public Boolean isTruncated;
 
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Upload")
+    @JsonProperty("Upload")
     public List<Upload> uploads;
 
-    @JacksonXmlProperty(localName = "EncodingType")
+    @JsonProperty("EncodingType")
     public String encodingType;
 
 

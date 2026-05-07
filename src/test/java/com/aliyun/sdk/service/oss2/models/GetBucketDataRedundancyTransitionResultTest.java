@@ -4,7 +4,6 @@ import com.aliyun.sdk.service.oss2.OperationOutput;
 import com.aliyun.sdk.service.oss2.transform.SerdeBucketRedundancyTransition;
 import com.aliyun.sdk.service.oss2.transport.BinaryData;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -114,7 +113,7 @@ public class GetBucketDataRedundancyTransitionResultTest {
     }
 
     @Test
-    public void testXmlBuilderWithEncoding() throws JsonProcessingException {
+    public void testXmlBuilderWithEncoding() {
         String xml =
                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "<BucketDataRedundancyTransition>\n" +

@@ -1,24 +1,23 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
  * Source configuration for data pipeline.
  */
-@JacksonXmlRootElement(localName = "Source")
+@JsonRootName("Source")
 public final class DataPipelineSource {
-    @JacksonXmlProperty(localName = "InputBucket")
+    @JsonProperty("InputBucket")
     private String inputBucket;
 
-    @JacksonXmlProperty(localName = "InputDataScope")
+    @JsonProperty("InputDataScope")
     private String inputDataScope;
 
-    @JacksonXmlProperty(localName = "IgnoreDelete")
+    @JsonProperty("IgnoreDelete")
     private Boolean ignoreDelete;
 
-    @JacksonXmlProperty(localName = "FilterConfiguration")
+    @JsonProperty("FilterConfiguration")
     private DataPipelineSourceFilterConfiguration filterConfiguration;
 
     public DataPipelineSource() {

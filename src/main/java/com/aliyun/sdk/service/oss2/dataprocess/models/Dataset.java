@@ -1,57 +1,54 @@
 package com.aliyun.sdk.service.oss2.dataprocess.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-import java.util.List;
-
-@JacksonXmlRootElement(localName = "Dataset")
+@JsonRootName("Dataset")
 public final class Dataset {
 
-    @JacksonXmlProperty(localName = "BindCount")
+    @JsonProperty("BindCount")
     private Long bindCount;
 
-    @JacksonXmlProperty(localName = "CreateTime")
+    @JsonProperty("CreateTime")
     private String createTime;
 
-    @JacksonXmlProperty(localName = "DatasetMaxBindCount")
+    @JsonProperty("DatasetMaxBindCount")
     private Long datasetMaxBindCount;
 
-    @JacksonXmlProperty(localName = "DatasetMaxEntityCount")
+    @JsonProperty("DatasetMaxEntityCount")
     private Long datasetMaxEntityCount;
 
-    @JacksonXmlProperty(localName = "DatasetMaxFileCount")
+    @JsonProperty("DatasetMaxFileCount")
     private Long datasetMaxFileCount;
 
-    @JacksonXmlProperty(localName = "DatasetMaxRelationCount")
+    @JsonProperty("DatasetMaxRelationCount")
     private Long datasetMaxRelationCount;
 
-    @JacksonXmlProperty(localName = "DatasetMaxTotalFileSize")
+    @JsonProperty("DatasetMaxTotalFileSize")
     private Long datasetMaxTotalFileSize;
 
-    @JacksonXmlProperty(localName = "DatasetName")
+    @JsonProperty("DatasetName")
     private String datasetName;
 
-    @JacksonXmlProperty(localName = "Description")
+    @JsonProperty("Description")
     private String description;
 
-    @JacksonXmlProperty(localName = "FileCount")
+    @JsonProperty("FileCount")
     private Long fileCount;
 
-    @JacksonXmlProperty(localName = "TemplateId")
+    @JsonProperty("TemplateId")
     private String templateId;
 
-    @JacksonXmlProperty(localName = "TotalFileSize")
+    @JsonProperty("TotalFileSize")
     private Long totalFileSize;
 
-    @JacksonXmlProperty(localName = "UpdateTime")
+    @JsonProperty("UpdateTime")
     private String updateTime;
 
-    @JacksonXmlProperty(localName = "WorkflowParameters")
+    @JsonProperty("WorkflowParameters")
     private WorkflowParameters workflowParameters;
 
-    @JacksonXmlProperty(localName = "DatasetConfig")
+    @JsonProperty("DatasetConfig")
     private DatasetConfig datasetConfig;
 
     public Dataset() {

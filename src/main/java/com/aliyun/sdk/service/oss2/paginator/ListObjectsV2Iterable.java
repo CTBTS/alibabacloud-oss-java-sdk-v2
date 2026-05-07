@@ -1,7 +1,6 @@
 package com.aliyun.sdk.service.oss2.paginator;
 
 import com.aliyun.sdk.service.oss2.OSSClient;
-import com.aliyun.sdk.service.oss2.models.ListBucketsRequest;
 import com.aliyun.sdk.service.oss2.models.ListObjectsV2Request;
 import com.aliyun.sdk.service.oss2.models.ListObjectsV2Result;
 import com.aliyun.sdk.service.oss2.utils.StringUtils;
@@ -33,7 +32,7 @@ public class ListObjectsV2Iterable implements PaginatedIterable<ListObjectsV2Res
         this.firstRequest = applyRequest(request, options);
     }
 
-    ListObjectsV2Request applyRequest(ListObjectsV2Request request, PaginatorOptions options) {
+    public static ListObjectsV2Request applyRequest(ListObjectsV2Request request, PaginatorOptions options) {
         if (options.limit().isPresent()) {
             return request.toBuilder().maxKeys(options.limit().get()).build();
         }

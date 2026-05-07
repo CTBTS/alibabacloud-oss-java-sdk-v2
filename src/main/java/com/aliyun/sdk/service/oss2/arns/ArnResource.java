@@ -7,7 +7,6 @@ import java.util.Optional;
 
 import static com.aliyun.sdk.service.oss2.Validate.paramNotNull;
 
-
 public class ArnResource {
 
     private final String resourceType;

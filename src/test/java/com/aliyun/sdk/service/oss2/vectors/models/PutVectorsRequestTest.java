@@ -3,13 +3,16 @@ package com.aliyun.sdk.service.oss2.vectors.models;
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.utils.MapUtils;
 import com.aliyun.sdk.service.oss2.vectors.transform.SerdeVectorsBasic;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PutVectorsRequestTest {
@@ -155,7 +158,7 @@ public class PutVectorsRequestTest {
 
         OperationInput input = SerdeVectorsBasic.fromPutVectors(request);
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = JsonMapper.builderWithJackson2Defaults().build();
         JsonNode expectedJsonNode = objectMapper.readTree(jsonStr);
         JsonNode actualJsonNode = objectMapper.readTree(input.body().get().toBytes());
 

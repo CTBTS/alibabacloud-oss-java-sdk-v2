@@ -3,53 +3,52 @@ package com.aliyun.sdk.service.oss2.models.internal;
 import com.aliyun.sdk.service.oss2.models.CommonPrefix;
 import com.aliyun.sdk.service.oss2.models.DeleteMarkerEntry;
 import com.aliyun.sdk.service.oss2.models.ObjectVersion;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import java.util.ArrayList;
 import java.util.List;
-
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 /**
  * The container that stores the results of the ListObjectVersions (GetBucketVersions) request.
  */
- @JacksonXmlRootElement(localName = "ListVersionsResult")
+@JsonRootName("ListVersionsResult")
 public final class ListVersionsResultXml {
 
     public List<ObjectVersion> versions;
 
     public List<DeleteMarkerEntry> deleteMarkers;
 
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     public String prefix;
  
-    @JacksonXmlProperty(localName = "IsTruncated")
+    @JsonProperty("IsTruncated")
     public Boolean isTruncated;
  
-    @JacksonXmlProperty(localName = "NextKeyMarker")
+    @JsonProperty("NextKeyMarker")
     public String nextKeyMarker;
  
-    @JacksonXmlProperty(localName = "NextVersionIdMarker")
+    @JsonProperty("NextVersionIdMarker")
     public String nextVersionIdMarker;
  
-    @JacksonXmlProperty(localName = "Delimiter")
+    @JsonProperty("Delimiter")
     public String delimiter;
  
-    @JacksonXmlProperty(localName = "EncodingType")
+    @JsonProperty("EncodingType")
     public String encodingType;
 
     public List<CommonPrefix> commonPrefixes;
  
-    @JacksonXmlProperty(localName = "Name")
+    @JsonProperty("Name")
     public String name;
  
-    @JacksonXmlProperty(localName = "KeyMarker")
+    @JsonProperty("KeyMarker")
     public String keyMarker;
  
-    @JacksonXmlProperty(localName = "VersionIdMarker")
+    @JsonProperty("VersionIdMarker")
     public String versionIdMarker;
  
-    @JacksonXmlProperty(localName = "MaxKeys")
+    @JsonProperty("MaxKeys")
     public Long maxKeys;
 
     public ListVersionsResultXml() {}
@@ -62,7 +61,7 @@ public final class ListVersionsResultXml {
      * @return this ListVersionsResultXml instance
      */
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Version")
+    @JsonProperty("Version")
     public ListVersionsResultXml addVersion(ObjectVersion version) {
         if (this.versions == null) {
             this.versions = new ArrayList<>();
@@ -78,7 +77,7 @@ public final class ListVersionsResultXml {
      * @return this ListVersionsResultXml instance
      */
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "DeleteMarker")
+    @JsonProperty("DeleteMarker")
     public ListVersionsResultXml addDeleteMarker(DeleteMarkerEntry deleteMarker) {
         if (this.deleteMarkers == null) {
             this.deleteMarkers = new ArrayList<>();
@@ -94,7 +93,7 @@ public final class ListVersionsResultXml {
      * @return this ListVersionsResultXml instance
      */
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "CommonPrefixes")
+    @JsonProperty("CommonPrefixes")
     public ListVersionsResultXml addCommonPrefix(CommonPrefix commonPrefix) {
         if (this.commonPrefixes == null) {
             this.commonPrefixes = new ArrayList<>();

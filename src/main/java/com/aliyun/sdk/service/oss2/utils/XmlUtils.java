@@ -1,28 +1,29 @@
 package com.aliyun.sdk.service.oss2.utils;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.xml.deser.FromXmlParser;
-
-import java.io.IOException;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.DeserializationContext;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.deser.jackson.JsonNodeDeserializer;
+import tools.jackson.databind.deser.std.StdDeserializer;
+import tools.jackson.databind.module.SimpleModule;
+import tools.jackson.dataformat.xml.XmlMapper;
+import tools.jackson.dataformat.xml.deser.FromXmlParser;
 
 public class XmlUtils {
 
-    public static JsonNode getXmlRootElement(byte[] data) throws IOException {
-        XmlMapper xmlMapper = new XmlMapper();
-        xmlMapper.registerModule(new SimpleModule().addDeserializer(JsonNode.class,
-                new JsonNodeDeserializer() {
-                    @Override
-                    public JsonNode deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
-                        String rootName = ((FromXmlParser) p).getStaxReader().getLocalName();
-                        return ctxt.getNodeFactory()
-                                .objectNode().set(rootName, super.deserialize(p, ctxt));
-                    }
-                }));
+    public static JsonNode getXmlRootElement(byte[] data) {
+        XmlMapper xmlMapper = XmlMapper.builderWithJackson2Defaults()
+                .addModule(new SimpleModule().addDeserializer(JsonNode.class,
+                        new StdDeserializer<>(JsonNode.class) {
+                            @Override
+                            public JsonNode deserialize(JsonParser p, DeserializationContext ctxt) throws JacksonException {
+                                String rootName = ((FromXmlParser) p).getStaxReader().getLocalName();
+                                JsonNode inner = JsonNodeDeserializer.getDeserializer(JsonNode.class).deserialize(p, ctxt);
+                                return ctxt.getNodeFactory().objectNode().set(rootName, inner);
+                            }
+                        }))
+                .build();
         return xmlMapper.readTree(data);
     }
 

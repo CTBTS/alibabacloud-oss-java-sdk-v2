@@ -1,15 +1,16 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The container that stores additional feature configurations.
  */
-@JacksonXmlRootElement(localName = "AdditionalFeatures")
+@JsonRootName("AdditionalFeatures")
 public final class ObjectProcessAdditionalFeatures {
-    @JacksonXmlProperty(localName = "CustomForwardHeaders")
+    @JsonProperty("CustomForwardHeaders")
     private ObjectProcessCustomForwardHeaders customForwardHeaders;
 
     public ObjectProcessAdditionalFeatures() {}

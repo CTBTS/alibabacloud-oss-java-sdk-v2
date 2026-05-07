@@ -1,8 +1,8 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import static java.util.Objects.requireNonNull;
 /**
  * The container for tags.
  */
-@JacksonXmlRootElement(localName = "TagSet")
+@JsonRootName("TagSet")
 public final class TagSet {
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Tag")
+    @JsonProperty("Tag")
     private List<Tag> tags;
 
     public TagSet() {

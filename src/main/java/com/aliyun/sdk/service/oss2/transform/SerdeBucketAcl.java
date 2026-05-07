@@ -7,7 +7,6 @@ import com.aliyun.sdk.service.oss2.utils.MapUtils;
 
 import java.util.Map;
 
-
 public final class SerdeBucketAcl {
 
 

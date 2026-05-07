@@ -2,7 +2,6 @@ package com.aliyun.sdk.service.oss2.tables.models;
 
 import com.aliyun.sdk.service.oss2.OperationInput;
 import com.aliyun.sdk.service.oss2.tables.transform.SerdeTableBucketBasic;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 import java.util.AbstractMap;
@@ -72,7 +71,7 @@ public class ListTableBucketsRequestTest {
     }
 
     @Test
-    public void xmlBuilder() throws JsonProcessingException {
+    public void xmlBuilder() {
 
         ListTableBucketsRequest request = ListTableBucketsRequest.newBuilder()
                 .continuationToken("test-continuation-token")

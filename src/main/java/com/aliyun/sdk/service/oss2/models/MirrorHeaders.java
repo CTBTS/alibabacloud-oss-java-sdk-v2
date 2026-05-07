@@ -1,30 +1,32 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 /**
  * The headers contained in the response that is returned when you use mirroring-based back-to-origin. This parameter takes effect only when the value of RedirectType is Mirror.
  */
- @JacksonXmlRootElement(localName = "MirrorHeaders")
+@JsonRootName("MirrorHeaders")
 public final class MirrorHeaders {  
-    @JacksonXmlProperty(localName = "PassAll")
+    @JsonProperty("PassAll")
     private Boolean passAll;
  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Pass")
+    @JsonProperty("Pass")
     private List<String> passs;
  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Remove")
+    @JsonProperty("Remove")
     private List<String> removes;
  
     @JacksonXmlElementWrapper(useWrapping = false)
-    @JacksonXmlProperty(localName = "Set")
+    @JsonProperty("Set")
     private List<MirrorHeadersSet> sets;
 
     public MirrorHeaders() {}

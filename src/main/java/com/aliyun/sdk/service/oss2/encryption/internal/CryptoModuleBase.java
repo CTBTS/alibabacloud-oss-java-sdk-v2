@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
-
 public abstract class CryptoModuleBase implements CryptoModule {
     protected static final int DEFAULT_BUFFER_SIZE = 1024 * 2;
     protected final EncryptionMaterials encryptionMaterials;

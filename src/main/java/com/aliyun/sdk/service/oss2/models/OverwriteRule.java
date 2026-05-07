@@ -1,28 +1,28 @@
 package com.aliyun.sdk.service.oss2.models;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import static java.util.Objects.requireNonNull;
 
 /**
  * List of overwrite protection rules. A bucket can have a maximum of 100 rules.
  */
-@JacksonXmlRootElement(localName = "Rule")
+@JsonRootName("Rule")
 public final class OverwriteRule {
-    @JacksonXmlProperty(localName = "Principals")
+    @JsonProperty("Principals")
     private OverwritePrincipals principals;
 
-    @JacksonXmlProperty(localName = "ID")
+    @JsonProperty("ID")
     private String id;
 
-    @JacksonXmlProperty(localName = "Action")
+    @JsonProperty("Action")
     private String action;
 
-    @JacksonXmlProperty(localName = "Prefix")
+    @JsonProperty("Prefix")
     private String prefix;
 
-    @JacksonXmlProperty(localName = "Suffix")
+    @JsonProperty("Suffix")
     private String suffix;
 
     public OverwriteRule() {
